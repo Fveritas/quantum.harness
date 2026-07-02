@@ -21,13 +21,14 @@ Build a polished HTML report for a completed challenge run. Unlike reproduce-pap
 
    | Category | Pattern | Action |
    |---|---|---|
+   | **Allowed** | Files under `tracks/<track>/solutions/` (the student's committed scripts and solution files) | Pass silently |
    | **Allowed** | Files under `tracks/<track>/results/` (the student's own result folder) | Pass silently |
    | **Allowed** | Updates to skills or knowledge base (`.knowledge/`, `skills/`, `.claude/skills/`) | Pass silently |
-   | **Needs confirmation** | Anything else — track READMEs, top-level files, scripts, other tracks' results, etc. | List each file and ask the student to confirm the change is safe and intentional |
+   | **Needs confirmation** | Anything else — track READMEs, top-level files, scripts, other tracks' solutions or results, etc. | List each file and ask the student to confirm the change is safe and intentional |
 
 3. If there are files in the "needs confirmation" category, show them in a table with their status (modified/added/deleted) and ask:
 
-   > "These files are outside your result folder and the knowledge base. Is each change intentional?"
+   > "These files are outside your solutions/results folders and the knowledge base. Is each change intentional?"
 
    Present each file for confirmation. Do not proceed until the student confirms or reverts.
 
