@@ -89,6 +89,8 @@ HOOKS = {
     "eta-pairing-hubbard": "exact excited η-tower; ODLRO, E=mU",
     "pxp-scars": "exact ±√2 MPS scars; ETH outliers",
     "aklt-honeycomb": "spin-3/2 VBS; frustration-free, proven gap",
+    "lmg": "collective j=N/2 block; mean-field-exact, N^{−1/3} gap",
+    "curie-weiss-tfim": "fully-connected TFIM; mean-field exact in N→∞",
 }
 
 TIER_TITLES = {

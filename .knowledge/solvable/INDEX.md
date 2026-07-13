@@ -122,12 +122,12 @@ built `ORACLE.md` where available.
 
 | Model | Tier | Script | Status | Card |
 |---|---|---|---|---|
-| `lmg` | A | S | wave 3 | — |
+| `lmg` | A | S | ✓ wave 3 | [ORACLE](./lmg/ORACLE.md) |
 | `dicke-tavis-cummings` | B | S | wave 3 | — |
 | `jaynes-cummings` | A | S | wave 3 | — |
 | `quantum-rabi` | B | S | wave 3 | — |
 | `syk` | D | P | wave 3 | — |
-| `curie-weiss-tfim` | D | S | wave 3 | — |
+| `curie-weiss-tfim` | D | S | ✓ wave 3 | [ORACLE](./curie-weiss-tfim/ORACLE.md) |
 | `random-matrix-stats` | A | S | wave 3 | — |
 | `falicov-kimball-dinf` | D | T | wave 3 | — |
 
@@ -142,9 +142,10 @@ built `ORACLE.md` where available.
 
 ## Totals
 
-63 models — 51 built (wave 1 complete: 20 T1 + T4 cards; wave 2
+63 models — 53 built (wave 1 complete: 20 T1 + T4 cards; wave 2
 complete: 23 of 23 T2 + T3 cards; wave 3 in progress: 8 of 8 T5 cards —
 `aklt-chain`, `aklt-honeycomb`, `majumdar-ghosh`, `shastry-sutherland-dimer`,
-`rk-quantum-dimer`, `motzkin-fredkin`, `eta-pairing-hubbard`, `pxp-scars`),
-12 wave 3 rows remaining (T6 + T7).
+`rk-quantum-dimer`, `motzkin-fredkin`, `eta-pairing-hubbard`, `pxp-scars`;
+2 of 8 T6 cards — `lmg`, `curie-weiss-tfim`),
+10 wave 3 rows remaining (rest of T6 + T7).
 Script-flag totals: **46 S · 10 P · 7 T**.
