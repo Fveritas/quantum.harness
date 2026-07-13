@@ -133,7 +133,7 @@ def self_test():
 
     # anchor 4 (QPT): closed form is continuous and C^1 but not C^2 at h = J (second-
     #   order transition).  First derivative de0/dh matches from both sides (= -1/2);
-    #   the second derivative jumps (-1/J below, 0 above).
+    #   the second derivative jumps (-1/(2J) below, 0 above).
     J = 1.0
     dh = 1e-6
     left = (e0_thermo(J, J - dh) - e0_thermo(J, J - 3 * dh)) / (2 * dh)

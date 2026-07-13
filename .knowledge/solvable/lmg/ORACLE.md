@@ -21,7 +21,7 @@ T6 (collective / large-N): the Hamiltonian is built entirely from components of 
 - Collective ground energy per spin (any `N`): lowest eigenvalue of the tridiagonal block `diagₖ = −(J/N)m_x²`, `offₖ = −(h/2)√(j(j+1)−m_x(m_x+1))`, `j = N/2` [@LipkinMeshkovGlick1965]
 - Thermodynamic energy per spin — broken phase `h ≤ J`: `e₀ = −J/4 − h²/(4J)` (at `cos θ = h/J`) [@LipkinMeshkovGlick1965]
 - Thermodynamic energy per spin — symmetric phase `h ≥ J`: `e₀ = −h/2` (fully `z`-polarized) [@LipkinMeshkovGlick1965]
-- Quantum phase transition: `h = J`, second order — `e₀(h)` is `C¹` but has a second-derivative kink (`−1/J` below, `0` above) [@BotetJullien1983]
+- Quantum phase transition: `h = J`, second order — `e₀(h)` is `C¹` but has a second-derivative kink (`−1/(2J)` below, `0` above) [@BotetJullien1983]
 - Symmetry-breaking order parameter (broken phase): `⟨S_x⟩/N = ½√(1−(h/J)²)`, vanishing at `h = J`
 - Finite-size gap at criticality (`h = J`): closes as `Δ ∼ N^{−1/3}` — **observed** log-fit exponent `≈ −0.32` over `N ∈ {200,400,800,1600}` [@DusuelVidal2005]
 
