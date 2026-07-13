@@ -91,6 +91,9 @@ HOOKS = {
     "aklt-honeycomb": "spin-3/2 VBS; frustration-free, proven gap",
     "lmg": "collective j=N/2 block; mean-field-exact, N^{−1/3} gap",
     "curie-weiss-tfim": "fully-connected TFIM; mean-field exact in N→∞",
+    "jaynes-cummings": "RWA dressed states; vacuum Rabi splitting 2g",
+    "dicke-tavis-cummings": "excitation-number blocks; superradiant λ_c=√(ωω₀)/2",
+    "quantum-rabi": "Braak G-function roots; exact transcendental spectrum",
 }
 
 TIER_TITLES = {
