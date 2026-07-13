@@ -81,6 +81,9 @@ HOOKS = {
     "gaudin-central-spin": "rational Gaudin magnet; commuting charges, ED-exact GS",
     "kondo-bethe": "s–d Bethe ansatz; Wilson ratio R=2, ln 2→0",
     "anderson-impurity-bethe": "symmetric SIAM Bethe ansatz; ⟨n_d⟩=1, R_W=2",
+    "aklt-chain": "exact VBS/MPS ground state; string order −4/9",
+    "majumdar-ghosh": "two dimer coverings; exact E/L = −3/8",
+    "shastry-sutherland-dimer": "orthogonal-dimer product; exact for all J'/J",
 }
 
 TIER_TITLES = {
