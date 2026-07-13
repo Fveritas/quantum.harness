@@ -83,7 +83,7 @@ HOOKS = {
     "anderson-impurity-bethe": "symmetric SIAM Bethe ansatz; ⟨n_d⟩=1, R_W=2",
     "aklt-chain": "exact VBS/MPS ground state; string order −4/9",
     "majumdar-ghosh": "two dimer coverings; exact E/L = −3/8",
-    "shastry-sutherland-dimer": "orthogonal-dimer product; exact for all J'/J",
+    "shastry-sutherland-dimer": "orthogonal-dimer product; exact for all J/J'",
 }
 
 TIER_TITLES = {

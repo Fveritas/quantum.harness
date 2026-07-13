@@ -1,19 +1,18 @@
 """Shastry-Sutherland orthogonal-dimer model oracle.
 
-    H = J sum_{dimer bonds} S_i.S_j  +  J' sum_{square-lattice NN bonds} S_i.S_j
-    (S = sigma/2).  Convention: J is the dimer (diagonal) coupling, J' the
-    square-lattice nearest-neighbour coupling -- the same labelling as the
-    original Shastry-Sutherland / Miyahara-Ueda papers, where the dimer bonds
-    "define a unique covering of all spins" and the remaining bonds form a
-    square lattice.  (The physics card .knowledge/models/shastry-sutherland
-    swaps the two letters -- its J is this card's J' and vice versa.)
+    H = J sum_{square-lattice NN bonds} S_i.S_j  +  J' sum_{dimer bonds} S_i.S_j
+    (S = sigma/2).  Convention: J is the square-lattice nearest-neighbour
+    coupling, J' the dimer (diagonal) coupling -- matching the physics card
+    .knowledge/models/shastry-sutherland (and Corboz-Mila, PRB 87, 115144).
+    Note: the original Shastry-Sutherland and Miyahara-Ueda papers swap the
+    letters (their J is the dimer coupling; their transition reads (J'/J)_c).
 
 T5 (frustration-free / exact eigenstates), Tier C.  The orthogonal-dimer
 geometry makes the dimer-singlet product state |Psi> = prod_dimers |singlet> an
-*exact* eigenstate of the full H for ALL J'/J, with energy E = -(3/4) J N_dimer
-(the J' bonds annihilate it: each external spin couples to both members of a
+*exact* eigenstate of the full H for ALL J/J', with energy E = -(3/4) J' N_dimer
+(the J bonds annihilate it: each external spin couples to both members of a
 neighbouring singlet, and S_a + S_b = 0 on a singlet).  It is the ground state
-only for small J'/J (dimer phase); above a level crossing the ground state is a
+only for small J/J' (dimer phase); above a level crossing the ground state is a
 different, non-exact state.  ONLY the dimer state is exact -- the generic
 spectrum and the phase-transition point are numerical.
 
@@ -41,7 +40,7 @@ def _idx(x, y):
 def ss_bonds():
     """Return (dimer_bonds, square_bonds) for the 16-site SS torus.
 
-    Sites sit on a 4x4 square lattice (all NN edges are J' bonds).  Dimer (J)
+    Sites sit on a 4x4 square lattice (all NN edges are J bonds).  Dimer (J')
     bonds are diagonals on the checkerboard of plaquettes (x+y even), oriented
     NE for x even and NW for x odd -- an orthogonal-dimer perfect matching.
     """
@@ -63,7 +62,8 @@ def ss_bonds():
     return sorted(dimer), sorted(square - dimer)
 
 
-def ss_H(dimer, square, J=1.0, Jp=0.5):
+def ss_H(dimer, square, J=0.5, Jp=1.0):
+    """H = J sum_square S.S + J' sum_dimer S.S on the 16-site torus."""
     sx, sy, sz = ed.spin_ops(LX * LY)
 
     def dot(i, j):
@@ -71,9 +71,9 @@ def ss_H(dimer, square, J=1.0, Jp=0.5):
 
     H = 0
     for (i, j) in dimer:
-        H = H + J * dot(i, j)
-    for (i, j) in square:
         H = H + Jp * dot(i, j)
+    for (i, j) in square:
+        H = H + J * dot(i, j)
     return H
 
 
@@ -97,20 +97,20 @@ def singlet_product_state(pairs, L):
     return psi
 
 
-def dimer_energy(J=1.0):
-    """Exact dimer-singlet energy E = -(3/4) J N_dimer on the 16-site cluster."""
+def dimer_energy(Jp=1.0):
+    """Exact dimer-singlet energy E = -(3/4) J' N_dimer on the 16-site cluster."""
     dimer, _ = ss_bonds()
-    return -0.75 * J * len(dimer)
+    return -0.75 * Jp * len(dimer)
 
 
-def compute(Jp=0.5, J=1.0):
+def compute(J=0.5, Jp=1.0):
     """Shastry-Sutherland 16-site torus: exact dimer energy vs ED ground energy."""
     dimer, square = ss_bonds()
-    e_dimer = -0.75 * J * len(dimer)
+    e_dimer = -0.75 * Jp * len(dimer)
     e0 = ed.ground_energy(ss_H(dimer, square, J, Jp))
     return {
-        "e_dimer_exact": e_dimer,                       # -(3/4) J N_dimer, all J'
-        "e_dimer_per_spin": e_dimer / (LX * LY),        # -3J/8
+        "e_dimer_exact": e_dimer,                       # -(3/4) J' N_dimer, all J/J'
+        "e_dimer_per_spin": e_dimer / (LX * LY),        # -3J'/8
         "e0_ed": e0,
         "dimer_is_ground_state": bool(abs(e0 - e_dimer) < 1e-8),
     }
@@ -128,29 +128,29 @@ def self_test():
 
     psi = singlet_product_state(dimer, L)
     psi /= np.linalg.norm(psi)
-    e_dimer = -0.75 * len(dimer)   # J = 1
+    e_dimer = -0.75 * len(dimer)   # J' = 1
 
-    # anchor 1: dimer-singlet product is an EXACT eigenstate for ALL J'/J
-    # (operator-level residual), with energy -(3/4) N_dimer independent of J'.
-    for Jp in (0.3, 0.5, 0.9):
-        H = ss_H(dimer, square, 1.0, Jp)
+    # anchor 1: dimer-singlet product is an EXACT eigenstate for ALL J/J'
+    # (operator-level residual), with energy -(3/4) N_dimer independent of J.
+    for J in (0.3, 0.5, 0.9):
+        H = ss_H(dimer, square, J, 1.0)
         Hpsi = H @ psi
         E = np.vdot(psi, Hpsi).real
-        assert abs(E - e_dimer) < 1e-12, Jp
-        assert np.linalg.norm(Hpsi - E * psi) < 1e-12, Jp
+        assert abs(E - e_dimer) < 1e-12, J
+        assert np.linalg.norm(Hpsi - E * psi) < 1e-12, J
 
-    # anchor 2 (GROUND TRUTH): the J'=0 limit is isolated dimers -- the dimer
+    # anchor 2 (GROUND TRUTH): the J=0 limit is isolated dimers -- the dimer
     # product is the UNIQUE ground state, E0 = -(3/4) N_dimer.
-    H0 = ss_H(dimer, square, 1.0, 0.0)
+    H0 = ss_H(dimer, square, 0.0, 1.0)
     assert abs(ed.ground_energy(H0) - e_dimer) < 1e-10
     assert ed.ground_states(H0) == 1
 
-    # anchor 3: the dimer state IS the ED ground state at J'/J = 0.5 (dimer
-    # phase) but NOT at J'/J = 0.9 (the cluster level crossing is near 0.667,
-    # close to the thermodynamic dimer->plaquette boundary ~0.675).
-    assert abs(ed.ground_energy(ss_H(dimer, square, 1.0, 0.5)) - e_dimer) < 1e-8
-    assert ed.ground_energy(ss_H(dimer, square, 1.0, 0.9)) < e_dimer - 1e-6
+    # anchor 3: the dimer state IS the ED ground state at J/J' = 0.5 (dimer
+    # phase) but NOT at J/J' = 0.9 (the cluster level crossing is near 0.667,
+    # close to the thermodynamic dimer->plaquette boundary J/J' = 0.675).
+    assert abs(ed.ground_energy(ss_H(dimer, square, 0.5, 1.0)) - e_dimer) < 1e-8
+    assert ed.ground_energy(ss_H(dimer, square, 0.9, 1.0)) < e_dimer - 1e-6
 
 
 if __name__ == "__main__":
-    oracle_main(compute, {"Jp": (float, 0.5), "J": (float, 1.0)})
+    oracle_main(compute, {"J": (float, 0.5), "Jp": (float, 1.0)})
