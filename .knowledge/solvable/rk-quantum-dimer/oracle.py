@@ -32,6 +32,7 @@ card, which counts OPEN-boundary tilings (a different graph); the two share only
 the perfect-matching methodology.
 """
 import sys
+from collections import Counter
 from itertools import combinations
 from pathlib import Path
 
@@ -225,6 +226,11 @@ def ground_state_degeneracy(covs):
 
 def compute(L_arg=4):
     """RK quantum dimer model on the 4x4 torus: covering/sector/GS structure."""
+    if L_arg != 4:
+        raise ValueError(
+            f"only L=4 implemented (got --L_arg {L_arg}): the covering "
+            "enumeration, winding classification, and all card anchors are "
+            "built for the 4x4 torus")
     covs = dimer_coverings()
     H, idx = rk_hamiltonian(covs)
     evals = np.linalg.eigvalsh(H)
@@ -313,18 +319,28 @@ def self_test():
                 assert winding(cf) == winding(c)
 
     # anchor 5: GSD.  The exact zero-mode count from ED equals the number of
-    # flip-connected components (= 17), NOT the number of winding sectors (= 13):
-    # the four (+-1,+-1) sectors each split into two FROZEN (non-flippable)
-    # coverings, and each frozen covering is its own E=0 eigenstate.
+    # flip-connected components (= 17), NOT the number of winding sectors (= 13).
+    # Precisely: 12 fully-FROZEN (no flippable plaquette) coverings in total --
+    # 8 in the four (+-1,+-1) corner sectors (2 each, causing those sectors to
+    # split into two components) and 4 staggered singletons (+-2,0)/(0,+-2) --
+    # plus the 5 resonating sectors ((0,0) and (+-1,0),(0,+-1)), each one
+    # flip-connected cluster: 12 + 5 = 17 zero modes.
     nz = int(np.sum(np.abs(evals) < 1e-9))
     assert nz == 17, nz
     assert ground_state_degeneracy(covs) == 17
+    plaqs = _plaquettes()
+    frozen = [c for c in covs
+              if not any(hor <= c or ver <= c for (hor, ver) in plaqs)]
+    assert len(frozen) == 12, len(frozen)          # 12 fully-frozen coverings
+    frozen_by_sector = Counter(winding(c) for c in frozen)
+    assert frozen_by_sector == {(1, 1): 2, (1, -1): 2, (-1, 1): 2, (-1, -1): 2,
+                                (2, 0): 1, (-2, 0): 1, (0, 2): 1, (0, -2): 1}
     split = {k: _flip_components(m) for k, m in sec.items() if _flip_components(m) > 1}
     assert set(split) == {(1, 1), (1, -1), (-1, 1), (-1, -1)}
     assert all(v == 2 for v in split.values())
-    # the 4 staggered corners (+-2,0),(0,+-2) are single frozen coverings
-    for key in ((2, 0), (-2, 0), (0, 2), (0, -2)):
-        assert len(sec[key]) == 1 and _flip_components(sec[key]) == 1
+    # the 5 resonating sectors are each a single flip-connected cluster
+    for key in ((0, 0), (1, 0), (-1, 0), (0, 1), (0, -1)):
+        assert _flip_components(sec[key]) == 1, key
 
     # anchor 6: single-plaquette hand check.  An isolated plaquette (4 sites, one
     # square) has exactly two coverings {|=>, |‖>}; H = [[1,-1],[-1,1]] with the
@@ -336,12 +352,15 @@ def self_test():
     gs = np.array([1.0, 1.0]) / np.sqrt(2)
     assert np.linalg.norm(Hsq @ gs) < 1e-12
 
-    # anchor 7: RK <-> classical dimer ensemble.  Equal-time dimer-dimer
-    # correlators in the equal-weight RK ground state (over ALL 272 coverings --
-    # a zero mode, being a sum of the per-sector zero modes) equal the CLASSICAL
-    # averages over the same covering ensemble, for every pair of bonds.  This is
-    # the checkable form of the RK<->classical statement: the dimer occupations
-    # are diagonal, so <psi|n_b n_b'|psi> = (1/Z) sum_cov n_b(cov) n_b'(cov).
+    # anchor 7: RK <-> classical dimer ensemble.  The LOAD-BEARING check here is
+    # that the full equal-weight state (over ALL 272 coverings, the sum of the
+    # per-sector zero modes) is itself an E=0 zero mode -- that is nontrivial
+    # physics.  Given that state, the correlator equality below is an ALGEBRAIC
+    # identity, not an independent numeric cross-validation: dimer occupations
+    # are diagonal in the covering basis, so for a uniform state over the same
+    # covering set <psi|n_b n_b'|psi> == (1/Z) sum_cov n_b n_b' by construction.
+    # It is asserted anyway as an implementation check (basis bookkeeping,
+    # normalisation), i.e. the RK<->classical statement made mechanically visible.
     full = equal_weight_state(covs, covs, idx)
     assert np.linalg.norm(H @ full) < 1e-12                       # full RVB is E=0
     bonds = sorted({e for c in covs for e in c})
