@@ -110,13 +110,13 @@ built `ORACLE.md` where available.
 | Model | Tier | Script | Status | Card |
 |---|---|---|---|---|
 | `aklt-chain` | C | S | ✓ wave 3 | [ORACLE](./aklt-chain/ORACLE.md) |
-| `aklt-honeycomb` | C | P | wave 3 | — |
+| `aklt-honeycomb` | C | P | ✓ wave 3 | [ORACLE](./aklt-honeycomb/ORACLE.md) |
 | `majumdar-ghosh` | C | S | ✓ wave 3 | [ORACLE](./majumdar-ghosh/ORACLE.md) |
 | `shastry-sutherland-dimer` | C | S | ✓ wave 3 | [ORACLE](./shastry-sutherland-dimer/ORACLE.md) |
 | `rk-quantum-dimer` | C | S | ✓ wave 3 | [ORACLE](./rk-quantum-dimer/ORACLE.md) |
 | `motzkin-fredkin` | C | S | ✓ wave 3 | [ORACLE](./motzkin-fredkin/ORACLE.md) |
-| `eta-pairing-hubbard` | C | S | wave 3 | — |
-| `pxp-scars` | C | S | wave 3 | — |
+| `eta-pairing-hubbard` | C | S | ✓ wave 3 | [ORACLE](./eta-pairing-hubbard/ORACLE.md) |
+| `pxp-scars` | C | S | ✓ wave 3 | [ORACLE](./pxp-scars/ORACLE.md) |
 
 ## T6 Collective / large-N / random
 
@@ -142,8 +142,9 @@ built `ORACLE.md` where available.
 
 ## Totals
 
-63 models — 48 built (wave 1 complete: 20 T1 + T4 cards; wave 2
-complete: 23 of 23 T2 + T3 cards; wave 3 in progress: 5 of 8 T5 cards —
-`aklt-chain`, `majumdar-ghosh`, `shastry-sutherland-dimer`, `rk-quantum-dimer`,
-`motzkin-fredkin`), 15 wave 3 rows remaining (rest of T5 + T6 + T7).
+63 models — 51 built (wave 1 complete: 20 T1 + T4 cards; wave 2
+complete: 23 of 23 T2 + T3 cards; wave 3 in progress: 8 of 8 T5 cards —
+`aklt-chain`, `aklt-honeycomb`, `majumdar-ghosh`, `shastry-sutherland-dimer`,
+`rk-quantum-dimer`, `motzkin-fredkin`, `eta-pairing-hubbard`, `pxp-scars`),
+12 wave 3 rows remaining (T6 + T7).
 Script-flag totals: **46 S · 10 P · 7 T**.

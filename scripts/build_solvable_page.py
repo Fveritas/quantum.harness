@@ -86,6 +86,9 @@ HOOKS = {
     "shastry-sutherland-dimer": "orthogonal-dimer product; exact for all J/J'",
     "rk-quantum-dimer": "equal-weight RVB; RK point ↔ classical dimers",
     "motzkin-fredkin": "uniform Motzkin walks; ½ ln n entanglement",
+    "eta-pairing-hubbard": "exact excited η-tower; ODLRO, E=mU",
+    "pxp-scars": "exact ±√2 MPS scars; ETH outliers",
+    "aklt-honeycomb": "spin-3/2 VBS; frustration-free, proven gap",
 }
 
 TIER_TITLES = {
