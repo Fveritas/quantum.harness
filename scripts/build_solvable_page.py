@@ -84,6 +84,8 @@ HOOKS = {
     "aklt-chain": "exact VBS/MPS ground state; string order −4/9",
     "majumdar-ghosh": "two dimer coverings; exact E/L = −3/8",
     "shastry-sutherland-dimer": "orthogonal-dimer product; exact for all J/J'",
+    "rk-quantum-dimer": "equal-weight RVB; RK point ↔ classical dimers",
+    "motzkin-fredkin": "uniform Motzkin walks; ½ ln n entanglement",
 }
 
 TIER_TITLES = {

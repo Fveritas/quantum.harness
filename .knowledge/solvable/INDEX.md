@@ -113,8 +113,8 @@ built `ORACLE.md` where available.
 | `aklt-honeycomb` | C | P | wave 3 | — |
 | `majumdar-ghosh` | C | S | ✓ wave 3 | [ORACLE](./majumdar-ghosh/ORACLE.md) |
 | `shastry-sutherland-dimer` | C | S | ✓ wave 3 | [ORACLE](./shastry-sutherland-dimer/ORACLE.md) |
-| `rk-quantum-dimer` | C | S | wave 3 | — |
-| `motzkin-fredkin` | C | S | wave 3 | — |
+| `rk-quantum-dimer` | C | S | ✓ wave 3 | [ORACLE](./rk-quantum-dimer/ORACLE.md) |
+| `motzkin-fredkin` | C | S | ✓ wave 3 | [ORACLE](./motzkin-fredkin/ORACLE.md) |
 | `eta-pairing-hubbard` | C | S | wave 3 | — |
 | `pxp-scars` | C | S | wave 3 | — |
 
@@ -142,7 +142,8 @@ built `ORACLE.md` where available.
 
 ## Totals
 
-63 models — 46 built (wave 1 complete: 20 T1 + T4 cards; wave 2
-complete: 23 of 23 T2 + T3 cards; wave 3 in progress: 3 of 8 T5 cards —
-`aklt-chain`, `majumdar-ghosh`, `shastry-sutherland-dimer`), 17 wave 3
-rows remaining (rest of T5 + T6 + T7). Script-flag totals: **46 S · 10 P · 7 T**.
+63 models — 48 built (wave 1 complete: 20 T1 + T4 cards; wave 2
+complete: 23 of 23 T2 + T3 cards; wave 3 in progress: 5 of 8 T5 cards —
+`aklt-chain`, `majumdar-ghosh`, `shastry-sutherland-dimer`, `rk-quantum-dimer`,
+`motzkin-fredkin`), 15 wave 3 rows remaining (rest of T5 + T6 + T7).
+Script-flag totals: **46 S · 10 P · 7 T**.
