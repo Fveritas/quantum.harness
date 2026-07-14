@@ -62,4 +62,4 @@ Self-test anchors: (1) **ground truth** — `272` coverings on the `4×4` torus 
 
 ## Key reference
 
-[@RokhsarKivelson1988] — Rokhsar & Kivelson introduced the quantum dimer model and the exactly-solvable RK point where the ground states are the equal-weight RVB superpositions and the equal-time correlations reduce to the classical dimer ensemble; [@MoessnerSondhi2001] established the deconfined RK liquid on the triangular lattice (cited for scope, not scripted). Rendered: _(Wave 3)_.
+[@RokhsarKivelson1988] — Rokhsar & Kivelson introduced the quantum dimer model and the exactly-solvable RK point where the ground states are the equal-weight RVB superpositions and the equal-time correlations reduce to the classical dimer ensemble; [@MoessnerSondhi2001] established the deconfined RK liquid on the triangular lattice (cited for scope, not scripted). Rendered: bib stub — no PDF reachable (2026-07-14).

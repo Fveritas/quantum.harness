@@ -67,4 +67,4 @@ For `Δ>1` the naive "first excited state" of a **finite** PBC ring is *not* the
 
 ## Key reference
 
-[@YangYang1966] — Yang & Yang's proof of Bethe's hypothesis for the XXZ ground state; the companion paper [@YangYang1966b] derives the thermodynamic ground-state energy per site (both the `|Δ|<1` integral and the `Δ>1` series used above). The massive-regime spin gap is des Cloizeaux–Gaudin [@desCloizeauxGaudin1966]; the isotropic energy is Hulthén [@Hulthen1938]. Rendered: _(Wave 3)_.
+[@YangYang1966] — Yang & Yang's proof of Bethe's hypothesis for the XXZ ground state; the companion paper [@YangYang1966b] derives the thermodynamic ground-state energy per site (both the `|Δ|<1` integral and the `Δ>1` series used above). The massive-regime spin gap is des Cloizeaux–Gaudin [@desCloizeauxGaudin1966]; the isotropic energy is Hulthén [@Hulthen1938]. Rendered: bib stub — no PDF reachable (2026-07-14).

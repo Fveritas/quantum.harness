@@ -47,4 +47,4 @@ Self-test anchors: (1) `winding(v=0.5,w=1.0) == 1` (topological), `winding(v=1.0
 
 ## Key reference
 
-[@SSH1979] — Su, Schrieffer & Heeger, "Solitons in Polyacetylene": the original paper introducing the dimerized hopping chain, its two-fold degenerate dimerization pattern, and the domain-wall/soliton (edge-mode) physics that the modern winding-number formulation of this card makes precise. Rendered: _(Wave 3)_.
+[@SSH1979] — Su, Schrieffer & Heeger, "Solitons in Polyacetylene": the original paper introducing the dimerized hopping chain, its two-fold degenerate dimerization pattern, and the domain-wall/soliton (edge-mode) physics that the modern winding-number formulation of this card makes precise. Rendered: bib stub — no PDF reachable (2026-07-14).

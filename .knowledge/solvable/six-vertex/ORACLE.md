@@ -60,4 +60,4 @@ Self-test anchors: (1) `lieb_constant()` $=(4/3)^{3/2}$ and $\ln W=\tfrac32\ln\t
 
 ## Key reference
 
-[@Lieb1967] — Lieb's exact solution of square ice: the residual-entropy constant $W=(4/3)^{3/2}$, the Bethe-ansatz diagonalization of the ice/six-vertex transfer matrix, and the disordered-regime free energy whose ice-point value this card reproduces. Rendered: _(Wave 3)_.
+[@Lieb1967] — Lieb's exact solution of square ice: the residual-entropy constant $W=(4/3)^{3/2}$, the Bethe-ansatz diagonalization of the ice/six-vertex transfer matrix, and the disordered-regime free energy whose ice-point value this card reproduces. Rendered: bib stub — no PDF reachable (2026-07-14).

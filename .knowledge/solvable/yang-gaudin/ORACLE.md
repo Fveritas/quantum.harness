@@ -76,4 +76,4 @@ Self-test anchors: (1) **weak coupling** — `e(0.05)` matches the derived `π²
 
 ## Key reference
 
-[@Yang1967] — C. N. Yang, "Some Exact Results for the Many-Body Problem in One Dimension with Repulsive Delta-Function Interaction", Phys. Rev. Lett. **19**, 1312 (1967): the nested Bethe ansatz reducing the spin-1/2 ground state to a Fredholm equation. The balanced case and the coupled density equations are Gaudin’s [@Gaudin1967] (Phys. Lett. A **24**, 55). Rendered: _(Wave 3)_.
+[@Yang1967] — C. N. Yang, "Some Exact Results for the Many-Body Problem in One Dimension with Repulsive Delta-Function Interaction", Phys. Rev. Lett. **19**, 1312 (1967): the nested Bethe ansatz reducing the spin-1/2 ground state to a Fredholm equation. The balanced case and the coupled density equations are Gaudin’s [@Gaudin1967] (Phys. Lett. A **24**, 55). Rendered: bib stub — no PDF reachable (2026-07-14).

@@ -54,4 +54,4 @@ The three finite-`g` energies are exact to `1e-10` (Richardson-root sum pinned t
 
 ## Key reference
 
-[@Richardson1963] — R. W. Richardson, "A restricted class of exact eigenstates of the pairing-force Hamiltonian", Phys. Lett. **3**, 277 (1963): the exact algebraic-Bethe-ansatz eigenstates of the reduced BCS Hamiltonian and the Richardson equations whose root-sum is the energy — the level-space integrable model this card scripts (the rational Gaudin limit; cf. `gaudin-central-spin`). Rendered: _(Wave 3)_.
+[@Richardson1963] — R. W. Richardson, "A restricted class of exact eigenstates of the pairing-force Hamiltonian", Phys. Lett. **3**, 277 (1963): the exact algebraic-Bethe-ansatz eigenstates of the reduced BCS Hamiltonian and the Richardson equations whose root-sum is the energy — the level-space integrable model this card scripts (the rational Gaudin limit; cf. `gaudin-central-spin`). Rendered: bib stub — no PDF reachable (2026-07-14).

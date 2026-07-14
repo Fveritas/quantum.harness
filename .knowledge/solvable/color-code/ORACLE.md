@@ -40,4 +40,4 @@ Self-test anchors: (1) `gsd == 16` for `cells = 3` **and** `cells = 6` — size-
 
 ## Key reference
 
-[@BombinMartinDelgado2006] — Bombín & Martin-Delgado, "Topological quantum distillation", Phys. Rev. Lett. **97**, 180501 (2006): the paper that introduces topological color codes on trivalent 3-colorable lattices, the dual `X`/`Z` face-stabilizer construction on every face, and the transversal Clifford structure — the exact code whose torus degeneracy this card reproduces. Rendered: _(Wave 3)_.
+[@BombinMartinDelgado2006] — Bombín & Martin-Delgado, "Topological quantum distillation", Phys. Rev. Lett. **97**, 180501 (2006): the paper that introduces topological color codes on trivalent 3-colorable lattices, the dual `X`/`Z` face-stabilizer construction on every face, and the transversal Clifford structure — the exact code whose torus degeneracy this card reproduces. Rendered: ./quant-ph-0605138_topological-quantum-distillation.md.

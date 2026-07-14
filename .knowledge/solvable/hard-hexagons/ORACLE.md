@@ -56,4 +56,4 @@ Self-test anchors: (1) $z_c=(11+5\sqrt5)/2=\varphi^5=5\varphi+3$ to `1e-12` (two
 
 ## Key reference
 
-[@Baxter1980] — Baxter's exact hard-hexagon solution by the corner-transfer-matrix method: the golden-ratio critical activity $z_c=(11+5\sqrt5)/2$, the Rogers–Ramanujan sublattice densities and order parameter, and the exponents $\alpha=1/3$, $\beta=1/9$ that this card scripts ($z_c$, counts, $\rho$) and tabulates (exponents, $R$). Rendered: _(Wave 3)_.
+[@Baxter1980] — Baxter's exact hard-hexagon solution by the corner-transfer-matrix method: the golden-ratio critical activity $z_c=(11+5\sqrt5)/2$, the Rogers–Ramanujan sublattice densities and order parameter, and the exponents $\alpha=1/3$, $\beta=1/9$ that this card scripts ($z_c$, counts, $\rho$) and tabulates (exponents, $R$). Rendered: bib stub — no PDF reachable (2026-07-14).

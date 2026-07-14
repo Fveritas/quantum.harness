@@ -34,4 +34,4 @@ Self-test anchors: [list].
 
 ## Key reference
 
-[@citekey] — [why authoritative]. Rendered: _(Wave 3)_.
+[@citekey] — [why authoritative]. Rendered: [./<file>.md, or `bib stub — no PDF reachable (<date>)`].

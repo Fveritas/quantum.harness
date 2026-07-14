@@ -48,4 +48,4 @@ Self-test anchors: (1) the 8 dimer bonds form a perfect matching of the 16 sites
 
 ## Key reference
 
-[@ShastrySutherland1981] — Shastry & Sutherland's original proof that the orthogonal-dimer antiferromagnet has an exact dimer-singlet ground state (in their paper the dimer coupling is labelled `J`; this card follows the model card's labelling, where it is `J'`); the thermodynamic dimer→plaquette boundary `0.675(2)` is the iPEPS result of Corboz & Mila [@CorbozMila2013]. Rendered: _(Wave 3)_.
+[@ShastrySutherland1981] — Shastry & Sutherland's original proof that the orthogonal-dimer antiferromagnet has an exact dimer-singlet ground state (in their paper the dimer coupling is labelled `J`; this card follows the model card's labelling, where it is `J'`); the thermodynamic dimer→plaquette boundary `0.675(2)` is the iPEPS result of Corboz & Mila [@CorbozMila2013]. Rendered: bib stub — no PDF reachable (2026-07-14).

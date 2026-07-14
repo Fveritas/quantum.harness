@@ -66,4 +66,4 @@ Self-test anchors: (1) the three free-fermion arithmetic identities at `n=1, m=1
 
 ## Key reference
 
-[@Girardeau1960] — Girardeau, "Relationship between Systems of Impenetrable Bosons and Fermions in One Dimension", J. Math. Phys. **1**, 516 (1960): the Bose–Fermi mapping `Ψ_B = |Ψ_F|`, the identity of all local observables with the free Fermi gas (hence the energy and `g₂(0)=0`), and the crucial caveat that the momentum distribution differs. The `π²/3` energy is the `γ→∞` endpoint of [@LiebLiniger1963]. Rendered: _(Wave 3)_.
+[@Girardeau1960] — Girardeau, "Relationship between Systems of Impenetrable Bosons and Fermions in One Dimension", J. Math. Phys. **1**, 516 (1960): the Bose–Fermi mapping `Ψ_B = |Ψ_F|`, the identity of all local observables with the free Fermi gas (hence the energy and `g₂(0)=0`), and the crucial caveat that the momentum distribution differs. The `π²/3` energy is the `γ→∞` endpoint of [@LiebLiniger1963]. Rendered: bib stub — no PDF reachable (2026-07-14).

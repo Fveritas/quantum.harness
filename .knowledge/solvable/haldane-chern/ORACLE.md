@@ -55,4 +55,4 @@ Self-test anchors: (1) `|chern| == 1` deep in the topological phase (`M=0, t_2=1
 
 ## Key reference
 
-[@Haldane1988] — Haldane, "Model for a Quantum Hall Effect without Landau Levels: Condensed-Matter Realization of the Parity Anomaly", Phys. Rev. Lett. **61**, 2015 (1988): the defining paper introducing this Hamiltonian, the zero-net-flux complex-NNN construction, and the `|M| < 3\sqrt3\,t_2\sinφ` topological criterion used throughout this card. Rendered: _(Wave 3)_.
+[@Haldane1988] — Haldane, "Model for a Quantum Hall Effect without Landau Levels: Condensed-Matter Realization of the Parity Anomaly", Phys. Rev. Lett. **61**, 2015 (1988): the defining paper introducing this Hamiltonian, the zero-net-flux complex-NNN construction, and the `|M| < 3\sqrt3\,t_2\sinφ` topological criterion used throughout this card. Rendered: bib stub — no PDF reachable (2026-07-14).

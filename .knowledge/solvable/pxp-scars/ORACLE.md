@@ -48,4 +48,4 @@ Self-test anchors: (1) **combinatorial ground truth** — `constrained_dim == F_
 
 ## Key reference
 
-[@LinMotrunich2019] — Lin & Motrunich construct the exact `E=\pm\sqrt2` (and `E=0`) PXP scar states as finite-bond-dimension matrix product states and analyse the chiral-symmetry zero modes — the transcription anchored above. [@serbyn_2020_quantum] is the pedagogical scar/weak-ergodicity-breaking review (used for the Fibonacci-dimension and quench context). Rendered: _(Wave 3)_.
+[@LinMotrunich2019] — Lin & Motrunich construct the exact `E=\pm\sqrt2` (and `E=0`) PXP scar states as finite-bond-dimension matrix product states and analyse the chiral-symmetry zero modes — the transcription anchored above. [@serbyn_2020_quantum] is the pedagogical scar/weak-ergodicity-breaking review (used for the Fibonacci-dimension and quench context). Rendered: ./1810.00888_exact-quantum-many-body-scar-states-in-the-rydberg-blockaded.md.

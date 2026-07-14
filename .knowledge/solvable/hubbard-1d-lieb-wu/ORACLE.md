@@ -69,4 +69,4 @@ At `U=4` the same ED gives `e_0^{L=6}/L = -0.611451`, which sits **below** the t
 
 ## Key reference
 
-[@LiebWu1968] — Lieb & Wu, "Absence of Mott Transition in an Exact Solution of the Short-Range, One-Band Model in One Dimension", Phys. Rev. Lett. **20**, 1445 (1968): the nested-Bethe-ansatz solution giving the half-filling ground-state energy integral and establishing that the charge gap opens for every `U > 0`. The explicit Mott-gap integral is Ovchinnikov [@Ovchinnikov1970]. Rendered: _(Wave 3)_.
+[@LiebWu1968] — Lieb & Wu, "Absence of Mott Transition in an Exact Solution of the Short-Range, One-Band Model in One Dimension", Phys. Rev. Lett. **20**, 1445 (1968): the nested-Bethe-ansatz solution giving the half-filling ground-state energy integral and establishing that the charge gap opens for every `U > 0`. The explicit Mott-gap integral is Ovchinnikov [@Ovchinnikov1970]. Rendered: bib stub — no PDF reachable (2026-07-14).

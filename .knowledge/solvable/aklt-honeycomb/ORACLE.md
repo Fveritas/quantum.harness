@@ -49,4 +49,4 @@ Self-test anchors: (1) **geometry + projector** — `12` unique bonds, every sit
 
 ## Key reference
 
-[@AKLT1988] — Affleck, Kennedy, Lieb & Tasaki's long paper constructing the valence-bond-solid ground states on general lattices, including the honeycomb spin-`3/2` model verified here. [@PomataWei2020] and [@LemmSandvikWang2020] independently proved (back-to-back, PRL 124, 2020) the nonzero spectral gap of the 2D honeycomb AKLT model — the tabulated theorem this P-scope card cites rather than scripts. Rendered: _(Wave 3)_.
+[@AKLT1988] — Affleck, Kennedy, Lieb & Tasaki's long paper constructing the valence-bond-solid ground states on general lattices, including the honeycomb spin-`3/2` model verified here. [@PomataWei2020] and [@LemmSandvikWang2020] independently proved (back-to-back, PRL 124, 2020) the nonzero spectral gap of the 2D honeycomb AKLT model — the tabulated theorem this P-scope card cites rather than scripts. Rendered: bib stub — no PDF reachable (2026-07-14).

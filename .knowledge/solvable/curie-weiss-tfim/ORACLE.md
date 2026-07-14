@@ -48,4 +48,4 @@ Self-test anchors: (1) **identity-proof** — collective `(N+1)`-block energy `=
 
 ## Key reference
 
-[@BotetJullien1983] — Botet & Jullien's finite-size scaling theory of infinitely-coordinated (mean-field-exact) quantum spin systems, including the transverse-field Ising model, source of the mean-field exponents and the exactness-in-the-limit framing; [@DusuelVidal2005] for the `N^{−1/3}` collective critical-gap scaling. Rendered: _(Wave 3)_.
+[@BotetJullien1983] — Botet & Jullien's finite-size scaling theory of infinitely-coordinated (mean-field-exact) quantum spin systems, including the transverse-field Ising model, source of the mean-field exponents and the exactness-in-the-limit framing; [@DusuelVidal2005] for the `N^{−1/3}` collective critical-gap scaling. Rendered: bib stub — no PDF reachable (2026-07-14).

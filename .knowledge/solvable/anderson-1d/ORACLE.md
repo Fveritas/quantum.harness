@@ -47,4 +47,4 @@ Self-test anchors: (1) at `E=0.5, W=1.0`, the numerically exact `lyapunov` lands
 
 ## Key reference
 
-[@Thouless1972] — Thouless, "A relation between the density of states and range of localization for one dimensional random systems", J. Phys. C: Solid State Phys. **5**, 77 (1972): derives the weak-disorder Lyapunov-exponent formula used here as `thouless_perturbative`, and is the standard citation for the perturbative (Born) result away from the band-center anomaly. Rendered: _(Wave 3)_.
+[@Thouless1972] — Thouless, "A relation between the density of states and range of localization for one dimensional random systems", J. Phys. C: Solid State Phys. **5**, 77 (1972): derives the weak-disorder Lyapunov-exponent formula used here as `thouless_perturbative`, and is the standard citation for the perturbative (Born) result away from the band-center anomaly. Rendered: bib stub — no PDF reachable (2026-07-14).

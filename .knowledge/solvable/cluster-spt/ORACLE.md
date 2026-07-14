@@ -45,4 +45,4 @@ Self-test anchors: (1) `gsd_pbc(8) == 1`, `gsd_obc(8) == 4`, `string_order == 1.
 
 ## Key reference
 
-[@RaussendorfBriegel2001] — Raussendorf & Briegel, "A one-way quantum computer", Phys. Rev. Lett. **86**, 5188 (2001): introduces the cluster state and its stabilizer generators `K_i = \sigma^z_{i-1}\sigma^x_i\sigma^z_{i+1}`, and its role as the universal resource for measurement-based quantum computation — the state whose exact degeneracy, gap, and string order this card reproduces, later recognized as the archetypal 1D Z₂×Z₂ SPT. Rendered: _(Wave 3)_.
+[@RaussendorfBriegel2001] — Raussendorf & Briegel, "A one-way quantum computer", Phys. Rev. Lett. **86**, 5188 (2001): introduces the cluster state and its stabilizer generators `K_i = \sigma^z_{i-1}\sigma^x_i\sigma^z_{i+1}`, and its role as the universal resource for measurement-based quantum computation — the state whose exact degeneracy, gap, and string order this card reproduces, later recognized as the archetypal 1D Z₂×Z₂ SPT. Rendered: bib stub — no PDF reachable (2026-07-14).

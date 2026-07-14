@@ -60,4 +60,4 @@ The isotropic `e0_per_site ≈ −0.787299` is quoted in this card's **Pauli** n
 
 ## Key reference
 
-[@Kitaev2006] — Kitaev, "Anyons in an exactly solved model and beyond", Ann. Phys. **321**, 2 (2006): the foundational paper giving the four-Majorana solution, the conserved plaquette fluxes and Lieb flux-free ground state, the full gapless-B / gapped-A phase diagram (triangle inequality), and the field-induced non-Abelian (Ising-anyon) phase — the defining exact solution whose flux-free-sector spectrum and energy this card reproduces. Rendered: _(Wave 3)_.
+[@Kitaev2006] — Kitaev, "Anyons in an exactly solved model and beyond", Ann. Phys. **321**, 2 (2006): the foundational paper giving the four-Majorana solution, the conserved plaquette fluxes and Lieb flux-free ground state, the full gapless-B / gapped-A phase diagram (triangle inequality), and the field-induced non-Abelian (Ising-anyon) phase — the defining exact solution whose flux-free-sector spectrum and energy this card reproduces. Rendered: ./cond-mat-0506438_anyons-in-an-exactly-solved-model-and-beyond.md.

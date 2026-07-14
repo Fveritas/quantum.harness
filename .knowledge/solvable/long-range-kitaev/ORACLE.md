@@ -41,4 +41,4 @@ Self-test anchors: (1) `α = 30` reproduces the NN `kitaev-chain` `e0_per_site` 
 
 ## Key reference
 
-[@Vodola2014] — Vodola, Lepori, Ercolessi, Gorshkov & Pupillo, "Kitaev chains with long-range pairing": establishes the power-law-pairing model, its massive Dirac edge modes for `α < 1`, and the area-law violation. Rendered: _(Wave 3)_.
+[@Vodola2014] — Vodola, Lepori, Ercolessi, Gorshkov & Pupillo, "Kitaev chains with long-range pairing": establishes the power-law-pairing model, its massive Dirac edge modes for `α < 1`, and the area-law violation. Rendered: ./10-1103-physrevlett-113-156402.md.

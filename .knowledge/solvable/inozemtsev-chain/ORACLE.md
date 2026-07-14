@@ -58,4 +58,4 @@ The `N=8` energy is a **finite-`L` ED reference for this card, not a thermodynam
 
 ## Key reference
 
-[@Inozemtsev1990] — Inozemtsev, "On the connection between the one-dimensional `S=1/2` Heisenberg chain and Haldane–Shastry model", J. Stat. Phys. **59**, 1143 (1990): the elliptic-exchange chain, its integrability, and the two `1/r²`-family limits pinned by the neighbour cards `heisenberg-xxx` (`κ→∞`) and `haldane-shastry` (`κ→0`). Rendered: _(Wave 3)_.
+[@Inozemtsev1990] — Inozemtsev, "On the connection between the one-dimensional `S=1/2` Heisenberg chain and Haldane–Shastry model", J. Stat. Phys. **59**, 1143 (1990): the elliptic-exchange chain, its integrability, and the two `1/r²`-family limits pinned by the neighbour cards `heisenberg-xxx` (`κ→∞`) and `haldane-shastry` (`κ→0`). Rendered: bib stub — no PDF reachable (2026-07-14).

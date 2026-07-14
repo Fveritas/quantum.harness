@@ -65,4 +65,4 @@ The generic-filling row is the **tabulated** exact statement (nested Bethe ansat
 
 ## Key reference
 
-[@Sutherland1975] — Sutherland, "Model for a Multicomponent Quantum System", Phys. Rev. B **12**, 3795 (1975): the multicomponent (graded) Bethe-ansatz solution that contains the supersymmetric t-J chain at `J = 2t`. Schlottmann [@Schlottmann1987] gives the narrow-band / t-J formulation and thermodynamics. Rendered: _(Wave 3)_.
+[@Sutherland1975] — Sutherland, "Model for a Multicomponent Quantum System", Phys. Rev. B **12**, 3795 (1975): the multicomponent (graded) Bethe-ansatz solution that contains the supersymmetric t-J chain at `J = 2t`. Schlottmann [@Schlottmann1987] gives the narrow-band / t-J formulation and thermodynamics. Rendered: bib stub — no PDF reachable (2026-07-14).

@@ -51,4 +51,4 @@ Self-test anchors: (1) **ground truth** — PBC `E₀ == −2L/3` and unique GS 
 
 ## Key reference
 
-[@AKLT1987] — Affleck, Kennedy, Lieb & Tasaki's rigorous construction of the valence-bond ground state, the proof of the spectral gap, the exponentially decaying correlations, and the hidden topological (string) order used above. Rendered: _(Wave 3)_.
+[@AKLT1987] — Affleck, Kennedy, Lieb & Tasaki's rigorous construction of the valence-bond ground state, the proof of the spectral gap, the exponentially decaying correlations, and the hidden topological (string) order used above. Rendered: bib stub — no PDF reachable (2026-07-14).

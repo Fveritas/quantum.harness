@@ -50,4 +50,4 @@ Self-test anchors: (1) **block-dimension formula** `min(c+1,N+1)` over a range o
 
 ## Key reference
 
-[@TavisCummings1968] — Tavis & Cummings, "Exact Solution for an N-Molecule–Radiation-Field Hamiltonian" (Phys. Rev. **170**, 379, 1968): the exact `N`-atom RWA solution. [@Dicke1954] — Dicke, "Coherence in Spontaneous Radiation Processes" (Phys. Rev. **93**, 99, 1954): the collective superradiant model. [@EmaryBrandes2003] — Emary & Brandes (Phys. Rev. E **67**, 066203, 2003): source of the superradiant `λ_c = √(ωω₀)/2` and normal-phase spectrum. Rendered: _(Wave 3)_.
+[@TavisCummings1968] — Tavis & Cummings, "Exact Solution for an N-Molecule–Radiation-Field Hamiltonian" (Phys. Rev. **170**, 379, 1968): the exact `N`-atom RWA solution. [@Dicke1954] — Dicke, "Coherence in Spontaneous Radiation Processes" (Phys. Rev. **93**, 99, 1954): the collective superradiant model. [@EmaryBrandes2003] — Emary & Brandes (Phys. Rev. E **67**, 066203, 2003): source of the superradiant `λ_c = √(ωω₀)/2` and normal-phase spectrum. Rendered: bib stub — no PDF reachable (2026-07-14).

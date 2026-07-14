@@ -41,4 +41,4 @@ Self-test anchors: (1) `gsd == 4` and `n_qubits == 2L²` for `L ∈ {2,3,4}` (si
 
 ## Key reference
 
-[@Kitaev2003] — Kitaev, "Fault-tolerant quantum computation by anyons", Ann. Phys. **303**, 2 (2003): the founding paper introducing the toric code, the stabilizer/commuting-projector construction, topological degeneracy `2^{2g}` on surfaces, the Abelian `e`/`m` anyons and their mutual `−1` braiding, and fault-tolerant computation by braiding — the exact structure whose GSD and gap this card reproduces. Rendered: _(Wave 3)_.
+[@Kitaev2003] — Kitaev, "Fault-tolerant quantum computation by anyons", Ann. Phys. **303**, 2 (2003): the founding paper introducing the toric code, the stabilizer/commuting-projector construction, topological degeneracy `2^{2g}` on surfaces, the Abelian `e`/`m` anyons and their mutual `−1` braiding, and fault-tolerant computation by braiding — the exact structure whose GSD and gap this card reproduces. Rendered: ./quant-ph-9707021_fault-tolerant-quantum-computation-by-anyons.md.

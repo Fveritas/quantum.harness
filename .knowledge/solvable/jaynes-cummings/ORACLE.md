@@ -45,4 +45,4 @@ Self-test anchors: (1) **closed form == 2×2 block diagonalization** for `n ≤ 
 
 ## Key reference
 
-[@JaynesCummings1963] — Jaynes & Cummings, "Comparison of Quantum and Semiclassical Radiation Theories with Applications to the Beam Maser" (Proc. IEEE **51**, 89, 1963): the original RWA cavity-QED model and source of the dressed-state spectrum and conserved excitation number. Rendered: _(Wave 3)_.
+[@JaynesCummings1963] — Jaynes & Cummings, "Comparison of Quantum and Semiclassical Radiation Theories with Applications to the Beam Maser" (Proc. IEEE **51**, 89, 1963): the original RWA cavity-QED model and source of the dressed-state spectrum and conserved excitation number. Rendered: bib stub — no PDF reachable (2026-07-14).

@@ -51,4 +51,4 @@ Measured values are finite-`L`, finite-sample estimates of `\overline{K(t)}` (di
 
 ## Key reference
 
-[@BertiniKosProsen2018] — B. Bertini, P. Kos & T. Prosen, "Exact Spectral Form Factor in a Minimal Model of Many-Body Quantum Chaos", Phys. Rev. Lett. **121**, 264101 (2018): the self-dual kicked-Ising model, the Floquet SFF definition `K(t)=⟨|tr U_F^t|^2⟩_h` (Eq. 6), the transfer-matrix method, and the exact odd-`t` result `\overline{K(t)}=2t−1` (`t≤5`), `2t` (`t≥7`) with the even-`t` conjecture (Eq. 24, 26). The space-time-duality structure is developed in [@BertiniKosProsen2019]. Rendered: _(Wave 3)_.
+[@BertiniKosProsen2018] — B. Bertini, P. Kos & T. Prosen, "Exact Spectral Form Factor in a Minimal Model of Many-Body Quantum Chaos", Phys. Rev. Lett. **121**, 264101 (2018): the self-dual kicked-Ising model, the Floquet SFF definition `K(t)=⟨|tr U_F^t|^2⟩_h` (Eq. 6), the transfer-matrix method, and the exact odd-`t` result `\overline{K(t)}=2t−1` (`t≤5`), `2t` (`t≥7`) with the even-`t` conjecture (Eq. 24, 26). The space-time-duality structure is developed in [@BertiniKosProsen2019]. Rendered: ./10-1103-physrevlett-121-264101.md.

@@ -59,4 +59,4 @@ Self-test anchors: (1) **`N=16` → GOE** `⟨r̃⟩` in `0.5307±0.013`, Hermit
 
 ## Key reference
 
-[@MaldacenaStanford2016] — J. Maldacena & D. Stanford, "Remarks on the Sachdev-Ye-Kitaev model", Phys. Rev. D **94**, 106002 (2016): the model conventions (Eq. 2.2–2.3), the Schwinger–Dyson equations (Eq. 2.6), the conformal solution `Δ=1/q`, the extensive zero-`T` entropy `S_0`, and maximal chaos. The finite-`N` random-matrix classification (`N mod 8`) and the ED entropy are [@GarciaGarciaVerbaarschot2016; @YouLudwigXu2017]; the model originates with [@SachdevYe1993] and [@Kitaev2015]. Rendered: _(Wave 3)_.
+[@MaldacenaStanford2016] — J. Maldacena & D. Stanford, "Remarks on the Sachdev-Ye-Kitaev model", Phys. Rev. D **94**, 106002 (2016): the model conventions (Eq. 2.2–2.3), the Schwinger–Dyson equations (Eq. 2.6), the conformal solution `Δ=1/q`, the extensive zero-`T` entropy `S_0`, and maximal chaos. The finite-`N` random-matrix classification (`N mod 8`) and the ED entropy are [@GarciaGarciaVerbaarschot2016; @YouLudwigXu2017]; the model originates with [@SachdevYe1993] and [@Kitaev2015]. Rendered: ./10-1103-physrevd-94-106002.md.

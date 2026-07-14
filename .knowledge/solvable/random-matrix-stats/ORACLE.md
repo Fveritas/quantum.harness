@@ -53,4 +53,4 @@ Self-test anchors: (1) **Wigner surmise constants** — `∫P=1` and `∫sP=1` t
 
 ## Key reference
 
-[@AtasEtAl2013] — Y. Y. Atas, E. Bogomolny, O. Giraud & G. Roux, "Distribution of the Ratio of Consecutive Level Spacings in Random Matrix Ensembles", Phys. Rev. Lett. **110**, 084101 (2013): the closed-form ratio surmises `P(r)` and the mean values `⟨r̃⟩` (Table I) pinned above. The ratio statistic itself is Oganesyan–Huse [@OganesyanHuse2007]; the classic spacing surmise is Wigner [@Wigner1951]. Rendered: _(Wave 3)_.
+[@AtasEtAl2013] — Y. Y. Atas, E. Bogomolny, O. Giraud & G. Roux, "Distribution of the Ratio of Consecutive Level Spacings in Random Matrix Ensembles", Phys. Rev. Lett. **110**, 084101 (2013): the closed-form ratio surmises `P(r)` and the mean values `⟨r̃⟩` (Table I) pinned above. The ratio statistic itself is Oganesyan–Huse [@OganesyanHuse2007]; the classic spacing surmise is Wigner [@Wigner1951]. Rendered: ./10-1103-physrevlett-110-084101.md.

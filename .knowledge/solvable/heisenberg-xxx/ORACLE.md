@@ -60,4 +60,4 @@ Self-test anchors: (1) **ground truth** — the Bethe-ansatz energy equals brute
 
 ## Key reference
 
-[@Bethe1931] — Bethe's original coordinate ansatz for the linear Heisenberg chain, the source of the magnon plane-wave structure, the logarithmic Bethe equations, and the all-real-root ground state used above; the thermodynamic energy `1/4 − ln 2` is Hulthén's [@Hulthen1938] evaluation and the spinon velocity is des Cloizeaux–Pearson [@desCloizeauxPearson1962]. Rendered: _(Wave 3)_.
+[@Bethe1931] — Bethe's original coordinate ansatz for the linear Heisenberg chain, the source of the magnon plane-wave structure, the logarithmic Bethe equations, and the all-real-root ground state used above; the thermodynamic energy `1/4 − ln 2` is Hulthén's [@Hulthen1938] evaluation and the spinon velocity is des Cloizeaux–Pearson [@desCloizeauxPearson1962]. Rendered: bib stub — no PDF reachable (2026-07-14).

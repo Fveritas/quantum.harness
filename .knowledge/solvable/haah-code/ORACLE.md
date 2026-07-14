@@ -53,4 +53,4 @@ The `k` values at `L ∈ {2,3,4}` are **computed by this script via exact GF(2) 
 
 ## Key reference
 
-[@Haah2011] — Haah, "Local stabilizer codes in three dimensions without string logical operators", Phys. Rev. A **83**, 042330 (2011): introduces the cubic codes (including "code 1" used here), proves the absence of string logical operators (the Type-II fracton hallmark), and analyzes the number of encoded qubits and its bound `2 ≤ k ≤ 4L-2` on finite periodic lattices — the exact structure whose degeneracy this card computes. Rendered: _(Wave 3)_.
+[@Haah2011] — Haah, "Local stabilizer codes in three dimensions without string logical operators", Phys. Rev. A **83**, 042330 (2011): introduces the cubic codes (including "code 1" used here), proves the absence of string logical operators (the Type-II fracton hallmark), and analyzes the number of encoded qubits and its bound `2 ≤ k ≤ 4L-2` on finite periodic lattices — the exact structure whose degeneracy this card computes. Rendered: ./1101.1962_local-stabilizer-codes-in-three-dimensions-without-string-lo.md.

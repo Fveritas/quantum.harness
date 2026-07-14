@@ -64,4 +64,4 @@ The two generic rows are **finite-`L` ED extrapolations**, not closed-form value
 
 ## Key reference
 
-[@Baxter1972] — Baxter, "One-dimensional anisotropic Heisenberg chain", Ann. Phys. **70**, 323 (1972): the exact eight-vertex/XYZ solution giving the thermodynamic ground-state energy in closed elliptic form (tabulated here). The XXZ-line reduction is Yang–Yang [@YangYang1966b] and the XY-line reduction is Lieb–Schultz–Mattis [@LiebSchultzMattis1961], reused via the sibling oracle cards. Rendered: _(Wave 3)_.
+[@Baxter1972] — Baxter, "One-dimensional anisotropic Heisenberg chain", Ann. Phys. **70**, 323 (1972): the exact eight-vertex/XYZ solution giving the thermodynamic ground-state energy in closed elliptic form (tabulated here). The XXZ-line reduction is Yang–Yang [@YangYang1966b] and the XY-line reduction is Lieb–Schultz–Mattis [@LiebSchultzMattis1961], reused via the sibling oracle cards. Rendered: bib stub — no PDF reachable (2026-07-14).

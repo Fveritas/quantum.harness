@@ -67,4 +67,4 @@ The `λ=1` rows are the free-fermion cross-check (Bose–Fermi statistics limit)
 
 ## Key reference
 
-[@Sutherland1971] — B. Sutherland, "Quantum Many-Body Problem in One Dimension: Ground State", J. Math. Phys. **12**, 246 (1971) (with the companion "…: Thermodynamics", J. Math. Phys. **12**, 251 (1971)): the exact `1/sin²`-ring solution, Jastrow ground state, and the closed-form spectrum reproduced here. The confined `1/x²` cousin is Calogero [@Calogero1969]; the exact dynamical correlators via Jack polynomials are Ha [@Ha1994]. Rendered: _(Wave 3)_.
+[@Sutherland1971] — B. Sutherland, "Quantum Many-Body Problem in One Dimension: Ground State", J. Math. Phys. **12**, 246 (1971) (with the companion "…: Thermodynamics", J. Math. Phys. **12**, 251 (1971)): the exact `1/sin²`-ring solution, Jastrow ground state, and the closed-form spectrum reproduced here. The confined `1/x²` cousin is Calogero [@Calogero1969]; the exact dynamical correlators via Jack polynomials are Ha [@Ha1994]. Rendered: bib stub — no PDF reachable (2026-07-14).

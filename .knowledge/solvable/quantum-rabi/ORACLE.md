@@ -53,4 +53,4 @@ Self-test anchors: (1) **THE GATE** — the lowest 8 `G`-roots in each parity ma
 
 ## Key reference
 
-[@Braak2011] — D. Braak, "Integrability of the Rabi Model" (PRL **107**, 100401, 2011): the exact `G`-function solution of the quantum Rabi model, source of the Hamiltonian convention, the `G_±(x)` series, the `K_n`/`f_n` recurrence, and the `E = x − g²/ω` map transcribed above. Rendered: _(Wave 3)_.
+[@Braak2011] — D. Braak, "Integrability of the Rabi Model" (PRL **107**, 100401, 2011): the exact `G`-function solution of the quantum Rabi model, source of the Hamiltonian convention, the `G_±(x)` series, the `K_n`/`f_n` recurrence, and the `E = x − g²/ω` map transcribed above. Rendered: ./10-1103-physrevlett-107-100401.md.

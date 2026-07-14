@@ -41,4 +41,4 @@ Self-test anchors: (1) `gsd_log2 == 6L - 3` for `L ∈ {2,3}` (the Vijay–Haah�
 
 ## Key reference
 
-[@VijayHaahFu2016] — Vijay, Haah & Fu, "Fracton topological order, generalized lattice gauge theory, and duality", Phys. Rev. B **94**, 235157 (2016): introduces and names the X-cube model, derives its subextensive ground-state degeneracy `\log_2 GSD = 6L - 3` on the 3-torus, and classifies its fracton/lineon excitations and restricted mobility via the coupled-layer / generalized-gauge-theory construction — the exact structure whose degeneracy this card reproduces. Rendered: _(Wave 3)_.
+[@VijayHaahFu2016] — Vijay, Haah & Fu, "Fracton topological order, generalized lattice gauge theory, and duality", Phys. Rev. B **94**, 235157 (2016): introduces and names the X-cube model, derives its subextensive ground-state degeneracy `\log_2 GSD = 6L - 3` on the 3-torus, and classifies its fracton/lineon excitations and restricted mobility via the coupled-layer / generalized-gauge-theory construction — the exact structure whose degeneracy this card reproduces. Rendered: ./1603.04442_fracton-topological-order-generalized-lattice-gauge-theory-a.md.

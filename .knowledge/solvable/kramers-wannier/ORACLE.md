@@ -46,4 +46,4 @@ Self-test anchors: (1) `e_0(J,h) = e_0(h,J)` (finite-`L` and thermodynamic) at t
 
 ## Key reference
 
-[@KramersWannier1941] — H. A. Kramers & G. H. Wannier, "Statistics of the Two-Dimensional Ferromagnet. Part I", Phys. Rev. **60**, 252 (1941): the original duality of the square-lattice Ising model, `\sinh 2K\,\sinh 2K^\ast = 1`, and the self-dual location of the critical point. The Jordan–Wigner solution behind the TFIM face is [@Pfeuty1970]; the Onsager free energy behind the classical face is on the `ising-2d-onsager` card. Rendered: _(Wave 3)_.
+[@KramersWannier1941] — H. A. Kramers & G. H. Wannier, "Statistics of the Two-Dimensional Ferromagnet. Part I", Phys. Rev. **60**, 252 (1941): the original duality of the square-lattice Ising model, `\sinh 2K\,\sinh 2K^\ast = 1`, and the self-dual location of the critical point. The Jordan–Wigner solution behind the TFIM face is [@Pfeuty1970]; the Onsager free energy behind the classical face is on the `ising-2d-onsager` card. Rendered: bib stub — no PDF reachable (2026-07-14).

@@ -54,4 +54,4 @@ The `1/j` energies are exact ED numbers for the integrable central-spin Hamilton
 
 ## Key reference
 
-[@Gaudin1976] — M. Gaudin, "Diagonalisation d'une classe d'hamiltoniens de spin", J. Physique **37**, 1087 (1976): the rational Gaudin magnets and their `N+1` commuting spin Hamiltonians `H_i=\sum_{k\ne i}(\mathbf{S}_i\cdot\mathbf{S}_k)/(u_i-u_k)`, the integrable structure this card scripts (the central spin is the charge `H_0`). The `1/r`-family pairing cousin is `richardson-pairing`. Rendered: _(Wave 3)_.
+[@Gaudin1976] — M. Gaudin, "Diagonalisation d'une classe d'hamiltoniens de spin", J. Physique **37**, 1087 (1976): the rational Gaudin magnets and their `N+1` commuting spin Hamiltonians `H_i=\sum_{k\ne i}(\mathbf{S}_i\cdot\mathbf{S}_k)/(u_i-u_k)`, the integrable structure this card scripts (the central spin is the charge `H_0`). The `1/r`-family pairing cousin is `richardson-pairing`. Rendered: bib stub — no PDF reachable (2026-07-14).

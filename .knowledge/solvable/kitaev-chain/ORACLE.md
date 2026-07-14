@@ -43,4 +43,4 @@ Self-test anchors: (1) sweet-spot flat band `ε = 2t` to `1e-12`; (2) gap closes
 
 ## Key reference
 
-[@Kitaev2001] — Kitaev, "Unpaired Majorana fermions in quantum wires": the defining paper for this model, the p-wave chain, the topological vs trivial phases, the Majorana end modes, and the `|μ| = 2t` phase boundary. Rendered: _(Wave 3)_.
+[@Kitaev2001] — Kitaev, "Unpaired Majorana fermions in quantum wires": the defining paper for this model, the p-wave chain, the topological vs trivial phases, the Majorana end modes, and the `|μ| = 2t` phase boundary. Rendered: ./cond-mat-0010440_unpaired-majorana-fermions-in-quantum-wires.md.

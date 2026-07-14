@@ -47,4 +47,4 @@ Self-test anchors: (1) XX point (`γ=0, h=0`, `L=2000`) gives `e0 = -1/π` to `1
 
 ## Key reference
 
-[@LiebSchultzMattis1961] — Lieb, Schultz & Mattis, "Two soluble models of an antiferromagnetic chain": the original Jordan–Wigner solution of the XY chain, source of the dispersion and the free-fermion (ABC/PBC parity-sector) treatment used here. Rendered: _(Wave 3)_.
+[@LiebSchultzMattis1961] — Lieb, Schultz & Mattis, "Two soluble models of an antiferromagnetic chain": the original Jordan–Wigner solution of the XY chain, source of the dispersion and the free-fermion (ABC/PBC parity-sector) treatment used here. Rendered: bib stub — no PDF reachable (2026-07-14).

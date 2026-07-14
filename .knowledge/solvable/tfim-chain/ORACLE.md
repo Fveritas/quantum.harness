@@ -41,4 +41,4 @@ Self-test anchors: (1) thermodynamic-limit energy at criticality equals closed f
 
 ## Key reference
 
-[@Pfeuty1970] — the original exact solution of the 1D transverse-field Ising chain via Jordan–Wigner, source of the dispersion, thermodynamic-limit energy, and gap used above. Rendered: _(Wave 3)_.
+[@Pfeuty1970] — the original exact solution of the 1D transverse-field Ising chain via Jordan–Wigner, source of the dispersion, thermodynamic-limit energy, and gap used above. Rendered: bib stub — no PDF reachable (2026-07-14).

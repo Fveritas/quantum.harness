@@ -43,4 +43,4 @@ Values are for the fixed generic dual-unitary gate `generic_du_gate(Jz=0.7)`; th
 
 ## Key reference
 
-[@BertiniKosProsen2019] — B. Bertini, P. Kos & T. Prosen, "Exact Correlation Functions for Dual-Unitary Lattice Models in 1+1 Dimensions", Phys. Rev. Lett. **123**, 210601 (2019): the dual-gate reshuffling, the dual-unitarity condition, and the light-cone two-point-function result (vanishing off the cone, single-site-channel iteration on the edge) scripted above. The self-dual kicked-Ising gate and its dynamics originate with [@BertiniKosProsen2018]. Rendered: _(Wave 3)_.
+[@BertiniKosProsen2019] — B. Bertini, P. Kos & T. Prosen, "Exact Correlation Functions for Dual-Unitary Lattice Models in 1+1 Dimensions", Phys. Rev. Lett. **123**, 210601 (2019): the dual-gate reshuffling, the dual-unitarity condition, and the light-cone two-point-function result (vanishing off the cone, single-site-channel iteration on the edge) scripted above. The self-dual kicked-Ising gate and its dynamics originate with [@BertiniKosProsen2018]. Rendered: ./10-1103-physrevlett-123-210601.md.

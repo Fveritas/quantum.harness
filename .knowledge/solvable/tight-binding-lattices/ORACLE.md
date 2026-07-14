@@ -62,4 +62,4 @@ Self-test anchors: (1) square `bandwidth == 8.0` to `1e-12`; (2) honeycomb `dira
 
 ## Key reference
 
-[@Bergman2008] — Bergman, Wu & Balents, "Band touching from real-space topology in frustrated hopping models": the systematic treatment of flat bands from destructive interference on line-graph/corner-sharing lattices (kagome, Lieb among them), source of the compact-localized-eigenstate description used above. Rendered: _(Wave 3)_.
+[@Bergman2008] — Bergman, Wu & Balents, "Band touching from real-space topology in frustrated hopping models": the systematic treatment of flat bands from destructive interference on line-graph/corner-sharing lattices (kagome, Lieb among them), source of the compact-localized-eigenstate description used above. Rendered: ./10-1103-physrevb-78-125104.md.

@@ -48,4 +48,4 @@ Self-test anchors: (1) **identity-proof** — `j = N/2` block energy `==` full `
 
 ## Key reference
 
-[@LipkinMeshkovGlick1965] — Lipkin, Meshkov & Glick's paper I ("Exact solutions and perturbation theory"), the original solvable collective model and source of the exact `j = N/2` reduction and its mean-field limit; [@DusuelVidal2005] for the finite-size scaling exponents (`N^{−1/3}` critical gap). Rendered: _(Wave 3)_.
+[@LipkinMeshkovGlick1965] — Lipkin, Meshkov & Glick's paper I ("Exact solutions and perturbation theory"), the original solvable collective model and source of the exact `j = N/2` reduction and its mean-field limit; [@DusuelVidal2005] for the finite-size scaling exponents (`N^{−1/3}` critical gap). Rendered: bib stub — no PDF reachable (2026-07-14).

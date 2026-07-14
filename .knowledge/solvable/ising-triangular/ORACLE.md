@@ -60,4 +60,4 @@ Self-test anchors: (1) `tc_ferro()` $= 4/\ln 3$ to `1e-12`; (2) `residual_entrop
 
 ## Key reference
 
-[@Wannier1950] — Wannier's exact treatment of the triangular Ising net: source of the FM critical temperature $4/\ln 3$, the AFM absence of a transition, and the frustrated antiferromagnet's residual entropy (value corrected in the 1973 erratum to $\mathrm{Cl}_2(\pi/3)/\pi$). Rendered: _(Wave 3)_.
+[@Wannier1950] — Wannier's exact treatment of the triangular Ising net: source of the FM critical temperature $4/\ln 3$, the AFM absence of a transition, and the frustrated antiferromagnet's residual entropy (value corrected in the 1973 erratum to $\mathrm{Cl}_2(\pi/3)/\pi$). Rendered: bib stub — no PDF reachable (2026-07-14).

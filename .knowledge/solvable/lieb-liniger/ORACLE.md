@@ -72,4 +72,4 @@ Self-test anchors: (1) **strong coupling** — `e(1000)` matches the derived `(�
 
 ## Key reference
 
-[@LiebLiniger1963] — Lieb & Liniger, "Exact Analysis of an Interacting Bose Gas. I. The General Solution and the Ground State", Phys. Rev. **130**, 1605 (1963): the exact eigenfunctions, the ground-state integral equation, and the coupling-dependent ground-state energy `e(γ)` reproduced here. Rendered: _(Wave 3)_.
+[@LiebLiniger1963] — Lieb & Liniger, "Exact Analysis of an Interacting Bose Gas. I. The General Solution and the Ground State", Phys. Rev. **130**, 1605 (1963): the exact eigenfunctions, the ground-state integral equation, and the coupling-dependent ground-state energy `e(γ)` reproduced here. Rendered: bib stub — no PDF reachable (2026-07-14).

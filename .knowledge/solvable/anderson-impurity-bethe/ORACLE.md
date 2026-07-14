@@ -50,4 +50,4 @@ The `U=0` row is the non-interacting reference: with `ε_d=0` and `V=t=1` the im
 
 ## Key reference
 
-[@KawakamiOkiji1981] — N. Kawakami & A. Okiji, "Exact expression of the ground-state energy for the symmetric Anderson model", Phys. Lett. A **86**, 483 (1981): the Bethe-ansatz exact ground-state energy and susceptibilities of the symmetric SIAM; the full finite-`T` universal thermodynamics and the Wilson ratio `R_W=2` are Tsvelick–Wiegmann [@TsvelickWiegmann1983]. The physics-card sibling is `.knowledge/models/anderson-impurity`; the Kondo-limit spin sector is `kondo-bethe`. Rendered: _(Wave 3)_.
+[@KawakamiOkiji1981] — N. Kawakami & A. Okiji, "Exact expression of the ground-state energy for the symmetric Anderson model", Phys. Lett. A **86**, 483 (1981): the Bethe-ansatz exact ground-state energy and susceptibilities of the symmetric SIAM; the full finite-`T` universal thermodynamics and the Wilson ratio `R_W=2` are Tsvelick–Wiegmann [@TsvelickWiegmann1983]. The physics-card sibling is `.knowledge/models/anderson-impurity`; the Kondo-limit spin sector is `kondo-bethe`. Rendered: bib stub — no PDF reachable (2026-07-14).

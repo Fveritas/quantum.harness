@@ -56,4 +56,4 @@ Self-test anchors: (1) **ground truth** — `tr(V_N^M)` equals brute-force torus
 
 ## Key reference
 
-[@Baxter1971] — Baxter's exact solution of the eight-vertex model via the star–triangle (Yang–Baxter) equation: the source of the elliptic-function free energy and the continuously varying critical exponent. The scripted free-fermion closed form is Fan and Wu's [@FanWu1970] dimer reduction of the $\Delta=0$ manifold. Rendered: _(Wave 3)_.
+[@Baxter1971] — Baxter's exact solution of the eight-vertex model via the star–triangle (Yang–Baxter) equation: the source of the elliptic-function free energy and the continuously varying critical exponent. The scripted free-fermion closed form is Fan and Wu's [@FanWu1970] dimer reduction of the $\Delta=0$ manifold. Rendered: bib stub — no PDF reachable (2026-07-14).

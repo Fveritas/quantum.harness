@@ -45,4 +45,4 @@ Self-test anchors: (1) `|C| = 1` at `μ = −2` and `μ = +2` (`t=1, Δ=0.5`); (
 
 ## Key reference
 
-[@ReadGreen2000] — Read & Green, "Paired states of fermions in two dimensions with breaking of parity and time-reversal symmetries and the fractional quantum Hall effect", Phys. Rev. B **61**, 10267 (2000): the defining analysis of the spinless `p+ip` paired state, the weak-pairing vs strong-pairing distinction, the chiral Majorana edge mode, and the connection of the weak-pairing phase to the Moore–Read Pfaffian quantum Hall state. Rendered: _(Wave 3)_.
+[@ReadGreen2000] — Read & Green, "Paired states of fermions in two dimensions with breaking of parity and time-reversal symmetries and the fractional quantum Hall effect", Phys. Rev. B **61**, 10267 (2000): the defining analysis of the spinless `p+ip` paired state, the weak-pairing vs strong-pairing distinction, the chiral Majorana edge mode, and the connection of the weak-pairing phase to the Moore–Read Pfaffian quantum Hall state. Rendered: ./cond-mat-9906453_paired-states-of-fermions-in-two-dimensions-with-breaking-of.md.

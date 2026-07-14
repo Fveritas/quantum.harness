@@ -56,4 +56,4 @@ Self-test anchors: (1) `M_n` recursion values `1,1,2,4,9,21,51,127,323,835,2188`
 
 ## Key reference
 
-[@BravyiEtAl2012] — Bravyi, Caha, Movassagh, Nagaj & Shor, "Criticality without Frustration for Quantum Spin-1 Chains", the colorless Motzkin chain with a unique, critically-entangled (`~½\ln n`) frustration-free ground state and a `1/\mathrm{poly}(n)` gap; [@SalbergerKorepin2017] introduced the spin-½ Fredkin (Dyck-path) analogue. Rendered: _(Wave 3)_.
+[@BravyiEtAl2012] — Bravyi, Caha, Movassagh, Nagaj & Shor, "Criticality without Frustration for Quantum Spin-1 Chains", the colorless Motzkin chain with a unique, critically-entangled (`~½\ln n`) frustration-free ground state and a `1/\mathrm{poly}(n)` gap; [@SalbergerKorepin2017] introduced the spin-½ Fredkin (Dyck-path) analogue. Rendered: ./1203.5801_criticality-without-frustration-for-quantum-spin-1-chains.md.

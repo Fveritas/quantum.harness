@@ -54,4 +54,4 @@ Self-test anchors: (1) exact integer counts `count(2,2)=2`, `count(2,3)=3`, `cou
 
 ## Key reference
 
-[@Kasteleyn1961] — Kasteleyn's Pfaffian solution of the dimer problem on a quadratic lattice: source of the product formula, the $8\times8 = 12{,}988{,}816$ benchmark, and the Catalan-constant entropy density $G/\pi$. Rendered: _(Wave 3)_.
+[@Kasteleyn1961] — Kasteleyn's Pfaffian solution of the dimer problem on a quadratic lattice: source of the product formula, the $8\times8 = 12{,}988{,}816$ benchmark, and the Catalan-constant entropy density $G/\pi$. Rendered: bib stub — no PDF reachable (2026-07-14).

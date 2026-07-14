@@ -52,4 +52,4 @@ The `U=0` value `-4` is the free `c`-band check: the `L=6` PBC hopping spectrum 
 
 ## Key reference
 
-[@FreericksZlatic2003] — J. K. Freericks & V. Zlatić, "Exact dynamical mean-field theory of the Falicov–Kimball model", Rev. Mod. Phys. **75**, 1333 (2003): the authoritative review of the DMFT-exact `d=∞` solution — formalism, the checkerboard CDW transition `T_c(U)`, and the metal–insulator physics. The exactness of DMFT for this model is Brandt–Mielsch [@BrandtMielsch1989]; the model originates with Falicov–Kimball [@FalicovKimball1969]. Rendered: _(Wave 3)_.
+[@FreericksZlatic2003] — J. K. Freericks & V. Zlatić, "Exact dynamical mean-field theory of the Falicov–Kimball model", Rev. Mod. Phys. **75**, 1333 (2003): the authoritative review of the DMFT-exact `d=∞` solution — formalism, the checkerboard CDW transition `T_c(U)`, and the metal–insulator physics. The exactness of DMFT for this model is Brandt–Mielsch [@BrandtMielsch1989]; the model originates with Falicov–Kimball [@FalicovKimball1969]. Rendered: ./10-1103-revmodphys-75-1333.md.

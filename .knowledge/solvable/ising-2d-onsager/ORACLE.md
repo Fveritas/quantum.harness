@@ -53,4 +53,4 @@ Self-test anchors: (1) `tc()` matches the closed form to `1e-12`; (2) **ground t
 
 ## Key reference
 
-[@Onsager1944] — Onsager's exact solution of the 2D Ising model, the source of $T_c$, the free energy, the internal energy, and (via the same transfer-matrix machinery, completed by [@Kaufman1949]) the finite-torus partition function. Rendered: _(Wave 3)_.
+[@Onsager1944] — Onsager's exact solution of the 2D Ising model, the source of $T_c$, the free energy, the internal energy, and (via the same transfer-matrix machinery, completed by [@Kaufman1949]) the finite-torus partition function. Rendered: bib stub — no PDF reachable (2026-07-14).

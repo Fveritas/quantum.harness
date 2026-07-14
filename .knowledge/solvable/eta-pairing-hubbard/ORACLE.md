@@ -50,4 +50,4 @@ Self-test anchors: (1) **ground truth** — operator identity `\|[H,\eta^\dagger
 
 ## Key reference
 
-[@Yang1989] — C. N. Yang's construction of the η-pairing eigenstates of the Hubbard model, the pseudospin `su(2)` algebra, and the proof that these states carry off-diagonal long-range order — the exact anchor used above. Rendered: _(Wave 3)_.
+[@Yang1989] — C. N. Yang's construction of the η-pairing eigenstates of the Hubbard model, the pseudospin `su(2)` algebra, and the proof that these states carry off-diagonal long-range order — the exact anchor used above. Rendered: bib stub — no PDF reachable (2026-07-14).

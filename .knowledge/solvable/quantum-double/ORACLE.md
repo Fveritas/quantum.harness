@@ -52,4 +52,4 @@ The anyon counts are **computed by this script** from group data (conjugacy clas
 
 ## Key reference
 
-[@Kitaev2003] — Kitaev, "Fault-tolerant quantum computation by anyons", Ann. Phys. **303**, 2 (2003): introduces the quantum-double models `D(G)` (the toric code is `G = Z2`), the commuting-projector vertex/plaquette construction, the dyonic `([c], \pi)` anyons with their ribbon operators and fusion/braiding, and topological degeneracy on surfaces — the exact structure whose anyon census and torus GSD this card computes. Rendered: _(Wave 3)_.
+[@Kitaev2003] — Kitaev, "Fault-tolerant quantum computation by anyons", Ann. Phys. **303**, 2 (2003): introduces the quantum-double models `D(G)` (the toric code is `G = Z2`), the commuting-projector vertex/plaquette construction, the dyonic `([c], \pi)` anyons with their ribbon operators and fusion/braiding, and topological degeneracy on surfaces — the exact structure whose anyon census and torus GSD this card computes. Rendered: ./quant-ph-9707021_fault-tolerant-quantum-computation-by-anyons.md.

@@ -34,4 +34,4 @@ There is **no `oracle.py`** and **no benchmark row pinned here**: this card only
 
 ## Key reference
 
-[@JordanWigner1928] — P. Jordan & E. Wigner, "Über das Paulische Äquivalenzverbot", Z. Physik **47**, 631 (1928): the spin↔fermion transformation underlying the whole free-fermion column of the catalog. The Ising↔dimer map is [@Fisher1966] (M. E. Fisher, J. Math. Phys. **7**, 1776); Kramers–Wannier self-duality is [@KramersWannier1941]. Each row's exact values are pinned on the linked cards. Rendered: _(Wave 3)_.
+[@JordanWigner1928] — P. Jordan & E. Wigner, "Über das Paulische Äquivalenzverbot", Z. Physik **47**, 631 (1928): the spin↔fermion transformation underlying the whole free-fermion column of the catalog. The Ising↔dimer map is [@Fisher1966] (M. E. Fisher, J. Math. Phys. **7**, 1776); Kramers–Wannier self-duality is [@KramersWannier1941]. Each row's exact values are pinned on the linked cards. Rendered: bib stub — no PDF reachable (2026-07-14).

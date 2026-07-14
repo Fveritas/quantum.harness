@@ -48,4 +48,4 @@ Self-test anchors: (1) **ground truth** — ED gives `E₀/L == −3/8` to `1e-1
 
 ## Key reference
 
-[@MajumdarGhosh1969] — Majumdar & Ghosh, "On Next-Nearest-Neighbor Interaction in Linear Chain. I", the paper that identifies the `J₂/J₁ = 1/2` point and proves the two dimer coverings are the exact doubly-degenerate ground states (the companion Paper II, J. Math. Phys. 10, 1399, works out the degeneracy in detail). Rendered: _(Wave 3)_.
+[@MajumdarGhosh1969] — Majumdar & Ghosh, "On Next-Nearest-Neighbor Interaction in Linear Chain. I", the paper that identifies the `J₂/J₁ = 1/2` point and proves the two dimer coverings are the exact doubly-degenerate ground states (the companion Paper II, J. Math. Phys. 10, 1399, works out the degeneracy in detail). Rendered: bib stub — no PDF reachable (2026-07-14).

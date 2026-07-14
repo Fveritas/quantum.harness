@@ -49,4 +49,4 @@ The `J=0` row is the decoupled reference: the open 5-site tight-binding chain at
 
 ## Key reference
 
-[@AndreiFuruyaLowenstein1983] — N. Andrei, K. Furuya & J. H. Lowenstein, "Solution of the Kondo problem", Rev. Mod. Phys. **55**, 331 (1983): the Bethe-ansatz solution of the Kondo model and its exact impurity thermodynamics, including the Wilson ratio `R=2` and the `\ln 2\to0` entropy crossover; the parallel thermodynamic treatment (and the Anderson-model solution feeding the neighbour card) is Tsvelick–Wiegmann [@TsvelickWiegmann1983]. Rendered: _(Wave 3)_.
+[@AndreiFuruyaLowenstein1983] — N. Andrei, K. Furuya & J. H. Lowenstein, "Solution of the Kondo problem", Rev. Mod. Phys. **55**, 331 (1983): the Bethe-ansatz solution of the Kondo model and its exact impurity thermodynamics, including the Wilson ratio `R=2` and the `\ln 2\to0` entropy crossover; the parallel thermodynamic treatment (and the Anderson-model solution feeding the neighbour card) is Tsvelick–Wiegmann [@TsvelickWiegmann1983]. Rendered: bib stub — no PDF reachable (2026-07-14).

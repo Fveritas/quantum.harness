@@ -52,4 +52,4 @@ Self-test anchors: (1) `p/q=1/3`: `chern_numbers == [1, -2, 1]`, sum `0`, no tou
 
 ## Key reference
 
-[@Hofstadter1976] — Hofstadter, "Energy levels and wave functions of Bloch electrons in rational and irrational magnetic fields", Phys. Rev. B **14**, 2239 (1976): the defining paper deriving the Harper equation, the `q`-subband structure at rational flux `p/q`, and the self-similar butterfly spectrum used throughout this card. Rendered: _(Wave 3)_.
+[@Hofstadter1976] — Hofstadter, "Energy levels and wave functions of Bloch electrons in rational and irrational magnetic fields", Phys. Rev. B **14**, 2239 (1976): the defining paper deriving the Harper equation, the `q`-subband structure at rational flux `p/q`, and the self-similar butterfly spectrum used throughout this card. Rendered: bib stub — no PDF reachable (2026-07-14).
