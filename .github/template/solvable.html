@@ -1096,10 +1096,64 @@
 <h2><span class="tcode">T7</span> Dualities &amp; solvable dynamics
 <span class="scount" data-total="4">4</span></h2>
 <p class="tsub">exact maps between models and exactly evolvable dynamics — Kramers–Wannier to dual-unitary circuits</p>
-<div class="model ghost" data-name="kramers-wannier" data-hook="" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S"><div class="grow"><span class="mname">kramers-wannier</span><span class="hook"></span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-dim">wave 3</span></span></div></div>
-<div class="model ghost" data-name="jw-duality-dictionary" data-hook="" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="" data-flag="T"><div class="grow"><span class="mname">jw-duality-dictionary</span><span class="hook"></span><span class="bset"><span class="b" title="Tier —">—</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-dim">wave 3</span></span></div></div>
-<div class="model ghost" data-name="dual-unitary-circuits" data-hook="" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S"><div class="grow"><span class="mname">dual-unitary-circuits</span><span class="hook"></span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-dim">wave 3</span></span></div></div>
-<div class="model ghost" data-name="kicked-ising-floquet" data-hook="" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S"><div class="grow"><span class="mname">kicked-ising-floquet</span><span class="hook"></span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-dim">wave 3</span></span></div></div>
+<details class="model" data-name="kramers-wannier" data-hook="Ising self-duality; sinh2K·sinh2K*=1 fixes Kc" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S">
+<summary><span class="mname">kramers-wannier</span><span class="hook">Ising self-duality; sinh2K·sinh2K*=1 fixes Kc</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
+<div class="mbody">
+<div class="math">$$\sinh(2K)\,\sinh(2K^\ast) = 1, \qquad \psi(K) - \tfrac12\ln\sinh(2K) \ \text{invariant under } K\leftrightarrow K^\ast$$</div>
+<p class="solv">T7: Kramers–Wannier duality maps the ordered (low-T) and disordered (high-T) Ising descriptions onto each other, and its self-dual fixed point locates the exact critical point. Two exact, scripted faces:</p>
+<div class="tablewrap"><table class="bench"><thead><tr><th>Quantity</th><th>Params</th><th>Exact value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td><code>e_0(J,h) − e_0(h,J)</code> (TFIM)</td><td><code>L=16</code>, any <code>(J,h)</code></td><td><code>0</code> (<code>&lt; 10^{-12}</code>)</td><td><span class="cite" title="[@KramersWannier1941]">Kramers–Wannier 1941</span></td></tr>
+<tr><td>self-dual invariant residual <code>g(K)−g(K^\ast)</code></td><td><code>K∈\{0.3,0.6\}</code></td><td><code>0</code> (<code>&lt; 10^{-8}</code>)</td><td>this card (derived)</td></tr>
+<tr><td><code>\sinh 2K\,\sinh 2K^\ast</code></td><td>any <code>K</code></td><td><code>1</code></td><td><span class="cite" title="[@KramersWannier1941]">Kramers–Wannier 1941</span></td></tr>
+<tr><td>self-dual coupling <code>K_c</code></td><td><code>\sinh 2K_c=1</code></td><td><code>\tfrac12\ln(1+\sqrt2)=0.4406867935</code></td><td><span class="cite" title="[@KramersWannier1941]">Kramers–Wannier 1941</span></td></tr>
+<tr><td><code>K_c</code> vs Onsager <code>J/T_c</code></td><td>—</td><td>equal (<code>&lt; 10^{-12}</code>)</td><td>this card + <code>ising-2d-onsager</code></td></tr>
+</tbody></table></div>
+<p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kramers-wannier/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kramers-wannier/oracle.py">oracle.py&nbsp;&#8599;</a></p>
+</div>
+</details>
+<details class="model" data-name="jw-duality-dictionary" data-hook="mapping index: JW, KW, dimers, six-vertex↔XXZ" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="" data-flag="T">
+<summary><span class="mname">jw-duality-dictionary</span><span class="hook">mapping index: JW, KW, dimers, six-vertex↔XXZ</span><span class="bset"><span class="b" title="Tier —">—</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 3</span></span></summary>
+<div class="mbody">
+<div class="math">$$c_j = \Big(\textstyle\prod_{l&lt;j}\sigma^z_l\Big)\,\sigma^-_j, \qquad \sigma^z_j = 1 - 2\,c_j^\dagger c_j, \qquad \text{(Jordan–Wigner, one prototype of the maps tabulated below)}$$</div>
+<p class="solv">T7: exact model-to-model maps. A duality is not itself a solution — it transports an exact result from one card to another (free-fermionization, a critical-point location, a transfer-matrix/Hamiltonian limit, a strong-coupling projection). This card is the index of those maps; the arithmetic lives on the linked cards. It is a T-flag pointer card by design: nothing here is independently scripted.</p>
+<p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/jw-duality-dictionary/ORACLE.md">ORACLE.md&nbsp;&#8599;</a></p>
+</div>
+</details>
+<details class="model" data-name="dual-unitary-circuits" data-hook="space-time-unitary gates; exact light-cone correlators" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S">
+<summary><span class="mname">dual-unitary-circuits</span><span class="hook">space-time-unitary gates; exact light-cone correlators</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
+<div class="mbody">
+<div class="math">$$U_F = U_{\text{odd}}\,U_{\text{even}}, \qquad U_{\text{even}}=\!\!\prod_{j\ \text{even}}\!\! U_{j,j+1}, \quad U_{\text{odd}}=\!\!\prod_{j\ \text{odd}}\!\! U_{j,j+1}, \qquad \tilde U_{(o_1 i_1),(o_2 i_2)} = U_{(o_1 o_2),(i_1 i_2)}$$</div>
+<p class="solv">T7: dual-unitarity is an exact algebraic property (a single reshuffled-gate unitarity condition), and it makes the light-cone dynamics exactly computable. Everything reported is exact for any L: (a) the dual-unitarity certificate ‖Ũ†Ũ − 1‖; (b) infinite-temperature two-point correlators ⟨σ^z_x(t) σ^z_0(0)⟩/2^L, which vanish exactly off the light cone and on the edge equal a single-site quantum channel iterated 2t times <span class="cite" title="[@BertiniKosProsen2019]">Bertini–Kos–Prosen 2019</span>. Not exact / out of scope: correlators at finite temperature or of multi-site operators, entanglement growth (exactly linear for dual-unitary but not scripted here), and the spectral form factor of a *single* dual-unitary circuit — the SFF lives on the sibling kicked-ising-floquet card. Finite-size caveat (scripted): on an L-ring the two light cones wrap once 2\cdot 2t \ge L, so the exact off-cone *vanishing* is asserted only in the clean window t \le L/4; the on-edge value stays exact as long as the ±2t edges do not collide (checked to t=3 at L=10).</p>
+<div class="tablewrap"><table class="bench"><thead><tr><th>Quantity</th><th>Params</th><th>Exact value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td><code>‖Ũ†Ũ − 1‖</code> (self-dual KIM gate)</td><td><code>J=b=π/4</code></td><td><code>0</code> (<code>&lt; 10^{-15}</code>)</td><td><span class="cite" title="[@BertiniKosProsen2019]">Bertini–Kos–Prosen 2019</span></td></tr>
+<tr><td><code>‖Ũ†Ũ − 1‖</code> (control)</td><td><code>J=π/4, b=π/6</code></td><td><code>3/4</code> (fails)</td><td>this card (measured)</td></tr>
+<tr><td>off-cone <code>⟨σ^z_x(t) σ^z_0⟩/2^L</code></td><td>generic DU gate, <code>x≠±2t</code>, <code>t≤L/4</code></td><td><code>0</code> (<code>&lt; 10^{-12}</code>)</td><td><span class="cite" title="[@BertiniKosProsen2019]">Bertini–Kos–Prosen 2019</span></td></tr>
+<tr><td>on-edge <code>⟨σ^z_{-2t}(t) σ^z_0⟩/2^L</code></td><td>generic DU gate (<code>J_z=0.7</code>), <code>t=1</code></td><td><code>-0.170542</code> <code>= (S^2)_{zz}</code></td><td>this card (channel)</td></tr>
+<tr><td>on-edge <code>⟨σ^z_{-2t}(t) σ^z_0⟩/2^L</code></td><td>same, <code>t=2</code></td><td><code>-0.457743</code> <code>= (S^4)_{zz}</code></td><td>this card (channel)</td></tr>
+<tr><td>on-edge <code>⟨σ^z_{-2t}(t) σ^z_0⟩/2^L</code></td><td>same, <code>t=3</code> (<code>L=10</code>)</td><td><code>+0.878273</code> <code>= (S^6)_{zz}</code></td><td>this card (channel)</td></tr>
+</tbody></table></div>
+<p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/dual-unitary-circuits/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/dual-unitary-circuits/oracle.py">oracle.py&nbsp;&#8599;</a></p>
+</div>
+</details>
+<details class="model" data-name="kicked-ising-floquet" data-hook="self-dual KIM; exact SFF ramp K(t)=2t−1" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S">
+<summary><span class="mname">kicked-ising-floquet</span><span class="hook">self-dual KIM; exact SFF ramp K(t)=2t−1</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
+<div class="mbody">
+<div class="math">$$U_F = e^{-iH_K}\,e^{-iH_I}, \qquad H_I = J\sum_{j}\sigma^z_j\sigma^z_{j+1} + \sum_j h_j\,\sigma^z_j, \qquad H_K = b\sum_j \sigma^x_j, \qquad \text{PBC}$$</div>
+<p class="solv">T7: at the self-dual point the model is exactly solvable *for spectral statistics*. The exact statement is the disorder-averaged spectral form factor <span class="cite" title="[@BertiniKosProsen2018]">Bertini–Kos–Prosen 2018</span>. Define, for integer Floquet time t &gt; 0,</p>
+<div class="tablewrap"><table class="bench"><thead><tr><th>Quantity</th><th>Params</th><th>Exact value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>BKP odd-<code>t</code> SFF (thermodynamic limit)</td><td><code>t</code> odd, <code>t≤5</code></td><td><code>\overline{K(t)} = 2t-1</code></td><td><span class="cite" title="[@BertiniKosProsen2018]">Bertini–Kos–Prosen 2018</span></td></tr>
+<tr><td>BKP odd-<code>t</code> SFF (thermodynamic limit)</td><td><code>t</code> odd, <code>t≥7</code></td><td><code>\overline{K(t)} = 2t</code></td><td><span class="cite" title="[@BertiniKosProsen2018]">Bertini–Kos–Prosen 2018</span></td></tr>
+<tr><td>RMT comparison curve</td><td>COE, <code>N=2^L</code></td><td><code>K_{COE}=2t-t\ln(1+2t/N)</code></td><td><span class="cite" title="[@BertiniKosProsen2018]">Bertini–Kos–Prosen 2018</span></td></tr>
+<tr><td>self-dual <code>K(1),K(3),K(5)</code> (measured)</td><td><code>L=8</code>, 400 real, seed 7</td><td><code>1.01, 5.30, 8.06</code> (vs <code>1,5,9</code>)</td><td>this card (measured)</td></tr>
+<tr><td>self-dual <code>K(1),K(3),K(5)</code> (measured)</td><td><code>L=10</code>, 80 real, seed 7</td><td><code>0.94, 4.52, 8.50</code> (vs <code>1,5,9</code>)</td><td>this card (measured)</td></tr>
+<tr><td>control <code>K(1)</code> (<code>b=π/5</code>)</td><td><code>L=8 / L=10</code>, seed 7</td><td><code>8.7 / 13.9</code> (off band)</td><td>this card (measured)</td></tr>
+</tbody></table></div>
+<p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kicked-ising-floquet/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kicked-ising-floquet/oracle.py">oracle.py&nbsp;&#8599;</a></p>
+</div>
+</details>
 </section>
 
 <footer>

@@ -135,10 +135,10 @@ built `ORACLE.md` where available.
 
 | Model | Tier | Script | Status | Card |
 |---|---|---|---|---|
-| `kramers-wannier` | A | S | wave 3 | — |
-| `jw-duality-dictionary` | — | T | wave 3 | — |
-| `dual-unitary-circuits` | A | S | wave 3 | — |
-| `kicked-ising-floquet` | A | S | wave 3 | — |
+| `kramers-wannier` | A | S | ✓ wave 3 | [ORACLE](./kramers-wannier/ORACLE.md) |
+| `jw-duality-dictionary` | — | T | ✓ wave 3 | [ORACLE](./jw-duality-dictionary/ORACLE.md) |
+| `dual-unitary-circuits` | A | S | ✓ wave 3 | [ORACLE](./dual-unitary-circuits/ORACLE.md) |
+| `kicked-ising-floquet` | A | S | ✓ wave 3 | [ORACLE](./kicked-ising-floquet/ORACLE.md) |
 
 ## Totals
 

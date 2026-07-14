@@ -97,6 +97,10 @@ HOOKS = {
     "random-matrix-stats": "Wigner/Atas surmises; ⟨r̃⟩ GOE/GUE/GSE, Kramers doubling",
     "syk": "melonic large-N; N mod 8 class, S₀≈0.2324 entropy",
     "falicov-kimball-dinf": "DMFT-exact in d=∞; checkerboard CDW, sign-free",
+    "kramers-wannier": "Ising self-duality; sinh2K·sinh2K*=1 fixes Kc",
+    "jw-duality-dictionary": "mapping index: JW, KW, dimers, six-vertex↔XXZ",
+    "dual-unitary-circuits": "space-time-unitary gates; exact light-cone correlators",
+    "kicked-ising-floquet": "self-dual KIM; exact SFF ramp K(t)=2t−1",
 }
 
 TIER_TITLES = {
