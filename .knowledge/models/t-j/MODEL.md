@@ -1,6 +1,7 @@
 # t-J
 
 Solve t-J ground-state problems. The no-double-occupancy projection makes the local Hilbert space three-dimensional (empty / up / down) and changes both diagnostics and method choice relative to Hubbard.
+Exact solution: see `.knowledge/solvable/susy-t-j/` (oracle card).
 
 ## Physics card
 

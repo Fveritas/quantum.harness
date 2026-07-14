@@ -1,6 +1,7 @@
 # Shastry–Sutherland
 
 Solve the Shastry–Sutherland model — a spin-1/2 square-lattice antiferromagnet with orthogonal dimer bonds that has an exact dimer-singlet product ground state in a regime, hosts rich magnetization plateaus, and is realized in the material SrCu2(BO3)2.
+Exact solution: see `.knowledge/solvable/shastry-sutherland-dimer/` (oracle card).
 
 ## Physics card
 

@@ -1,6 +1,7 @@
 # AKLT
 
 Solve the spin-1 AKLT chain — the Affleck–Kennedy–Lieb–Tasaki bilinear-biquadratic model whose ground state is an exact valence-bond solid (VBS), the paradigmatic representative of the gapped Haldane symmetry-protected-topological phase.
+Exact solution: see `.knowledge/solvable/aklt-chain/` (oracle card).
 
 Distinct from `spin-1-xxz` (the tunable spin-1 family): AKLT is the single exactly-solvable point in that family, used as the rigorous anchor for Haldane-phase physics.
 

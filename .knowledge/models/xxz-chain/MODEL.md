@@ -1,6 +1,7 @@
 # XXZ chain
 
 Solve the spin-1/2 XXZ chain — the canonical Bethe-ansatz-integrable 1D magnet whose anisotropy `Δ` tunes between gapped ferromagnet, gapless Luttinger liquid, and gapped Néel antiferromagnet.
+Exact solution: see `.knowledge/solvable/xxz-chain/` (oracle card).
 
 Distinct from `heisenberg` (which defaults to the isotropic SU(2) point and broader lattices): this card is the 1D `Δ`-tuned phase diagram, where integrability supplies exact benchmarks for all `Δ`.
 

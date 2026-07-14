@@ -1,6 +1,7 @@
 # Heisenberg
 
 Solve Heisenberg-spin ground-state problems. Lattice geometry and coupling regime determine which method works.
+Exact solution: see `.knowledge/solvable/heisenberg-xxx/` (oracle card).
 
 ## Physics card
 

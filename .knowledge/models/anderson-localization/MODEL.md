@@ -1,6 +1,7 @@
 # Anderson Localization
 
 A **single non-interacting particle** hopping on a tight-binding lattice with random on-site energies (Anderson 1958). The defining phenomenon is the **localization–delocalization (metal–insulator) transition**: disorder can turn extended Bloch states into exponentially localized eigenstates. **Dimensionality is the master axis** — in 1D and 2D (orthogonal class) *all* states localize for any disorder, while in 3D there is a genuine mobility edge / metal–insulator transition at finite disorder. This is the single-particle ancestor of many-body localization.
+Exact solution: see `.knowledge/solvable/anderson-1d/` (oracle card).
 
 ## Physics card
 

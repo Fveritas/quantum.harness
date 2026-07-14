@@ -1,6 +1,7 @@
 # SSH (Su–Schrieffer–Heeger)
 
 The dimerized hopping chain — the textbook 1D topological insulator. A free-fermion (quadratic) model, exactly solvable in `O(N³)`, whose two phases (trivial vs topological) are distinguished by a quantized winding number / Zak phase, with protected zero-energy edge modes via bulk–boundary correspondence.
+Exact solution: see `.knowledge/solvable/ssh-chain/` (oracle card).
 
 ## Physics card
 

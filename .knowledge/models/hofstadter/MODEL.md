@@ -1,6 +1,7 @@
 # Hofstadter model (Harper / butterfly)
 
 Square-lattice tight-binding electrons in a uniform perpendicular magnetic field with rational flux per plaquette `α = p/q` — the Harper/Hofstadter equation. The single-particle spectrum is the self-similar fractal **Hofstadter butterfly**; at flux `p/q` the band splits into `q` subbands, and each spectral gap carries an integer **Chern number** via the TKNN / Diophantine equation — the integer quantum Hall effect realized on a lattice.
+Exact solution: see `.knowledge/solvable/hofstadter-harper/` (oracle card).
 
 ## Physics card
 

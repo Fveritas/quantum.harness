@@ -1,6 +1,7 @@
 # Transverse-Field Ising
 
 Solve transverse-field Ising ground-state problems. Lattice and `Γ/J` ratio determine method choice and what physics is accessible.
+Exact solution: see `.knowledge/solvable/tfim-chain/` (oracle card).
 
 ## Physics card
 

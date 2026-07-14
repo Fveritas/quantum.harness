@@ -1,6 +1,7 @@
 # Rydberg PXP
 
 Constrained Rydberg-blockade chain: each atom is a two-level (ground/Rydberg) qubit, and the infinite nearest-neighbor blockade forbids two adjacent excitations. The PXP limit hosts quantum many-body scars — a non-thermal tower of states giving long-lived coherent revivals from the period-2 |Z₂⟩ state.
+Exact solution: see `.knowledge/solvable/pxp-scars/` (oracle card).
 
 Distinct from `transverse-field-ising`: the same `σ^x` drive, but the kinetic term is dressed by blockade projectors `P = |g⟩⟨g|`, which restrict the Hilbert space (no two neighboring excitations) and make the model non-integrable with weak ergodicity breaking.
 

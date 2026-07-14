@@ -1,6 +1,7 @@
 # Hubbard
 
 Solve Hubbard ground-state problems as correlated-electron tasks. Doping, extended terms (`t'`, `V`), lattice, and DMFT-style embedding are all workflow choices inside this problem — not separate skills.
+Exact solution: see `.knowledge/solvable/hubbard-1d-lieb-wu/` (oracle card); also `eta-pairing-hubbard` for exact excited eigenstates.
 
 ## Physics card
 

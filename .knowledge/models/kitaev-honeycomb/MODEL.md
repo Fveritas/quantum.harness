@@ -1,6 +1,7 @@
 # Kitaev honeycomb
 
 Solve the Kitaev honeycomb model — a spin-1/2 model with bond-dependent (compass) Ising exchange that is exactly solvable by Majorana fermionization and hosts a Z2 quantum spin liquid with Abelian and non-Abelian anyonic phases.
+Exact solution: see `.knowledge/solvable/kitaev-honeycomb/` (oracle card).
 
 ## Physics card
 

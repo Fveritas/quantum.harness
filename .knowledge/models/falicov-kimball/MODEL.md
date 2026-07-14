@@ -1,6 +1,7 @@
 # Falicov–Kimball
 
 Itinerant `c`-electrons interacting with localized, immobile `f`-electrons via an on-site repulsion. The simplest correlated lattice model with a metal–insulator transition and charge-density-wave order; exactly solvable by dynamical mean-field theory in infinite dimensions, and free of the fermion sign problem because the `f`-configuration is static.
+Exact solution: see `.knowledge/solvable/falicov-kimball-dinf/` (oracle card).
 
 ## Physics card
 

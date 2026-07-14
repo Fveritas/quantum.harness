@@ -1,6 +1,7 @@
 # Kitaev chain (p-wave wire)
 
 The spinless p-wave superconducting wire — the minimal model of a 1D topological superconductor. A BdG-quadratic (free-fermion) model, exactly solvable, hosting unpaired Majorana zero modes at its ends in the topological phase. Maps to the transverse-field Ising chain by Jordan–Wigner.
+Exact solution: see `.knowledge/solvable/kitaev-chain/` (oracle card).
 
 ## Physics card
 

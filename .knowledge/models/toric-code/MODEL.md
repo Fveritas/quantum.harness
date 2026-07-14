@@ -1,6 +1,7 @@
 # Toric code
 
 The exactly-solvable Z2 stabilizer model on a square lattice (qubits on edges) — the minimal model of intrinsic topological order, with a 4-fold-degenerate ground space on the torus, Abelian `e`/`m` anyons, and topological entanglement entropy `γ = ln 2`.
+Exact solution: see `.knowledge/solvable/toric-code/` (oracle card).
 
 This is a reference / conceptual card, not a compute target: every quantity of interest is known exactly, so it serves as the canonical anchor for topological-order diagnostics (GSD, anyons, TEE) used elsewhere.
 

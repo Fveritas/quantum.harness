@@ -1,6 +1,7 @@
 # Sachdev–Ye–Kitaev (SYK)
 
 `N` Majorana fermions with all-to-all, Gaussian-random four-body couplings and **no lattice geometry whatsoever** — a 0+1-dimensional quantum-mechanical model. It is **solvable in the large-`N` limit** (melonic / Schwinger–Dyson, conformal IR), is a **non-Fermi liquid with no quasiparticles**, is **maximally chaotic** (its Lyapunov exponent saturates the chaos bound `λ_L = 2πk_BT/ℏ`), carries an **extensive zero-temperature entropy**, and is **holographically dual** to near-extremal (AdS₂) black holes / JT gravity. The standard testbed for strange-metal and quantum-gravity physics.
+Exact solution: see `.knowledge/solvable/syk/` (oracle card).
 
 ## Physics card
 

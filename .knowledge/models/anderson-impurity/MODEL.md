@@ -1,6 +1,7 @@
 # Anderson Impurity
 
 Solve Anderson impurity ground-state problems. The Hamiltonian decomposes into a local interacting piece, a bath, and a hybridization. Bath discretization quality is the dominant practical concern.
+Exact solution: see `.knowledge/solvable/anderson-impurity-bethe/` (oracle card).
 
 ## Physics card
 

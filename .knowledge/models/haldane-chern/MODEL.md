@@ -1,6 +1,7 @@
 # Haldane (Chern insulator)
 
 The honeycomb tight-binding model with a complex next-nearest-neighbor hopping (staggered flux, **zero net flux per cell**) and a sublattice mass — the first **Chern insulator / quantum anomalous Hall** model: a quantized Hall conductance `σ_xy = ±e²/h` with no net magnetic field. A free-fermion (quadratic) model, exactly solvable, the prototype of band topology in symmetry class A.
+Exact solution: see `.knowledge/solvable/haldane-chern/` (oracle card).
 
 ## Physics card
 
