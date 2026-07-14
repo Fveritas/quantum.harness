@@ -94,6 +94,9 @@ HOOKS = {
     "jaynes-cummings": "RWA dressed states; vacuum Rabi splitting 2g",
     "dicke-tavis-cummings": "excitation-number blocks; superradiant λ_c=√(ωω₀)/2",
     "quantum-rabi": "Braak G-function roots; exact transcendental spectrum",
+    "random-matrix-stats": "Wigner/Atas surmises; ⟨r̃⟩ GOE/GUE/GSE, Kramers doubling",
+    "syk": "melonic large-N; N mod 8 class, S₀≈0.2324 entropy",
+    "falicov-kimball-dinf": "DMFT-exact in d=∞; checkerboard CDW, sign-free",
 }
 
 TIER_TITLES = {

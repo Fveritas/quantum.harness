@@ -126,10 +126,10 @@ built `ORACLE.md` where available.
 | `dicke-tavis-cummings` | B | S | ✓ wave 3 | [ORACLE](./dicke-tavis-cummings/ORACLE.md) |
 | `jaynes-cummings` | A | S | ✓ wave 3 | [ORACLE](./jaynes-cummings/ORACLE.md) |
 | `quantum-rabi` | B | S | ✓ wave 3 | [ORACLE](./quantum-rabi/ORACLE.md) |
-| `syk` | D | P | wave 3 | — |
+| `syk` | D | P | ✓ wave 3 | [ORACLE](./syk/ORACLE.md) |
 | `curie-weiss-tfim` | D | S | ✓ wave 3 | [ORACLE](./curie-weiss-tfim/ORACLE.md) |
-| `random-matrix-stats` | A | S | wave 3 | — |
-| `falicov-kimball-dinf` | D | T | wave 3 | — |
+| `random-matrix-stats` | A | S | ✓ wave 3 | [ORACLE](./random-matrix-stats/ORACLE.md) |
+| `falicov-kimball-dinf` | D | T | ✓ wave 3 | [ORACLE](./falicov-kimball-dinf/ORACLE.md) |
 
 ## T7 Dualities & solvable dynamics
 
@@ -142,11 +142,12 @@ built `ORACLE.md` where available.
 
 ## Totals
 
-63 models — 56 built (wave 1 complete: 20 T1 + T4 cards; wave 2
+63 models — 59 built (wave 1 complete: 20 T1 + T4 cards; wave 2
 complete: 23 of 23 T2 + T3 cards; wave 3 in progress: 8 of 8 T5 cards —
 `aklt-chain`, `aklt-honeycomb`, `majumdar-ghosh`, `shastry-sutherland-dimer`,
 `rk-quantum-dimer`, `motzkin-fredkin`, `eta-pairing-hubbard`, `pxp-scars`;
-5 of 8 T6 cards — `lmg`, `curie-weiss-tfim`, `jaynes-cummings`,
-`dicke-tavis-cummings`, `quantum-rabi`),
-7 wave 3 rows remaining (rest of T6 + T7).
+8 of 8 T6 cards — `lmg`, `curie-weiss-tfim`, `jaynes-cummings`,
+`dicke-tavis-cummings`, `quantum-rabi`, `syk`, `random-matrix-stats`,
+`falicov-kimball-dinf`),
+4 wave 3 rows remaining (all T7).
 Script-flag totals: **46 S · 10 P · 7 T**.

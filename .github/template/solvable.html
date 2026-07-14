@@ -1017,7 +1017,26 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/quantum-rabi/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/quantum-rabi/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<div class="model ghost" data-name="syk" data-hook="" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="D" data-flag="P"><div class="grow"><span class="mname">syk</span><span class="hook"></span><span class="bset"><span class="b" title="Tier D — exact in a limit">D</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-dim">wave 3</span></span></div></div>
+<details class="model" data-name="syk" data-hook="melonic large-N; N mod 8 class, S₀≈0.2324 entropy" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="D" data-flag="P">
+<summary><span class="mname">syk</span><span class="hook">melonic large-N; N mod 8 class, S₀≈0.2324 entropy</span><span class="bset"><span class="b" title="Tier D — exact in a limit">D</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 3</span></span></summary>
+<div class="mbody">
+<div class="math">$$H = \sum_{i&lt;j&lt;k&lt;l} J_{ijkl}\,\chi_i\chi_j\chi_k\chi_l, \qquad \overline{J_{ijkl}}=0,\quad \overline{J_{ijkl}^{\,2}}=\frac{3!\,J^2}{N^3}=\frac{(q-1)!\,J^2}{N^{q-1}}\;(q=4)$$</div>
+<p class="solv">T6 / Tier D (exact in the N→∞ limit): after disorder averaging, the 1/N^3 variance makes only &quot;melonic&quot; diagrams survive, and the theory closes into the Schwinger–Dyson equations <span class="cite" title="[@MaldacenaStanford2016]">Maldacena–Stanford 2016</span> Eq. (2.6), 1/G(iω) = -iω - Σ(iω), Σ(τ) = J^2 G(τ)^{q-1}, which are *exact* at N=∞. Their strong-coupling (IR) solution is conformal, G_c(τ)∝\mathrm{sgn}(τ)/|τ|^{2Δ} with fermion dimension Δ=1/q=1/4, and the model is a non-Fermi liquid: maximal chaos (Lyapunov exponent saturating λ_L=2πk_BT/ℏ) and an extensive zero-temperature entropy S_0/N≈0.2324. Not exact at finite N: the finite-N model is fully chaotic (random-matrix level statistics) and requires ED. So this is a D-tier / P-script card — the exact content is the N→∞ limit (tabulated conformal data + the scripted SD entropy trend) and the finite-N ED level statistics are exact reference numbers for whatever N is diagonalised, *not* a thermodynamic-limit claim.</p>
+<div class="tablewrap"><table class="bench"><thead><tr><th>Quantity</th><th>Params</th><th>Exact value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td><code>⟨r̃⟩</code> (level class)</td><td><code>N=16</code>, <code>mod 8=0</code></td><td><code>0.531</code> → **GOE** <code>0.5307</code></td><td><span class="cite" title="[@GarciaGarciaVerbaarschot2016; @AtasEtAl2013]">Garcia–Garcia–Verbaarschot 2016, Atas–Et–Al 2013</span></td></tr>
+<tr><td><code>⟨r̃⟩</code> (level class)</td><td><code>N=12</code>, <code>mod 8=4</code></td><td><code>0.678</code> → **GSE** <code>0.6744</code></td><td><span class="cite" title="[@YouLudwigXu2017; @AtasEtAl2013]">You–Ludwig–Xu 2017, Atas–Et–Al 2013</span></td></tr>
+<tr><td>Kramers pair-gap</td><td><code>N=12</code> (GSE sector)</td><td><code>&lt;1e-9</code> (doubling exact)</td><td>this card (identity-proof)</td></tr>
+<tr><td><code>Δ</code> (fermion dimension)</td><td><code>q=4</code></td><td><code>1/4</code> (tabulated)</td><td><span class="cite" title="[@MaldacenaStanford2016]">Maldacena–Stanford 2016</span></td></tr>
+<tr><td>conformal amplitude <code>b</code></td><td><code>βJ=40</code></td><td><code>0.524 → (4π)^{-1/4}=0.5311</code></td><td>this card / <span class="cite" title="[@MaldacenaStanford2016]">Maldacena–Stanford 2016</span></td></tr>
+<tr><td><code>S/N</code> high-<code>T</code></td><td><code>βJ→0</code></td><td><code>\tfrac12\ln2=0.34657</code></td><td>this card</td></tr>
+<tr><td><code>S/N</code> at <code>βJ=40</code></td><td>SD, observed</td><td><code>≈0.241</code> (decreasing → <code>S_0</code>)</td><td>this card (observed)</td></tr>
+<tr><td><code>S_0/N</code> (zero-<code>T</code> entropy)</td><td><code>q=4</code>, <code>N→∞</code></td><td><code>≈0.2324</code> (tabulated)</td><td><span class="cite" title="[@MaldacenaStanford2016]">Maldacena–Stanford 2016</span></td></tr>
+<tr><td><code>E/N</code> (ground energy)</td><td>SD <code>βJ=40</code></td><td><code>≈-0.0405</code></td><td>this card / <span class="cite" title="[@GarciaGarciaVerbaarschot2016]">Garcia–Garcia–Verbaarschot 2016</span></td></tr>
+</tbody></table></div>
+<p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/syk/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/syk/oracle.py">oracle.py&nbsp;&#8599;</a></p>
+</div>
+</details>
 <details class="model" data-name="curie-weiss-tfim" data-hook="fully-connected TFIM; mean-field exact in N→∞" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="D" data-flag="S">
 <summary><span class="mname">curie-weiss-tfim</span><span class="hook">fully-connected TFIM; mean-field exact in N→∞</span><span class="bset"><span class="b" title="Tier D — exact in a limit">D</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
@@ -1034,8 +1053,43 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/curie-weiss-tfim/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/curie-weiss-tfim/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<div class="model ghost" data-name="random-matrix-stats" data-hook="" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="A" data-flag="S"><div class="grow"><span class="mname">random-matrix-stats</span><span class="hook"></span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-dim">wave 3</span></span></div></div>
-<div class="model ghost" data-name="falicov-kimball-dinf" data-hook="" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="D" data-flag="T"><div class="grow"><span class="mname">falicov-kimball-dinf</span><span class="hook"></span><span class="bset"><span class="b" title="Tier D — exact in a limit">D</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-dim">wave 3</span></span></div></div>
+<details class="model" data-name="random-matrix-stats" data-hook="Wigner/Atas surmises; ⟨r̃⟩ GOE/GUE/GSE, Kramers doubling" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="A" data-flag="S">
+<summary><span class="mname">random-matrix-stats</span><span class="hook">Wigner/Atas surmises; ⟨r̃⟩ GOE/GUE/GSE, Kramers doubling</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
+<div class="mbody">
+<div class="math">$$\rho(e_1,\dots,e_N)=C_{\beta,N}\!\!\prod_{i&lt;j}|e_i-e_j|^{\beta}\prod_i e^{-\beta e_i^2/2}, \qquad \beta=1\,(\text{GOE}),\;2\,(\text{GUE}),\;4\,(\text{GSE})$$</div>
+<p class="solv">T6 (random): the classical Gaussian ensembles are exactly characterised at the level of their spectral correlation functions. Two closed-form ingredients are pinned here. (1) Wigner spacing surmise: the 2×2 result P_β(s) = a_β s^{β} e^{-b_β s^2} is, to &lt;1% deviation, the large-N nearest-neighbour spacing distribution <span class="cite" title="[@Wigner1951]">Wigner 1951</span>; the two constants a_β, b_β are fixed uniquely by imposing unit normalisation ∫P ds = 1 and unit mean spacing ∫sP ds = 1 — the oracle re-derives them numerically to 1e-8. (2) Ratio surmise: Atas–Bogomolny–Giraud–Roux <span class="cite" title="[@AtasEtAl2013]">Atas–Et–Al 2013</span> computed the exact 3×3 distribution P(r) = Z_β^{-1}(r+r^2)^{β}/(1+r+r^2)^{1+3β/2} and the mean ⟨r̃⟩; the Poisson value ⟨r̃⟩ = 2\ln 2 - 1 is exact (integrable levels), while the three Gaussian ensembles give the numerical large-matrix values 0.5307/0.5996/0.6744. Tier A: the spacing/ratio distributions are known in closed form; the sampled anchors are exact realisations of these ensembles, and the GSE construction is a genuine quaternionic self-dual matrix whose Kramers doubling is proven numerically before deduplication.</p>
+<div class="tablewrap"><table class="bench"><thead><tr><th>Quantity</th><th>Params</th><th>Exact value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td><code>⟨r̃⟩</code> Poisson</td><td>integrable levels</td><td><code>2\ln2-1 = 0.386294</code> (exact)</td><td><span class="cite" title="[@AtasEtAl2013]">Atas–Et–Al 2013</span></td></tr>
+<tr><td><code>⟨r̃⟩</code> GOE</td><td><code>β=1</code>, large matrix</td><td><code>0.5307</code> (surmise <code>4-2\sqrt3=0.53590</code>)</td><td><span class="cite" title="[@AtasEtAl2013]">Atas–Et–Al 2013</span></td></tr>
+<tr><td><code>⟨r̃⟩</code> GUE</td><td><code>β=2</code>, large matrix</td><td><code>0.5996</code> (surmise <code>0.60266</code>)</td><td><span class="cite" title="[@AtasEtAl2013]">Atas–Et–Al 2013</span></td></tr>
+<tr><td><code>⟨r̃⟩</code> GSE</td><td><code>β=4</code>, large matrix</td><td><code>0.6744</code> (surmise <code>0.67617</code>)</td><td><span class="cite" title="[@AtasEtAl2013]">Atas–Et–Al 2013</span></td></tr>
+<tr><td>sampled <code>⟨r̃⟩</code> GSE</td><td><code>n=350</code>, 20 real, seed 1</td><td><code>0.675</code> (in <code>0.6744±0.013</code>)</td><td>this card (measured)</td></tr>
+<tr><td>Kramers pair-gap</td><td>GSE <code>n=350</code></td><td><code>&lt;1e-9</code> (doubling exact)</td><td>this card (identity-proof)</td></tr>
+<tr><td>GUE pair-gap (control)</td><td><code>n=400</code></td><td><code>&gt;1e-3</code> (no doubling)</td><td>this card (negative control)</td></tr>
+<tr><td>Wigner surmise norm/mean</td><td><code>β∈{1,2,4}</code></td><td><code>∫P=∫sP=1</code> to <code>1e-8</code></td><td>this card <span class="cite" title="[@Wigner1951]">Wigner 1951</span></td></tr>
+</tbody></table></div>
+<p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/random-matrix-stats/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/random-matrix-stats/oracle.py">oracle.py&nbsp;&#8599;</a></p>
+</div>
+</details>
+<details class="model" data-name="falicov-kimball-dinf" data-hook="DMFT-exact in d=∞; checkerboard CDW, sign-free" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="D" data-flag="T">
+<summary><span class="mname">falicov-kimball-dinf</span><span class="hook">DMFT-exact in d=∞; checkerboard CDW, sign-free</span><span class="bset"><span class="b" title="Tier D — exact in a limit">D</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 3</span></span></summary>
+<div class="mbody">
+<div class="math">$$H = -t\sum_{\langle ij\rangle}\big(c^\dagger_i c_j + \text{h.c.}\big) + U\sum_i n^c_i\,n^f_i$$</div>
+<p class="solv">T6 / Tier D (exact in d=∞): because each n^f_i is conserved, tracing out the f-electrons leaves, for every frozen f-configuration, a free-fermion c-problem — the partition function is a *classical* sum over f-configurations of free-fermion determinants (manifestly positive, hence sign-free). In the limit Z→∞ the c-electron self-energy becomes purely local, and the lattice problem collapses onto a single-site impurity coupled to a self-consistent bath that closes exactly <span class="cite" title="[@BrandtMielsch1989]">Brandt–Mielsch 1989</span>: the DMFT equations are not an approximation but the exact d=∞ solution. This yields the exact c-spectral function, the metal–insulator transition (the DOS splits into lower/upper sub-bands separated by a gap ≈U at large U), and the checkerboard charge-density-wave transition temperature T_c(U) <span class="cite" title="[@FreericksZlatic2003]">Freericks–Zlatic 2003</span>. Not exact in finite d: finite-dimensional Falicov–Kimball is not integrable (though still sign-free); the DMFT solution and the closed-form results below are d=∞ statements. The finite-L numbers pinned here are exact ED references for a specific cluster, not thermodynamic or d=∞ values.</p>
+<div class="tablewrap"><table class="bench"><thead><tr><th>Quantity</th><th>Params</th><th>Exact value</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>annealed GS <code>E_0</code></td><td><code>U=0</code> (free)</td><td><code>-4.0000000000</code></td><td>finite-<code>L</code> ED reference, this card</td></tr>
+<tr><td>annealed GS <code>E_0</code></td><td><code>U=2</code></td><td><code>-2.0644951022</code></td><td>finite-<code>L</code> ED reference, this card</td></tr>
+<tr><td>annealed GS <code>E_0</code></td><td><code>U=4</code></td><td><code>-1.3005630797</code></td><td>finite-<code>L</code> ED reference, this card</td></tr>
+<tr><td>optimal <code>f</code>-config</td><td><code>U=2</code></td><td>**checkerboard <code>101010</code>**</td><td>this card (identity-proof)</td></tr>
+<tr><td><code>T=0</code> order (bipartite, half-filling)</td><td><code>d=∞</code>, any <code>U&gt;0</code></td><td>checkerboard CDW (exact)</td><td><span class="cite" title="[@BrandtMielsch1989; @FreericksZlatic2003]">Brandt–Mielsch 1989, Freericks–Zlatic 2003</span></td></tr>
+<tr><td>CDW <code>T_c(U)</code></td><td><code>d=∞</code>, half-filling</td><td><code>&gt;0</code>, non-monotonic in <code>U</code></td><td><span class="cite" title="[@FreericksZlatic2003]">Freericks–Zlatic 2003</span></td></tr>
+<tr><td><code>c</code>-charge gap</td><td><code>d=∞</code>, large <code>U</code></td><td><code>≈U</code> (band splitting)</td><td><span class="cite" title="[@FreericksZlatic2003]">Freericks–Zlatic 2003</span></td></tr>
+</tbody></table></div>
+<p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/falicov-kimball-dinf/ORACLE.md">ORACLE.md&nbsp;&#8599;</a></p>
+</div>
+</details>
 </section>
 
 <section class="tgroup" data-tech="T7">
