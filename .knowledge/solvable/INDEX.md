@@ -142,12 +142,12 @@ built `ORACLE.md` where available.
 
 ## Totals
 
-63 models — 59 built (wave 1 complete: 20 T1 + T4 cards; wave 2
-complete: 23 of 23 T2 + T3 cards; wave 3 in progress: 8 of 8 T5 cards —
-`aklt-chain`, `aklt-honeycomb`, `majumdar-ghosh`, `shastry-sutherland-dimer`,
-`rk-quantum-dimer`, `motzkin-fredkin`, `eta-pairing-hubbard`, `pxp-scars`;
-8 of 8 T6 cards — `lmg`, `curie-weiss-tfim`, `jaynes-cummings`,
-`dicke-tavis-cummings`, `quantum-rabi`, `syk`, `random-matrix-stats`,
-`falicov-kimball-dinf`),
-4 wave 3 rows remaining (all T7).
+63 of 63 models built — catalog complete (waves 1–3). Wave 1: 20 T1 + T4
+cards. Wave 2: 23 T2 + T3 cards. Wave 3: 20 cards across T5, T6, T7 —
+T5 (8): `aklt-chain`, `aklt-honeycomb`, `majumdar-ghosh`,
+`shastry-sutherland-dimer`, `rk-quantum-dimer`, `motzkin-fredkin`,
+`eta-pairing-hubbard`, `pxp-scars`; T6 (8): `lmg`, `curie-weiss-tfim`,
+`jaynes-cummings`, `dicke-tavis-cummings`, `quantum-rabi`, `syk`,
+`random-matrix-stats`, `falicov-kimball-dinf`; T7 (4): `kramers-wannier`,
+`jw-duality-dictionary`, `dual-unitary-circuits`, `kicked-ising-floquet`.
 Script-flag totals: **46 S · 10 P · 7 T**.

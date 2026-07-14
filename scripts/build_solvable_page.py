@@ -35,7 +35,7 @@ SUBTITLES = {
     "T7": "exact maps between models and exactly evolvable dynamics — Kramers–Wannier to dual-unitary circuits",
 }
 
-# 3–8-word summary-row hooks for the built (wave-1) cards, written from each
+# 3–8-word summary-row hooks for the built cards, written from each
 # card's scope/solvability content.
 HOOKS = {
     "tfim-chain": "Jordan–Wigner free fermions; gap 2|J−h|",
