@@ -57,3 +57,28 @@ def test_skill_slugs_are_clean(sections):
     bad = [r["skill_slug"] for s in sections for r in s["rows"]
            if "`" in r["skill_slug"] or " " in r["skill_slug"]]
     assert not bad, f"skill slugs with backticks/spaces: {bad}"
+
+
+def test_every_card_parses_completely(sections):
+    bad = []
+    for s in sections:
+        for r in s["rows"]:
+            c = r["card"]
+            missing = ([f"props={len(c['props'])}"] if len(c["props"]) != 14 else []
+                       + [k for k in ("cost", "recommended", "benchmarks", "keyref")
+                          if not c[k]])
+            if missing:
+                bad.append((r["slug"], missing))
+    assert not bad, f"cards with incomplete parses: {bad}"
+
+
+def test_no_index_row_silently_dropped():
+    raw = (ROOT / "INDEX.md").read_text(encoding="utf-8")
+    raw_rows = [ln for ln in raw.splitlines()
+                if ln.startswith("|") and "`" in ln.split("|")[2]]
+    # every data row has a backticked slug in cell 2; header/separator rows don't
+    parsed = methods.parse_methods_index(raw)
+    n_parsed = sum(len(s["rows"]) for s in parsed)
+    assert n_parsed == len(raw_rows), (
+        f"{len(raw_rows)} raw INDEX data rows but {n_parsed} parsed — "
+        "a row's shape doesn't match ROW_RE")

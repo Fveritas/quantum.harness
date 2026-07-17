@@ -94,3 +94,11 @@ def md_inline(s: str) -> str:
     out = cite_spans(esc(s))
     out = re.sub(r"`([^`]+)`", r"<code>\1</code>", out)
     return re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", out)
+
+
+def list_block(heading: str, items: list) -> str:
+    """`<h3>heading</h3><ul>…</ul>` block from bullet strings; "" when empty."""
+    if not items:
+        return ""
+    lis = "\n".join(f"<li>{md_inline(i)}</li>" for i in items)
+    return f"<h3>{esc(heading)}</h3>\n<ul>\n{lis}\n</ul>"

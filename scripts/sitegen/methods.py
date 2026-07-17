@@ -119,13 +119,6 @@ def _data_attrs(r: dict, num: str) -> str:
             f' data-extra="{parse.esc(r["skill"] + " " + r["key"])}"')
 
 
-def _list_block(heading: str, items: list) -> str:
-    if not items:
-        return ""
-    lis = "\n".join(f"<li>{parse.md_inline(i)}</li>" for i in items)
-    return f"<h3>{parse.esc(heading)}</h3>\n<ul>\n{lis}\n</ul>"
-
-
 def _render_row(r: dict, num: str) -> str:
     card = r["card"]
     body = []
@@ -139,9 +132,9 @@ def _render_row(r: dict, num: str) -> str:
             '<div class="tablewrap"><table class="bench">'
             '<thead><tr><th>Axis</th><th>Value</th><th>Note</th></tr></thead>\n'
             f'<tbody>\n{rows}\n</tbody></table></div>')
-    body.append(_list_block("Cost & scaling", card["cost"]))
-    body.append(_list_block("Recommended for", card["recommended"]))
-    body.append(_list_block("Benchmarks", card["benchmarks"]))
+    body.append(parse.list_block("Cost & scaling", card["cost"]))
+    body.append(parse.list_block("Recommended for", card["recommended"]))
+    body.append(parse.list_block("Benchmarks", card["benchmarks"]))
     if card["keyref"]:
         body.append(f'<p class="solv">Key reference: {parse.md_inline(card["keyref"])}</p>')
     body.append(f'<p class="cardlinks">'
@@ -178,7 +171,7 @@ def render(sections: list) -> str:
         for r in s["rows"]:
             if r["skill_slug"] not in skill_titles:
                 skill_vals.append(r["skill_slug"])
-                skill_titles[r["skill_slug"]] = r["skill"]
+                skill_titles[r["skill_slug"]] = r["skill"].strip("`")
     chips_html = (
         f'<span class="cgroup"><span class="clabel">Family</span>'
         f'{shell.chips("family", [s["num"] for s in sections], family_titles)}</span>\n'

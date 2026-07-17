@@ -215,13 +215,6 @@ def _data_attrs(e: dict) -> str:
             f' data-extra="{parse.esc(e["family_title"])}"')
 
 
-def _list_block(heading: str, items: list) -> str:
-    if not items:
-        return ""
-    lis = "\n".join(f"<li>{parse.md_inline(i)}</li>" for i in items)
-    return f"<h3>{parse.esc(heading)}</h3>\n<ul>\n{lis}\n</ul>"
-
-
 def _render_row(e: dict) -> str:
     card = e["card"]
     body = []
@@ -237,10 +230,10 @@ def _render_row(e: dict) -> str:
             '<div class="tablewrap"><table class="bench">'
             '<thead><tr><th>Axis</th><th>Value</th><th>Note</th></tr></thead>\n'
             f'<tbody>\n{rows}\n</tbody></table></div>')
-    body.append(_list_block("Phases & order parameters", card["phases"]))
-    body.append(_list_block("Canonical observables", card["observables"]))
-    body.append(_list_block("Recommended methods", card["methods"]))
-    body.append(_list_block("Benchmarks", card["benchmarks"]))
+    body.append(parse.list_block("Phases & order parameters", card["phases"]))
+    body.append(parse.list_block("Canonical observables", card["observables"]))
+    body.append(parse.list_block("Recommended methods", card["methods"]))
+    body.append(parse.list_block("Benchmarks", card["benchmarks"]))
     if card["keyref"]:
         body.append(f'<p class="solv">Key reference: {parse.md_inline(card["keyref"])}</p>')
     links = [f'<a href="{BLOB}{e["slug"]}/MODEL.md">MODEL.md&nbsp;&#8599;</a>']

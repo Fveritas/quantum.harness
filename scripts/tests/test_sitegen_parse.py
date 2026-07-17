@@ -113,3 +113,8 @@ def test_axis_table_escaped_pipe_stays_in_cell():
 
 def test_bullets_star_markers():
     assert parse.bullets("* one\n- two\n") == ["one", "two"]
+
+
+def test_list_block():
+    assert parse.list_block("H", ["a **b**"]) == "<h3>H</h3>\n<ul>\n<li>a <b>b</b></li>\n</ul>"
+    assert parse.list_block("H", []) == ""
