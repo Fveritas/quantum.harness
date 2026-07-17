@@ -20,7 +20,7 @@ ZLP := zlp
 
 INSTALLABLE := quimb quspin julia itensors xdiag jax tensorcircuit-ng netket netket-gpu mpskit tenpy sse pepskit nctssos qmbcertify cpmc-lab classical-repro pdf-render node
 
-.PHONY: skills clean help install test serve $(addprefix install-,$(INSTALLABLE))
+.PHONY: skills clean help install test site serve $(addprefix install-,$(INSTALLABLE))
 .PHONY: zulip-whoami zulip-pull zulip-send zulip-topics zulip-messages zulip-config
 
 help: ## Show available targets and installable tools
@@ -286,3 +286,10 @@ clean: ## Remove generated HTML artifacts
 
 test-oracles:  ## run the solvable-catalog oracle self-tests
 	cd .knowledge/solvable && uv run pytest -q
+
+site: ## Regenerate the three catalog pages and run the drift + byte-stable tests
+	python3 scripts/build_site.py
+	python3 -m pytest .knowledge/models/tests/ .knowledge/methods/tests/ \
+		scripts/tests/test_sitegen_parse.py scripts/tests/test_sitegen_shell.py \
+		scripts/tests/test_build_site.py -q
+	cd .knowledge/solvable && uv run pytest tests/test_build_page.py -q
