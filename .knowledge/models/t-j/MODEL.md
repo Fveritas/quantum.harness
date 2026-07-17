@@ -23,7 +23,7 @@ Conventions: `t > 0` (energy unit `t = 1`), `J > 0` antiferromagnetic; `P` proje
 | B6 spectral gap | doped: gapless · zero doping: reduces to Heisenberg (gapless 1D / 2D AFM) | At half-filling (`n=1`) kinetic term is fully projected → pure Heisenberg. |
 | B7 ground-state order | 2D large-`J/t`: `d_{x²-y²}` superconductivity / stripes / phase separation · doped: Luttinger liquid (1D) · half-filled: AFM | Phase separation at large `J/t`; stripe vs uniform d-SC near degenerate in the cuprate window. |
 | B8 frustration | none on bipartite lattices · geometric on triangular · fermionic sign on doping | Fermionic antisymmetry under doping is the intrinsic frustration. |
-| C9 global symmetry | U(1)_charge × SU(2)_spin (`N↑`, `N↓` conserved; `S^z`) | At the supersymmetric point `J=2t`, an enlarged `su(2|1)` superalgebra appears (1D). |
+| C9 global symmetry | U(1)_charge × SU(2)_spin (`N↑`, `N↓` conserved; `S^z`) | At the supersymmetric point `J=2t`, an enlarged `su(2\|1)` superalgebra appears (1D). |
 | C10 spatial symmetry | translation (`k`), point group (`D_4` square), inversion | Block-diagonalizes ED sectors. |
 | C11 integrability | 1D **supersymmetric integrable point at `J = 2t`** (Bethe ansatz, Sutherland/Schlottmann); otherwise non-integrable | `J=2t` gives an exact spectrum/thermodynamics benchmark; generic `J/t` is fully numerical. |
 | C12 sign problem | half-filling (`n=1`, → Heisenberg, bipartite): sign-free · doped: severe sign problem | Doping turns on the fermion sign — QMC is blocked away from the Heisenberg limit. |

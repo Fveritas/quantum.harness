@@ -21,7 +21,7 @@ Conventions: spinless fermions (one species, no spin index); `t > 0` (energy uni
 | A3 statistics & local dim | spinless fermion; `d = 2` per site (empty / occupied) | The smallest fermionic local space — cheap per-site cost. |
 | A4 interaction range | short-range: NN hopping + NN repulsion `V` (extended adds `V'`) | Local — area-law compatible. |
 | B5 entanglement scaling | 1D: area+log (Luttinger liquid, `c=1`) for `V < V_c`; area law (gapped CDW) for `V > V_c` · 2D: area law | At half-filling the 1D transition (`V_c = 2t`, i.e. XXZ `Δ=1`) is BKT-type. |
-| B6 spectral gap | 1D half-filling: gapless metal (`|V| < 2t`) / gapped CDW (`V > 2t`) · away from half-filling: gapless Luttinger liquid | Maps to the XXZ gap: gapless XY phase `|Δ|<1`, gapped Ising-AFM `Δ>1`. |
+| B6 spectral gap | 1D half-filling: gapless metal (`\|V\| < 2t`) / gapped CDW (`V > 2t`) · away from half-filling: gapless Luttinger liquid | Maps to the XXZ gap: gapless XY phase `\|Δ\|<1`, gapped Ising-AFM `Δ>1`. |
 | B7 ground-state order | Luttinger liquid (metal) · **charge-density wave** at half-filling for `V > V_c=2t` · phase separation for `V < -V_c` (attractive) | CDW = staggered density `⟨n_i⟩ = n̄ ± δ(-1)^i`; the XXZ Ising-AFM Néel state. |
 | B8 frustration | none on bipartite (chain, square) · geometric on triangular · fermionic sign on doping/2D | Bipartite half-filling is unfrustrated and sign-free. |
 | C9 global symmetry | U(1)_charge (`N_f` conserved); particle-hole at half-filling on bipartite lattices | No spin SU(2) (spinless); JW image has only U(1) `S^z` (XXZ has no SU(2) except `Δ=1`). |

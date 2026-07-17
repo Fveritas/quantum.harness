@@ -46,7 +46,7 @@ Self-test anchors: (1) `f` vanishes exactly (`< 1e-12`) at the analytic `K` poin
 
 | Quantity | Params | Exact value | Source |
 |---|---|---|---|
-| `e0_per_site` | isotropic `J_x=J_y=J_z=1` (Pauli convention) | `−0.787299` (`= −½⟨|f|⟩_BZ`, `⟨|f|⟩ ≈ 1.574597`) | [@Kitaev2006] |
+| `e0_per_site` | isotropic `J_x=J_y=J_z=1` (Pauli convention) | `−0.787299` (`= −½⟨\|f\|⟩_BZ`, `⟨\|f\|⟩ ≈ 1.574597`) | [@Kitaev2006] |
 | `gap` | isotropic (B phase, Dirac point) | `0` | [@Kitaev2006] |
 | `e0_per_site` | decoupled dimers `J_x=J_y=0, J_z=1` | `−1/2` | derived above |
 | `gap` | A phase `J_z=2.5, J_x=J_y=1` | `1` (`= 2(J_z−J_x−J_y)`) | derived above, [@Kitaev2006] |

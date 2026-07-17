@@ -28,8 +28,8 @@ Conventions: per-atom two-level system `{|g⟩,|r⟩}`; `n_i = |r⟩⟨r|_i` is 
 | C9 global symmetry | `Z_2` (spatial inversion / reflection); particle-hole-like spectral reflection of the PXP spectrum | No U(1): the drive does not conserve excitation number (`Δ=0` PXP). |
 | C10 spatial symmetry | translation (`k`), inversion/parity | Scar states carry definite momentum (`k=0` and `k=π`); used to resolve the tower in ED. |
 | C11 integrability | **non-integrable** (level repulsion, ETH for the bulk) — but hosts **quantum many-body scars** (weak ergodicity breaking, ETH violated only in the scar subspace) | The scarred subspace is approximately decoupled from the thermal bulk (an approximate `su(2)` "spectrum-generating" algebra). |
-| C12 sign problem | n/a — this is a real-time-dynamics / ED-MPS target, not a QMC target | Quench dynamics from `|Z₂⟩` is the workhorse calculation; no Monte Carlo sampling. |
-| D13 regime | **real-time quench dynamics** (revivals from `|Z₂⟩`) is the defining regime; also full-spectrum (ED) and ground state (detuned phase) | `|Z₂⟩` is an infinite-temperature state for the constrained ensemble, yet shows periodic revivals. |
+| C12 sign problem | n/a — this is a real-time-dynamics / ED-MPS target, not a QMC target | Quench dynamics from `\|Z₂⟩` is the workhorse calculation; no Monte Carlo sampling. |
+| D13 regime | **real-time quench dynamics** (revivals from `\|Z₂⟩`) is the defining regime; also full-spectrum (ED) and ground state (detuned phase) | `\|Z₂⟩` is an infinite-temperature state for the constrained ensemble, yet shows periodic revivals. |
 | D14 filling / doping | n/a (spin/qubit model; detuning `Δ` plays the role of a chemical potential for excitations) | Tuning `Δ` drives the disordered ↔ Z₂-ordered transition. |
 | D15 disorder | clean (translation-invariant) by default | Site/detuning disorder can be added (tweezer arrays), tuning toward localization. |
 | D16 hermiticity | Hermitian / closed (unitary quench) | Dissipation (atom loss, spontaneous emission) is a separate open-system extension. |
@@ -70,7 +70,7 @@ Rendered: `./2011.09486_quantum-many-body-scars-and-weak-breaking-of-ergodicity.
 | Regime | Method | Card |
 |---|---|---|
 | Full spectrum, scar tower, level statistics (`N ≲ 32`, constrained) | ED | `skills/method-ed/SKILL.md` |
-| `|Z₂⟩` quench dynamics / revivals, longer times | MPS (TDVP/TEBD) | `skills/method-mps/SKILL.md` |
+| `\|Z₂⟩` quench dynamics / revivals, longer times | MPS (TDVP/TEBD) | `skills/method-mps/SKILL.md` |
 | Detuned ground state, Z₂ order, `Δ`-scan | DMRG | `skills/method-mps/SKILL.md` |
 | Circuit / state-vector quench cross-check | QCS | `skills/method-qcs/SKILL.md` |
 

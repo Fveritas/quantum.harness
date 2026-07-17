@@ -20,8 +20,8 @@ Conventions: spinless fermions on a chain; `t > 0` hopping (energy unit `t = 1`)
 | A3 statistics & local dim | spinless fermion; `d = 2` per site; **BdG-quadratic** | Solved by Bogoliubov–de Gennes diagonalization (pairing → particle-hole-doubled single-particle problem). |
 | A4 interaction range | short-range: NN hopping + NN p-wave pairing | Local; no interactions. |
 | B5 entanglement scaling | area law (constant, gapped); ground-state fermion-parity (Majorana) degeneracy under OBC | Free-fermion ground state; the topological degeneracy is the entanglement/edge signature. |
-| B6 spectral gap | gapped (bulk BdG gap) except at the transition `μ = ±2t` where the gap closes | Gap closing at `|μ| = 2t` is the topological phase transition. |
-| B7 ground-state order | **1D topological superconductor** (class **D**, Z2 invariant) for `|μ| < 2t` vs trivial for `|μ| > 2t` | Topological phase: **Majorana zero modes** localized at the two ends; near-degenerate even/odd-parity ground states. |
+| B6 spectral gap | gapped (bulk BdG gap) except at the transition `μ = ±2t` where the gap closes | Gap closing at `\|μ\| = 2t` is the topological phase transition. |
+| B7 ground-state order | **1D topological superconductor** (class **D**, Z2 invariant) for `\|μ\| < 2t` vs trivial for `\|μ\| > 2t` | Topological phase: **Majorana zero modes** localized at the two ends; near-degenerate even/odd-parity ground states. |
 | B8 frustration | none (free fermions) | — |
 | C9 global symmetry | **fermion parity Z2** (`P = ∏(1−2n_i)`) — pairing breaks charge U(1); particle-hole (BdG) symmetry; time-reversal → class D | No charge conservation: superconducting pairing breaks U(1) down to Z2 parity. The two Majorana-degenerate ground states differ by total fermion parity. |
 | C10 spatial symmetry | translation (`k`, PBC); inversion | Bulk Z2 invariant defined from the BdG Bloch Hamiltonian. |

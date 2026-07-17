@@ -18,7 +18,7 @@ AFQMC projects the ground state by iterating `|Ψ⟩ ← e^{−ΔτH}|Ψ⟩` in 
 |---|---|---|
 | M1 tasks / outputs | GS energy (benchmark-grade for many Hubbard regimes) · back-propagated observables (density, correlation functions) · imaginary-time correlations → spectral functions via analytic continuation | Best-in-class for GS energy of the 2D Hubbard model; back-propagated observables carry extra bias from the constraint. |
 | M2 regime | T=0 (ground state) | DQMC is the finite-T sibling; AFQMC-CPMC targets the GS specifically. |
-| M3 accuracy class | Controlled-bias — phaseless/constrained-path bias set by trial-state quality; stochastic | Statistical error `∝1/√(N_w·N_steps)`; systematic bias shrinks as `|Ψ_T⟩` → exact GS; free-projection (unbiased) is exponentially costly. |
+| M3 accuracy class | Controlled-bias — phaseless/constrained-path bias set by trial-state quality; stochastic | Statistical error `∝1/√(N_w·N_steps)`; systematic bias shrinks as `\|Ψ_T⟩` → exact GS; free-projection (unbiased) is exponentially costly. |
 | M4 dimension fit (A1) | Any dimension (1D, 2D, 3D) | Frequently applied to 2D Hubbard where it gives the best GS energies among polynomial-cost methods. |
 | M5 statistics & local dim (A3) | Fermions (primary); also applied to real materials via plane-wave basis | Each walker is a Slater determinant; `N` orbitals (sites × spin); local dim `d=4` Hubbard. |
 | M6 entanglement regime (B5) | Volume-law tolerated | Walker space imposes no entanglement restriction; the constraint bias is the limit, not entanglement. |

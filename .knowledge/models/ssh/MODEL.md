@@ -20,7 +20,7 @@ Conventions: spinless fermions on a chain with a two-site (A, B) unit cell; `t_1
 | A3 statistics & local dim | spinless fermion; `d = 2` per site (single orbital) | Single-particle problem per `k`; the many-body state is a Slater determinant. |
 | A4 interaction range | short-range: nearest-neighbor hopping only (alternating `t_1`, `t_2`) | Local; no interactions. |
 | B5 entanglement scaling | area law (constant, gapped) — entanglement spectrum carries the topological signature (degeneracy in the topological phase) | Free-fermion ground state; entanglement-spectrum degeneracy ↔ edge modes. |
-| B6 spectral gap | gapped (bulk gap `= 2|t_1 − t_2|`) everywhere **except** the critical point `t_1 = t_2` (Dirac point, gapless) | Gap closing at `t_1=t_2` is the topological phase transition. |
+| B6 spectral gap | gapped (bulk gap `= 2\|t_1 − t_2\|`) everywhere **except** the critical point `t_1 = t_2` (Dirac point, gapless) | Gap closing at `t_1=t_2` is the topological phase transition. |
 | B7 ground-state order | **1D symmetry-protected topological (SPT)** phase (`t_2>t_1`) vs trivial (`t_1>t_2`) — class **BDI / AIII** (chiral/sublattice symmetry) | Topological phase: winding number `ν=1`, Zak phase `π`, protected zero-energy edge states. Trivial: `ν=0`, Zak phase `0`. |
 | B8 frustration | none (free fermions, bipartite) | — |
 | C9 global symmetry | chiral / sublattice (A/B) symmetry `Γ = σ_z` (the protecting symmetry; quantizes the winding/Zak phase) + U(1) charge (particle number); time-reversal + particle-hole → class BDI | Chiral symmetry is what protects the SPT; breaking it (e.g. an on-site staggered potential) trivializes the topology. |

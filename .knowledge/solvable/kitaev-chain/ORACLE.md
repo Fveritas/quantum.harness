@@ -34,7 +34,7 @@ Self-test anchors: (1) sweet-spot flat band `ε = 2t` to `1e-12`; (2) gap closes
 | `e0_per_site` | `μ=0, t=Δ=1` (sweet spot) | `-1` | [@Kitaev2001] |
 | `gap` (flat band) | `μ=0, t=Δ=1` | `2` (`= 2t`) | [@Kitaev2001] |
 | `gap` | `μ=2t` (transition) | `0` | [@Kitaev2001] |
-| `topological` | `|μ| < 2t` / `|μ| > 2t` | `True` / `False` | [@Kitaev2001] |
+| `topological` | `\|μ\| < 2t` / `\|μ\| > 2t` | `True` / `False` | [@Kitaev2001] |
 
 ## Verification recipes
 
