@@ -20,7 +20,6 @@ BLOB = "https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solva
 _strip_md = parse.strip_md
 _section = parse.section
 _esc = parse.esc
-_fmt_cite = parse.fmt_cite
 _cite_spans = parse.cite_spans
 _md_cell = parse.md_inline
 
@@ -284,23 +283,15 @@ def render(entries: list) -> str:
 </section>''')
     sections_html = "\n\n".join(sections)
 
-    def chips(group, values, titles=None):
-        out = []
-        for v in values:
-            t = f' title="{_esc(titles[v])}"' if titles and v in titles else ""
-            out.append(f'<button class="chip" type="button" data-group="{group}"'
-                       f' data-val="{v}" aria-pressed="false"{t}>{v}</button>')
-        return "".join(out)
-
     tech_codes = order
     tech_titles = {c: f"{c} {groups[c]['title']}" for c in tech_codes}
     chips_html = (
         f'<span class="cgroup"><span class="clabel">Technique</span>'
-        f'{chips("tech", tech_codes, tech_titles)}</span>\n'
+        f'{shell.chips("tech", tech_codes, tech_titles)}</span>\n'
         f'<span class="cgroup"><span class="clabel">Tier</span>'
-        f'{chips("tier", ["A", "B", "C", "D"], TIER_TITLES)}</span>\n'
+        f'{shell.chips("tier", ["A", "B", "C", "D"], TIER_TITLES)}</span>\n'
         f'<span class="cgroup"><span class="clabel">Script</span>'
-        f'{chips("flag", ["S", "P", "T"], FLAG_TITLES)}</span>'
+        f'{shell.chips("flag", ["S", "P", "T"], FLAG_TITLES)}</span>'
     )
 
     return shell.page(
