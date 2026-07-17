@@ -51,3 +51,9 @@ def test_render_contains_card_data(sections):
     assert "schollwoeck_2010_density" in page               # raw key (title attr)
     assert 'data-accuracy="controlled"' in page
     assert "Exact methods" in page
+
+
+def test_skill_slugs_are_clean(sections):
+    bad = [r["skill_slug"] for s in sections for r in s["rows"]
+           if "`" in r["skill_slug"] or " " in r["skill_slug"]]
+    assert not bad, f"skill slugs with backticks/spaces: {bad}"

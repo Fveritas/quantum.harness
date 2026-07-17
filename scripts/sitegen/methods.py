@@ -37,8 +37,8 @@ def acc_token(cell: str) -> str:
 
 
 def skill_slug(skill: str) -> str:
-    """'/method-mps' -> 'method-mps'; 'classical MC (no dedicated skill)' -> 'classical-mc'."""
-    s = skill.strip().lstrip("/").split("(")[0].strip()
+    """'`/method-mps`' -> 'method-mps'; 'classical MC (no dedicated skill)' -> 'classical-mc'."""
+    s = skill.strip().strip("`").lstrip("/").split("(")[0].strip()
     return re.sub(r"\s+", "-", s).lower()
 
 
