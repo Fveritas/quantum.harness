@@ -74,3 +74,15 @@ def test_property_cells_have_balanced_backticks(entries):
            for e in entries for r in e["card"]["props"]
            for cell in (r["value"], r["note"]) if cell.count("`") % 2]
     assert not bad, f"unbalanced backticks (raw pipe in code span?): {bad}"
+
+
+def test_every_card_parses_completely(entries):
+    bad = []
+    for e in entries:
+        c = e["card"]
+        missing = ([f"props={len(c['props'])}"] if len(c["props"]) != 16 else []
+                   + [k for k in ("phases", "observables", "benchmarks", "keyref")
+                      if not c[k]])
+        if missing:
+            bad.append((e["slug"], missing))
+    assert not bad, f"cards with incomplete parses: {bad}"
