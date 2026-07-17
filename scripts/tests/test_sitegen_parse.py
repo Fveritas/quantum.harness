@@ -94,3 +94,17 @@ def test_md_inline_cites_and_code():
 
 def test_fmt_cite_yearless():
     assert parse.fmt_cite("@Baxter") == "Baxter"
+
+
+def test_fmt_cite_snake_case_degrades_to_key():
+    assert parse.fmt_cite("@schollwoeck_2010_density") == "schollwoeck_2010_density"
+
+
+def test_axis_table_escaped_pipe_stays_in_cell():
+    rows = parse.axis_table("| Axis | Value | Note |\n|---|---|---|\n"
+                            "| A1 | a \\| b | n |\n")
+    assert rows == [{"axis": "A1", "value": "a \\| b", "note": "n"}]
+
+
+def test_bullets_star_markers():
+    assert parse.bullets("* one\n- two\n") == ["one", "two"]
