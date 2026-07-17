@@ -23,12 +23,19 @@
   a:hover{text-decoration:underline}
   .wrap{max-width:980px;margin:0 auto;padding:0 22px}
 
+  /* ---- shared top nav ---- */
+  .topnav{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+    padding:14px 0 0;font-family:var(--mono);font-size:.78rem}
+  .topnav .brand{color:var(--mut)}
+  .topnav .links a{color:var(--mut);margin-left:14px}
+  .topnav .links a:hover{color:var(--ink);text-decoration:none}
+  .topnav .links a.here{color:var(--accent);font-weight:700}
+
   header{padding:38px 0 22px;border-bottom:1px solid var(--line)}
   .kicker{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;
           font-size:.74rem;margin-bottom:10px}
   h1{font-size:2.15rem;margin:.1em 0 .35em;line-height:1.15}
   .lead{color:var(--mut);font-size:1.08rem;max-width:74ch;margin:.2em 0 0}
-  .backlink{font-family:var(--mono);font-size:.78rem}
 
   /* ---- sticky filter bar ---- */
   .filterbar{position:sticky;top:0;z-index:10;background:var(--bg);
@@ -52,7 +59,7 @@
   .chip:focus-visible,summary:focus-visible,#q:focus-visible,.cardlinks a:focus-visible{
     outline:2px solid var(--accent);outline-offset:2px}
 
-  /* ---- technique sections ---- */
+  /* ---- catalog sections ---- */
   section.tgroup{padding:30px 0 6px;border-bottom:1px solid var(--line)}
   section.tgroup:last-of-type{border-bottom:none}
   h2{font-size:1.3rem;margin:0;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -61,7 +68,7 @@
     border:1px solid var(--line);border-radius:999px;padding:1px 9px}
   .tsub{color:var(--mut);font-size:.88rem;margin:.4em 0 14px;max-width:78ch}
 
-  /* ---- model rows ---- */
+  /* ---- rows ---- */
   .model{border:1px solid var(--line);border-radius:10px;margin:0 0 8px;
     background:rgba(23,26,35,.5)}
   .model summary,.model.ghost>.grow{display:flex;align-items:baseline;gap:10px;
@@ -79,12 +86,17 @@
   .b{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--mut);
     border:1px solid var(--line);border-radius:999px;padding:1px 8px;white-space:nowrap}
   .b-ok{color:var(--ok);border-color:rgba(76,195,138,.45)}
+  .b-warn{color:var(--warn);border-color:rgba(224,164,88,.45)}
   .b-dim{opacity:.75}
   .model.ghost{opacity:.45}
   .model[hidden]{display:none}
 
   /* ---- expanded body ---- */
   .mbody{border-top:1px solid var(--line);padding:14px 16px 16px}
+  .mbody h3{font-size:.74rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--mut);margin:16px 0 4px}
+  .mbody ul{margin:.2em 0 0;padding-left:20px;font-size:.88rem;color:var(--ink)}
+  .mbody li{margin:2px 0}
   .math{background:#0b0d13;border:1px solid var(--line);border-radius:10px;
     padding:12px 14px;overflow-x:auto;font-size:.95rem}
   .solv{color:var(--mut);font-size:.88rem;max-width:78ch;margin:14px 0 0}
@@ -103,19 +115,17 @@
 <body>
 <div class="wrap">
 
+<nav class="topnav"><span class="brand">quantum.harness</span><span class="links"><a href="index.html">Home</a> <a href="solvable.html" class="here">Solvable</a> <a href="models.html">Models</a> <a href="methods.html">Methods</a></span></nav>
+
 <header>
-  <p class="backlink"><a href="index.html">&#8592; harness home</a></p>
   <div class="kicker">Quantum Many-Body Harness</div>
   <h1>Exactly-solvable models</h1>
-  <p class="lead">The harness's verification-oracle layer: 63 models whose exact
-  results — spectra, ground energies, gaps, degeneracies — serve as ground truth for
-  checking ED, DMRG, QMC, and VMC runs. Open a row for the Hamiltonian, the solvability
-  statement, and the benchmark values.</p>
+  <p class="lead">The harness's verification-oracle layer: 63 models whose exact results — spectra, ground energies, gaps, degeneracies — serve as ground truth for checking ED, DMRG, QMC, and VMC runs. Open a row for the Hamiltonian, the solvability statement, and the benchmark values.</p>
 </header>
 
 <div class="filterbar">
   <div class="fb-row">
-    <input id="q" type="search" placeholder="search models&hellip;" aria-label="Search models">
+    <input id="q" type="search" placeholder="search models&hellip;" aria-label="Search">
     <span id="count">63 of 63</span>
   </div>
   <div class="fb-chips">
@@ -129,7 +139,7 @@
 <h2><span class="tcode">T1</span> Quadratic / free-particle
 <span class="scount" data-total="13">13</span></h2>
 <p class="tsub">quadratic Hamiltonians — Jordan–Wigner, BdG, Bloch: one single-particle matrix yields the entire spectrum</p>
-<details class="model" data-name="tfim-chain" data-hook="Jordan–Wigner free fermions; gap 2|J−h|" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="tfim-chain" data-hook="Jordan–Wigner free fermions; gap 2|J−h|" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">tfim-chain</span><span class="hook">Jordan–Wigner free fermions; gap 2|J−h|</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -J \sum_{i=1}^{L} \sigma^z_i \sigma^z_{i+1} - h \sum_{i=1}^{L} \sigma^x_i, \qquad \text{PBC } (\sigma_{L+1} \equiv \sigma_1)$$</div>
@@ -143,7 +153,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/tfim-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/tfim-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="xy-chain" data-hook="anisotropic Jordan–Wigner; XX to Ising line" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="xy-chain" data-hook="anisotropic Jordan–Wigner; XX to Ising line" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">xy-chain</span><span class="hook">anisotropic Jordan–Wigner; XX to Ising line</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = J\sum_{i=1}^{L}\left[(1+\gamma)\,S^x_i S^x_{i+1} + (1-\gamma)\,S^y_i S^y_{i+1}\right] - h\sum_{i=1}^{L} S^z_i, \qquad \text{PBC } (S_{L+1}\equiv S_1)$$</div>
@@ -159,7 +169,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/xy-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/xy-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="kitaev-chain" data-hook="p-wave BdG; unpaired Majorana edge modes" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="kitaev-chain" data-hook="p-wave BdG; unpaired Majorana edge modes" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">kitaev-chain</span><span class="hook">p-wave BdG; unpaired Majorana edge modes</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\mu \sum_{i=1}^{L}\left(c^\dagger_i c_i - \tfrac12\right) - t\sum_{i=1}^{L}\left(c^\dagger_i c_{i+1} + \text{h.c.}\right) + \Delta \sum_{i=1}^{L}\left(c_i c_{i+1} + \text{h.c.}\right), \qquad \text{PBC } (c_{L+1}\equiv c_1)$$</div>
@@ -174,7 +184,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kitaev-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kitaev-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="long-range-kitaev" data-hook="power-law pairing; massive Dirac edge modes" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="long-range-kitaev" data-hook="power-law pairing; massive Dirac edge modes" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">long-range-kitaev</span><span class="hook">power-law pairing; massive Dirac edge modes</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\mu\sum_{i}\left(c^\dagger_i c_i - \tfrac12\right) - t\sum_{i}\left(c^\dagger_i c_{i+1} + \text{h.c.}\right) + \sum_{i&lt;j}\Delta_{ij}\left(c_i c_j + \text{h.c.}\right), \qquad \Delta_{ij} = \frac{\Delta}{d(i,j)^{\alpha}}$$</div>
@@ -188,7 +198,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/long-range-kitaev/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/long-range-kitaev/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="ssh-chain" data-hook="dimerized hopping; topological edge states" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="ssh-chain" data-hook="dimerized hopping; topological edge states" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">ssh-chain</span><span class="hook">dimerized hopping; topological edge states</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{i=1}^{L} \left[ v\, a^\dagger_i b_i + w\, b^\dagger_i a_{i+1} + \text{h.c.} \right], \qquad \text{OBC (edge modes) or PBC (bulk invariant)}$$</div>
@@ -205,7 +215,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/ssh-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/ssh-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="kitaev-honeycomb" data-hook="Majorana Bloch bands; gapless spin liquid" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="kitaev-honeycomb" data-hook="Majorana Bloch bands; gapless spin liquid" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">kitaev-honeycomb</span><span class="hook">Majorana Bloch bands; gapless spin liquid</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -J_x \sum_{\langle ij\rangle_x}\sigma^x_i\sigma^x_j \;-\; J_y \sum_{\langle ij\rangle_y}\sigma^y_i\sigma^y_j \;-\; J_z \sum_{\langle ij\rangle_z}\sigma^z_i\sigma^z_j$$</div>
@@ -220,7 +230,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kitaev-honeycomb/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kitaev-honeycomb/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="p-ip-superconductor" data-hook="chiral BdG; Chern number ±1 phases" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="p-ip-superconductor" data-hook="chiral BdG; Chern number ±1 phases" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">p-ip-superconductor</span><span class="hook">chiral BdG; Chern number ±1 phases</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H(\mathbf k) = \xi(\mathbf k)\,\tau_z + \Delta\,(\sin k_x\,\tau_x + \sin k_y\,\tau_y), \qquad \xi(\mathbf k) = -2t(\cos k_x + \cos k_y) - \mu$$</div>
@@ -235,7 +245,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/p-ip-superconductor/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/p-ip-superconductor/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="tight-binding-lattices" data-hook="Bloch bands: square, honeycomb, kagome, Lieb" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="tight-binding-lattices" data-hook="Bloch bands: square, honeycomb, kagome, Lieb" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">tight-binding-lattices</span><span class="hook">Bloch bands: square, honeycomb, kagome, Lieb</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -t \sum_{\langle i,j\rangle} \left(c^\dagger_i c_j + \text{h.c.}\right), \qquad t = 1 \text{ default}$$</div>
@@ -252,7 +262,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/tight-binding-lattices/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/tight-binding-lattices/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="hofstadter-harper" data-hook="Harper equation; Hofstadter butterfly, Chern numbers" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="hofstadter-harper" data-hook="Harper equation; Hofstadter butterfly, Chern numbers" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">hofstadter-harper</span><span class="hook">Harper equation; Hofstadter butterfly, Chern numbers</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -t \sum_{\langle ij\rangle} e^{i\theta_{ij}}\, c^\dagger_i c_j + \text{h.c.}, \qquad \sum_{\square} \theta_{ij} = 2\pi\alpha,\quad \alpha = \frac{p}{q}$$</div>
@@ -268,7 +278,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/hofstadter-harper/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/hofstadter-harper/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="haldane-chern" data-hook="Chern insulator without Landau levels" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="haldane-chern" data-hook="Chern insulator without Landau levels" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">haldane-chern</span><span class="hook">Chern insulator without Landau levels</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = t_1 \sum_{\langle ij\rangle} c^\dagger_i c_j \;+\; t_2 \sum_{\langle\langle ij\rangle\rangle} e^{i\phi_{ij}}\, c^\dagger_i c_j \;+\; M \sum_i \xi_i\, n_i$$</div>
@@ -283,7 +293,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/haldane-chern/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/haldane-chern/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="anderson-1d" data-hook="transfer-matrix Lyapunov exponent; exact localization length" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="anderson-1d" data-hook="transfer-matrix Lyapunov exponent; exact localization length" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">anderson-1d</span><span class="hook">transfer-matrix Lyapunov exponent; exact localization length</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -t \sum_{i} \bigl(c^\dagger_i c_{i+1} + \text{h.c.}\bigr) \;+\; \sum_i \varepsilon_i\, n_i, \qquad \varepsilon_i \sim \mathrm{U}[-W/2,\,+W/2]\ \text{i.i.d.}$$</div>
@@ -298,7 +308,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/anderson-1d/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/anderson-1d/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="harmonic-chain" data-hook="phonon normal modes, closed-form spectrum" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A" data-flag="S">
+<details class="model" data-name="harmonic-chain" data-hook="phonon normal modes, closed-form spectrum" data-tech="T1" data-tier="A" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">harmonic-chain</span><span class="hook">phonon normal modes, closed-form spectrum</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{i=1}^{L} \left[\frac{p_i^2}{2m} + \frac{\kappa}{2}\bigl(x_i - x_{i+1}\bigr)^2\right], \qquad \text{PBC } (x_{L+1}\equiv x_1)$$</div>
@@ -313,7 +323,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/harmonic-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/harmonic-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="bogoliubov-bose-gas" data-hook="Bogoliubov quasiparticles; exact at weak coupling" data-tech="T1" data-techtitle="Quadratic / free-particle" data-tier="A D" data-flag="S">
+<details class="model" data-name="bogoliubov-bose-gas" data-hook="Bogoliubov quasiparticles; exact at weak coupling" data-tech="T1" data-tier="A D" data-flag="S" data-extra="T1 Quadratic / free-particle">
 <summary><span class="mname">bogoliubov-bose-gas</span><span class="hook">Bogoliubov quasiparticles; exact at weak coupling</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators / Tier D — exact in a limit">A/D</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \int d^3r\, \hat\psi^\dagger\!\left(-\frac{\nabla^2}{2m}\right)\!\hat\psi + \frac{g}{2}\int d^3r\, \hat\psi^\dagger\hat\psi^\dagger\hat\psi\hat\psi, \qquad \hbar = 1$$</div>
@@ -334,7 +344,7 @@
 <h2><span class="tcode">T2</span> 2D classical / transfer matrix
 <span class="scount" data-total="6">6</span></h2>
 <p class="tsub">classical partition functions in 2D — Onsager transfer matrices, Kasteleyn Pfaffians, vertex weights</p>
-<details class="model" data-name="ising-2d-onsager" data-hook="transfer matrix; Onsager free energy, Kaufman finite-torus Z" data-tech="T2" data-techtitle="2D classical / transfer matrix" data-tier="A" data-flag="S">
+<details class="model" data-name="ising-2d-onsager" data-hook="transfer matrix; Onsager free energy, Kaufman finite-torus Z" data-tech="T2" data-tier="A" data-flag="S" data-extra="T2 2D classical / transfer matrix">
 <summary><span class="mname">ising-2d-onsager</span><span class="hook">transfer matrix; Onsager free energy, Kaufman finite-torus Z</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H(\{s\}) = -J \sum_{\langle ij\rangle} s_i s_j, \qquad s_i = \pm 1, \quad \text{square lattice, PBC (torus)}$$</div>
@@ -348,7 +358,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/ising-2d-onsager/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/ising-2d-onsager/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="ising-triangular" data-hook="frustrated AFM; Wannier residual entropy" data-tech="T2" data-techtitle="2D classical / transfer matrix" data-tier="A" data-flag="S">
+<details class="model" data-name="ising-triangular" data-hook="frustrated AFM; Wannier residual entropy" data-tech="T2" data-tier="A" data-flag="S" data-extra="T2 2D classical / transfer matrix">
 <summary><span class="mname">ising-triangular</span><span class="hook">frustrated AFM; Wannier residual entropy</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H(\{s\}) = -J \sum_{\langle ij\rangle} s_i s_j, \qquad s_i = \pm 1, \quad \text{triangular lattice (6 neighbours), PBC (torus)}$$</div>
@@ -362,7 +372,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/ising-triangular/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/ising-triangular/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="dimer-kasteleyn" data-hook="Pfaffian dimer counting; exact tiling entropy" data-tech="T2" data-techtitle="2D classical / transfer matrix" data-tier="A" data-flag="S">
+<details class="model" data-name="dimer-kasteleyn" data-hook="Pfaffian dimer counting; exact tiling entropy" data-tech="T2" data-tier="A" data-flag="S" data-extra="T2 2D classical / transfer matrix">
 <summary><span class="mname">dimer-kasteleyn</span><span class="hook">Pfaffian dimer counting; exact tiling entropy</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$Z(m,n) = \#\{\text{perfect matchings of the } m\times n \text{ grid graph}\} = \#\{\text{domino tilings of the } m\times n \text{ board}\}$$</div>
@@ -377,7 +387,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/dimer-kasteleyn/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/dimer-kasteleyn/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="six-vertex" data-hook="ice rule; Lieb Bethe-ansatz free energy" data-tech="T2" data-techtitle="2D classical / transfer matrix" data-tier="B" data-flag="S">
+<details class="model" data-name="six-vertex" data-hook="ice rule; Lieb Bethe-ansatz free energy" data-tech="T2" data-tier="B" data-flag="S" data-extra="T2 2D classical / transfer matrix">
 <summary><span class="mname">six-vertex</span><span class="hook">ice rule; Lieb Bethe-ansatz free energy</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$Z = \sum_{\text{arrow configs}} a^{n_a}\, b^{n_b}\, c^{n_c}, \qquad \text{ice rule: exactly two arrows in, two out, at every vertex}$$</div>
@@ -392,7 +402,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/six-vertex/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/six-vertex/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="eight-vertex" data-hook="Yang–Baxter elliptic solution; varying exponents" data-tech="T2" data-techtitle="2D classical / transfer matrix" data-tier="B" data-flag="P">
+<details class="model" data-name="eight-vertex" data-hook="Yang–Baxter elliptic solution; varying exponents" data-tech="T2" data-tier="B" data-flag="P" data-extra="T2 2D classical / transfer matrix">
 <summary><span class="mname">eight-vertex</span><span class="hook">Yang–Baxter elliptic solution; varying exponents</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$Z = \sum_{\text{configs}} a^{n_a} b^{n_b} c^{n_c} d^{n_d}, \qquad \text{even number of arrows in (0, 2, or 4) at every vertex}$$</div>
@@ -407,7 +417,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/eight-vertex/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/eight-vertex/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="hard-hexagons" data-hook="corner transfer matrix; Rogers–Ramanujan densities" data-tech="T2" data-techtitle="2D classical / transfer matrix" data-tier="B" data-flag="P">
+<details class="model" data-name="hard-hexagons" data-hook="corner transfer matrix; Rogers–Ramanujan densities" data-tech="T2" data-tier="B" data-flag="P" data-extra="T2 2D classical / transfer matrix">
 <summary><span class="mname">hard-hexagons</span><span class="hook">corner transfer matrix; Rogers–Ramanujan densities</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$Z(z) = \sum_{\text{independent sets } S} z^{|S|}, \qquad \text{triangular lattice, no two nearest neighbours both occupied}$$</div>
@@ -428,7 +438,7 @@
 <h2><span class="tcode">T3</span> Bethe ansatz / Yang–Baxter
 <span class="scount" data-total="17">17</span></h2>
 <p class="tsub">interacting but integrable — Bethe rapidities and Yang–Baxter give exact energies, gaps, and thermodynamics</p>
-<details class="model" data-name="heisenberg-xxx" data-hook="coordinate Bethe ansatz; real roots, E/N = 1/4 − ln 2" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="S">
+<details class="model" data-name="heisenberg-xxx" data-hook="coordinate Bethe ansatz; real roots, E/N = 1/4 − ln 2" data-tech="T3" data-tier="B" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">heisenberg-xxx</span><span class="hook">coordinate Bethe ansatz; real roots, E/N = 1/4 − ln 2</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = J \sum_{i=1}^{N} \mathbf{S}_i\cdot\mathbf{S}_{i+1}, \qquad \text{PBC } (\mathbf{S}_{N+1}\equiv\mathbf{S}_1)$$</div>
@@ -442,7 +452,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/heisenberg-xxx/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/heisenberg-xxx/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="xxz-chain" data-hook="Bethe ansatz; Δ-tuned e0 integral/series, Néel gap" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="S">
+<details class="model" data-name="xxz-chain" data-hook="Bethe ansatz; Δ-tuned e0 integral/series, Néel gap" data-tech="T3" data-tier="B" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">xxz-chain</span><span class="hook">Bethe ansatz; Δ-tuned e0 integral/series, Néel gap</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = J \sum_{i=1}^{N}\left( S^x_i S^x_{i+1} + S^y_i S^y_{i+1} + \Delta\, S^z_i S^z_{i+1}\right), \qquad \text{PBC}$$</div>
@@ -457,7 +467,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/xxz-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/xxz-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="xyz-chain" data-hook="Baxter eight-vertex; exact XXZ/XY limits, ED-extrapolated generic" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="P">
+<details class="model" data-name="xyz-chain" data-hook="Baxter eight-vertex; exact XXZ/XY limits, ED-extrapolated generic" data-tech="T3" data-tier="B" data-flag="P" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">xyz-chain</span><span class="hook">Baxter eight-vertex; exact XXZ/XY limits, ED-extrapolated generic</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{i=1}^{N}\left( J_x\, S^x_i S^x_{i+1} + J_y\, S^y_i S^y_{i+1} + J_z\, S^z_i S^z_{i+1}\right), \qquad \text{PBC } (\mathbf{S}_{N+1}\equiv\mathbf{S}_1)$$</div>
@@ -474,7 +484,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/xyz-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/xyz-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="zamolodchikov-fateev-spin1" data-hook="integrable spin-1 (Takhtajan–Babujian β=−1); c=3/2, gapless" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="T">
+<details class="model" data-name="zamolodchikov-fateev-spin1" data-hook="integrable spin-1 (Takhtajan–Babujian β=−1); c=3/2, gapless" data-tech="T3" data-tier="B" data-flag="T" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">zamolodchikov-fateev-spin1</span><span class="hook">integrable spin-1 (Takhtajan–Babujian β=−1); c=3/2, gapless</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{i=1}^{N}\Big[\, \mathbf{S}_i\cdot\mathbf{S}_{i+1} \;-\; (\mathbf{S}_i\cdot\mathbf{S}_{i+1})^2 \,\Big], \qquad \text{PBC } (\mathbf{S}_{N+1}\equiv\mathbf{S}_1)$$</div>
@@ -490,7 +500,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/zamolodchikov-fateev-spin1/ORACLE.md">ORACLE.md&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="haldane-shastry" data-hook="1/r² exchange; Gutzwiller-RVB GS, E0=−(π²/24)(N+5/N)" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="S">
+<details class="model" data-name="haldane-shastry" data-hook="1/r² exchange; Gutzwiller-RVB GS, E0=−(π²/24)(N+5/N)" data-tech="T3" data-tier="B" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">haldane-shastry</span><span class="hook">1/r² exchange; Gutzwiller-RVB GS, E0=−(π²/24)(N+5/N)</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = J \sum_{i&lt;j} \frac{\mathbf{S}_i\cdot\mathbf{S}_j}{d_{ij}^{\,2}}, \qquad d_{ij} = \frac{N}{\pi}\left|\sin\frac{\pi(i-j)}{N}\right|$$</div>
@@ -505,7 +515,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/haldane-shastry/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/haldane-shastry/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="inozemtsev-chain" data-hook="elliptic exchange; interpolates XXX ↔ Haldane–Shastry" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="T">
+<details class="model" data-name="inozemtsev-chain" data-hook="elliptic exchange; interpolates XXX ↔ Haldane–Shastry" data-tech="T3" data-tier="B" data-flag="T" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">inozemtsev-chain</span><span class="hook">elliptic exchange; interpolates XXX ↔ Haldane–Shastry</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{i&lt;j} J(i-j)\,\mathbf{S}_i\cdot\mathbf{S}_j, \qquad J(r) = \wp\!\left(r;\, \omega_1=\tfrac{N}{2},\, \omega_2=\tfrac{i\pi}{2\kappa}\right)$$</div>
@@ -520,7 +530,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/inozemtsev-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="hubbard-1d-lieb-wu" data-hook="nested Bethe ansatz; Mott gap opens at any U&gt;0" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="S">
+<details class="model" data-name="hubbard-1d-lieb-wu" data-hook="nested Bethe ansatz; Mott gap opens at any U&gt;0" data-tech="T3" data-tier="B" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">hubbard-1d-lieb-wu</span><span class="hook">nested Bethe ansatz; Mott gap opens at any U&gt;0</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -t \sum_{i=1}^{N}\sum_{\sigma=\uparrow,\downarrow}\left( c^\dagger_{i\sigma} c_{i+1\,\sigma} + \text{h.c.} \right) + U \sum_{i=1}^{N} n_{i\uparrow} n_{i\downarrow}, \qquad \text{PBC}$$</div>
@@ -537,7 +547,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/hubbard-1d-lieb-wu/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/hubbard-1d-lieb-wu/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="susy-t-j" data-hook="J=2t su(2|1) supersymmetry; cross-sector supermultiplets" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="P">
+<details class="model" data-name="susy-t-j" data-hook="J=2t su(2|1) supersymmetry; cross-sector supermultiplets" data-tech="T3" data-tier="B" data-flag="P" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">susy-t-j</span><span class="hook">J=2t su(2|1) supersymmetry; cross-sector supermultiplets</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -t \sum_{\langle ij\rangle,\sigma} P\!\left( c^\dagger_{i\sigma} c_{j\sigma} + \text{h.c.} \right)\!P + J \sum_{\langle ij\rangle}\left( \mathbf{S}_i\cdot\mathbf{S}_j - \tfrac{1}{4} n_i n_j \right), \qquad J = 2t$$</div>
@@ -553,7 +563,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/susy-t-j/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/susy-t-j/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="lieb-liniger" data-hook="δ-Bose gas; Lieb equation e(γ), γ→∞ gives π²/3" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="S">
+<details class="model" data-name="lieb-liniger" data-hook="δ-Bose gas; Lieb equation e(γ), γ→∞ gives π²/3" data-tech="T3" data-tier="B" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">lieb-liniger</span><span class="hook">δ-Bose gas; Lieb equation e(γ), γ→∞ gives π²/3</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_{i=1}^{N}\frac{\partial^2}{\partial x_i^2} + 2c\sum_{i&lt;j}\delta(x_i-x_j), \qquad c&gt;0$$</div>
@@ -568,7 +578,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/lieb-liniger/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/lieb-liniger/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="tonks-girardeau" data-hook="Bose–Fermi mapping; e=π²/3, g₂(0)=0" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="A" data-flag="S">
+<details class="model" data-name="tonks-girardeau" data-hook="Bose–Fermi mapping; e=π²/3, g₂(0)=0" data-tech="T3" data-tier="A" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">tonks-girardeau</span><span class="hook">Bose–Fermi mapping; e=π²/3, g₂(0)=0</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_{i=1}^{N}\frac{\partial^2}{\partial x_i^2} + 2c\sum_{i&lt;j}\delta(x_i-x_j), \qquad c\to+\infty$$</div>
@@ -583,7 +593,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/tonks-girardeau/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/tonks-girardeau/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="yang-gaudin" data-hook="nested Bethe ansatz; balanced fermions, π²/12→π²/3" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="S">
+<details class="model" data-name="yang-gaudin" data-hook="nested Bethe ansatz; balanced fermions, π²/12→π²/3" data-tech="T3" data-tier="B" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">yang-gaudin</span><span class="hook">nested Bethe ansatz; balanced fermions, π²/12→π²/3</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_{i=1}^{N}\frac{\partial^2}{\partial x_i^2} + 2c\sum_{i&lt;j}\delta(x_i-x_j), \qquad c&gt;0$$</div>
@@ -598,7 +608,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/yang-gaudin/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/yang-gaudin/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="calogero-sutherland" data-hook="1/sin² ring; closed-form spectrum, E0=(π/L)²λ²N(N²−1)/3" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="P">
+<details class="model" data-name="calogero-sutherland" data-hook="1/sin² ring; closed-form spectrum, E0=(π/L)²λ²N(N²−1)/3" data-tech="T3" data-tier="B" data-flag="P" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">calogero-sutherland</span><span class="hook">1/sin² ring; closed-form spectrum, E0=(π/L)²λ²N(N²−1)/3</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_{i=1}^{N}\frac{\partial^2}{\partial x_i^2} \;+\; \sum_{i&lt;j}\frac{2\lambda(\lambda-1)\,(\pi/L)^2}{\sin^2\!\big(\pi(x_i-x_j)/L\big)}, \qquad \lambda \ge 0$$</div>
@@ -615,7 +625,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/calogero-sutherland/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/calogero-sutherland/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="kondo-bethe" data-hook="s–d Bethe ansatz; Wilson ratio R=2, ln 2→0" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="T">
+<details class="model" data-name="kondo-bethe" data-hook="s–d Bethe ansatz; Wilson ratio R=2, ln 2→0" data-tech="T3" data-tier="B" data-flag="T" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">kondo-bethe</span><span class="hook">s–d Bethe ansatz; Wilson ratio R=2, ln 2→0</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{k\sigma}\varepsilon_k\,c^\dagger_{k\sigma}c_{k\sigma} \;+\; J\,\mathbf{S}_{\mathrm{imp}}\cdot\mathbf{s}_0, \qquad \mathbf{s}_0 = \tfrac12\sum_{\alpha\beta}c^\dagger_{0\alpha}\,\boldsymbol{\sigma}_{\alpha\beta}\,c_{0\beta}$$</div>
@@ -632,7 +642,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kondo-bethe/ORACLE.md">ORACLE.md&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="anderson-impurity-bethe" data-hook="symmetric SIAM Bethe ansatz; ⟨n_d⟩=1, R_W=2" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="T">
+<details class="model" data-name="anderson-impurity-bethe" data-hook="symmetric SIAM Bethe ansatz; ⟨n_d⟩=1, R_W=2" data-tech="T3" data-tier="B" data-flag="T" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">anderson-impurity-bethe</span><span class="hook">symmetric SIAM Bethe ansatz; ⟨n_d⟩=1, R_W=2</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \varepsilon_d\sum_\sigma n_{d\sigma} + U\,n_{d\uparrow}n_{d\downarrow} + \sum_{k\sigma}\varepsilon_k c^\dagger_{k\sigma}c_{k\sigma} + \sum_{k\sigma}\big(V_k\,d^\dagger_\sigma c_{k\sigma}+\mathrm{h.c.}\big),\qquad \varepsilon_d=-\tfrac{U}{2}$$</div>
@@ -648,7 +658,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/anderson-impurity-bethe/ORACLE.md">ORACLE.md&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="richardson-pairing" data-hook="reduced BCS; Richardson roots complexify at pairing collisions" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="S">
+<details class="model" data-name="richardson-pairing" data-hook="reduced BCS; Richardson roots complexify at pairing collisions" data-tech="T3" data-tier="B" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">richardson-pairing</span><span class="hook">reduced BCS; Richardson roots complexify at pairing collisions</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{j=1}^{N} \varepsilon_j\,(n_{j\uparrow}+n_{j\downarrow}) \;-\; g\sum_{j,k=1}^{N} b^\dagger_j b_k, \qquad b_j = c_{j\downarrow}c_{j\uparrow}, \quad \varepsilon_j = j$$</div>
@@ -664,7 +674,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/richardson-pairing/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/richardson-pairing/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="gaudin-central-spin" data-hook="rational Gaudin magnet; commuting charges, ED-exact GS" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="S">
+<details class="model" data-name="gaudin-central-spin" data-hook="rational Gaudin magnet; commuting charges, ED-exact GS" data-tech="T3" data-tier="B" data-flag="S" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">gaudin-central-spin</span><span class="hook">rational Gaudin magnet; commuting charges, ED-exact GS</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{j=1}^{N_b} A_j\,\mathbf{S}_0\cdot\mathbf{S}_j, \qquad A_j = \frac{1}{j}, \qquad H_i = \sum_{k\ne i}\frac{\mathbf{S}_i\cdot\mathbf{S}_k}{u_i-u_k},\ \ u=(0,-1,\dots,-N_b)$$</div>
@@ -680,7 +690,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/gaudin-central-spin/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/gaudin-central-spin/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="chiral-potts" data-hook="superintegrable Z_N; Onsager algebra, genus&gt;1 rapidity curve" data-tech="T3" data-techtitle="Bethe ansatz / Yang–Baxter" data-tier="B" data-flag="T">
+<details class="model" data-name="chiral-potts" data-hook="superintegrable Z_N; Onsager algebra, genus&gt;1 rapidity curve" data-tech="T3" data-tier="B" data-flag="T" data-extra="T3 Bethe ansatz / Yang–Baxter">
 <summary><span class="mname">chiral-potts</span><span class="hook">superintegrable Z_N; Onsager algebra, genus&gt;1 rapidity curve</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 2</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_{i=1}^{L}\sum_{k=1}^{N-1}\Big[\, \bar\alpha_k\,\big(Z_i Z_{i+1}^\dagger\big)^k \;+\; \alpha_k\, X_i^k \,\Big], \qquad \alpha_k=\bar\alpha_k=\frac{2}{1-\omega^{-k}}=\frac{e^{\,i(\pi k/N-\pi/2)}}{\sin(\pi k/N)}$$</div>
@@ -705,7 +715,7 @@
 <h2><span class="tcode">T4</span> Commuting projector / stabilizer
 <span class="scount" data-total="7">7</span></h2>
 <p class="tsub">every term commutes — stabilizer algebra and fusion categories fix the exact spectrum and topological degeneracy</p>
-<details class="model" data-name="toric-code" data-hook="stabilizer counting; fourfold torus degeneracy" data-tech="T4" data-techtitle="Commuting projector / stabilizer" data-tier="A" data-flag="S">
+<details class="model" data-name="toric-code" data-hook="stabilizer counting; fourfold torus degeneracy" data-tech="T4" data-tier="A" data-flag="S" data-extra="T4 Commuting projector / stabilizer">
 <summary><span class="mname">toric-code</span><span class="hook">stabilizer counting; fourfold torus degeneracy</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_v A_v \;-\; \sum_p B_p, \qquad A_v=\prod_{i\in v}\sigma^x_i,\quad B_p=\prod_{i\in p}\sigma^z_i$$</div>
@@ -719,7 +729,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/toric-code/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/toric-code/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="quantum-double" data-hook="D(G) anyons from group representation theory" data-tech="T4" data-techtitle="Commuting projector / stabilizer" data-tier="A" data-flag="P">
+<details class="model" data-name="quantum-double" data-hook="D(G) anyons from group representation theory" data-tech="T4" data-tier="A" data-flag="P" data-extra="T4 Commuting projector / stabilizer">
 <summary><span class="mname">quantum-double</span><span class="hook">D(G) anyons from group representation theory</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_v A_v \;-\; \sum_p B_p, \qquad A_v = \frac{1}{|G|}\sum_{g\in G} A_v^g,\quad B_p = B_p^{e}$$</div>
@@ -735,7 +745,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/quantum-double/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/quantum-double/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="string-net" data-hook="fusion categories; doubled topological phases" data-tech="T4" data-techtitle="Commuting projector / stabilizer" data-tier="A" data-flag="P">
+<details class="model" data-name="string-net" data-hook="fusion categories; doubled topological phases" data-tech="T4" data-tier="A" data-flag="P" data-extra="T4 Commuting projector / stabilizer">
 <summary><span class="mname">string-net</span><span class="hook">fusion categories; doubled topological phases</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_v Q_v \;-\; \sum_p B_p, \qquad B_p = \sum_{s} a_s\, B_p^{s}$$</div>
@@ -752,7 +762,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/string-net/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/string-net/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="color-code" data-hook="6.6.6 stabilizers; two toric-code copies" data-tech="T4" data-techtitle="Commuting projector / stabilizer" data-tier="A" data-flag="S">
+<details class="model" data-name="color-code" data-hook="6.6.6 stabilizers; two toric-code copies" data-tech="T4" data-tier="A" data-flag="S" data-extra="T4 Commuting projector / stabilizer">
 <summary><span class="mname">color-code</span><span class="hook">6.6.6 stabilizers; two toric-code copies</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_{f} X_f \;-\; \sum_{f} Z_f, \qquad X_f=\prod_{i\in f}\sigma^x_i,\quad Z_f=\prod_{i\in f}\sigma^z_i$$</div>
@@ -766,7 +776,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/color-code/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/color-code/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="x-cube" data-hook="fracton order; subextensive degeneracy 6L−3" data-tech="T4" data-techtitle="Commuting projector / stabilizer" data-tier="A" data-flag="S">
+<details class="model" data-name="x-cube" data-hook="fracton order; subextensive degeneracy 6L−3" data-tech="T4" data-tier="A" data-flag="S" data-extra="T4 Commuting projector / stabilizer">
 <summary><span class="mname">x-cube</span><span class="hook">fracton order; subextensive degeneracy 6L−3</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_{c} A_c \;-\; \sum_{v,\,\mu\nu} B^{\mu\nu}_v, \qquad A_c=\prod_{i\in c}\sigma^x_i,\quad B^{\mu\nu}_v=\prod_{i\in \times^{\mu\nu}_v}\sigma^z_i$$</div>
@@ -781,7 +791,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/x-cube/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/x-cube/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="haah-code" data-hook="cubic code; number-theoretic ground-space rank" data-tech="T4" data-techtitle="Commuting projector / stabilizer" data-tier="A" data-flag="P">
+<details class="model" data-name="haah-code" data-hook="cubic code; number-theoretic ground-space rank" data-tech="T4" data-tier="A" data-flag="P" data-extra="T4 Commuting projector / stabilizer">
 <summary><span class="mname">haah-code</span><span class="hook">cubic code; number-theoretic ground-space rank</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_{s} A_s \;-\; \sum_{s} B_s, \qquad A_s = \text{(X-type cube operator)},\quad B_s = \text{(Z-type cube operator)}$$</div>
@@ -797,7 +807,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/haah-code/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/haah-code/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="cluster-spt" data-hook="cluster stabilizers; SPT with protected edge modes" data-tech="T4" data-techtitle="Commuting projector / stabilizer" data-tier="A" data-flag="S">
+<details class="model" data-name="cluster-spt" data-hook="cluster stabilizers; SPT with protected edge modes" data-tech="T4" data-tier="A" data-flag="S" data-extra="T4 Commuting projector / stabilizer">
 <summary><span class="mname">cluster-spt</span><span class="hook">cluster stabilizers; SPT with protected edge modes</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 1</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\sum_i K_i, \qquad K_i = \sigma^z_{i-1}\,\sigma^x_i\,\sigma^z_{i+1}$$</div>
@@ -818,7 +828,7 @@
 <h2><span class="tcode">T5</span> Frustration-free / exact eigenstates
 <span class="scount" data-total="8">8</span></h2>
 <p class="tsub">the ground state is exact even when the spectrum is not — valence bonds, dimer coverings, scar towers</p>
-<details class="model" data-name="aklt-chain" data-hook="exact VBS/MPS ground state; string order −4/9" data-tech="T5" data-techtitle="Frustration-free / exact eigenstates" data-tier="C" data-flag="S">
+<details class="model" data-name="aklt-chain" data-hook="exact VBS/MPS ground state; string order −4/9" data-tech="T5" data-tier="C" data-flag="S" data-extra="T5 Frustration-free / exact eigenstates">
 <summary><span class="mname">aklt-chain</span><span class="hook">exact VBS/MPS ground state; string order −4/9</span><span class="bset"><span class="b" title="Tier C — exact ground state / exact eigenstates only">C</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{i=1}^{L} \left[ \mathbf{S}_i\cdot\mathbf{S}_{i+1} + \tfrac{1}{3}\left(\mathbf{S}_i\cdot\mathbf{S}_{i+1}\right)^2 \right], \qquad \text{PBC } (\mathbf{S}_{L+1}\equiv\mathbf{S}_1)$$</div>
@@ -835,7 +845,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/aklt-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/aklt-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="aklt-honeycomb" data-hook="spin-3/2 VBS; frustration-free, proven gap" data-tech="T5" data-techtitle="Frustration-free / exact eigenstates" data-tier="C" data-flag="P">
+<details class="model" data-name="aklt-honeycomb" data-hook="spin-3/2 VBS; frustration-free, proven gap" data-tech="T5" data-tier="C" data-flag="P" data-extra="T5 Frustration-free / exact eigenstates">
 <summary><span class="mname">aklt-honeycomb</span><span class="hook">spin-3/2 VBS; frustration-free, proven gap</span><span class="bset"><span class="b" title="Tier C — exact ground state / exact eigenstates only">C</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{\langle ij\rangle} P^{(3)}_{ij}, \qquad P^{(3)}_{ij}=\frac{(\mathbf S_i\!\cdot\!\mathbf S_j+\tfrac{15}{4})(\mathbf S_i\!\cdot\!\mathbf S_j+\tfrac{11}{4})(\mathbf S_i\!\cdot\!\mathbf S_j+\tfrac{3}{4})}{90}$$</div>
@@ -852,7 +862,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/aklt-honeycomb/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/aklt-honeycomb/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="majumdar-ghosh" data-hook="two dimer coverings; exact E/L = −3/8" data-tech="T5" data-techtitle="Frustration-free / exact eigenstates" data-tier="C" data-flag="S">
+<details class="model" data-name="majumdar-ghosh" data-hook="two dimer coverings; exact E/L = −3/8" data-tech="T5" data-tier="C" data-flag="S" data-extra="T5 Frustration-free / exact eigenstates">
 <summary><span class="mname">majumdar-ghosh</span><span class="hook">two dimer coverings; exact E/L = −3/8</span><span class="bset"><span class="b" title="Tier C — exact ground state / exact eigenstates only">C</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = J \sum_{i=1}^{L} \left[ \mathbf{S}_i\cdot\mathbf{S}_{i+1} + \tfrac{1}{2}\,\mathbf{S}_i\cdot\mathbf{S}_{i+2} \right], \qquad \text{PBC } (\mathbf{S}_{L+1}\equiv\mathbf{S}_1)$$</div>
@@ -867,7 +877,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/majumdar-ghosh/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/majumdar-ghosh/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="shastry-sutherland-dimer" data-hook="orthogonal-dimer product; exact for all J/J&#x27;" data-tech="T5" data-techtitle="Frustration-free / exact eigenstates" data-tier="C" data-flag="S">
+<details class="model" data-name="shastry-sutherland-dimer" data-hook="orthogonal-dimer product; exact for all J/J&#x27;" data-tech="T5" data-tier="C" data-flag="S" data-extra="T5 Frustration-free / exact eigenstates">
 <summary><span class="mname">shastry-sutherland-dimer</span><span class="hook">orthogonal-dimer product; exact for all J/J&#x27;</span><span class="bset"><span class="b" title="Tier C — exact ground state / exact eigenstates only">C</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = J \sum_{\langle ij\rangle_{\text{square NN}}} \mathbf{S}_i\cdot\mathbf{S}_j \;+\; J&#x27; \sum_{\langle ij\rangle_{\text{dimer}}} \mathbf{S}_i\cdot\mathbf{S}_j$$</div>
@@ -882,7 +892,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/shastry-sutherland-dimer/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/shastry-sutherland-dimer/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="rk-quantum-dimer" data-hook="equal-weight RVB; RK point ↔ classical dimers" data-tech="T5" data-techtitle="Frustration-free / exact eigenstates" data-tier="C" data-flag="S">
+<details class="model" data-name="rk-quantum-dimer" data-hook="equal-weight RVB; RK point ↔ classical dimers" data-tech="T5" data-tier="C" data-flag="S" data-extra="T5 Frustration-free / exact eigenstates">
 <summary><span class="mname">rk-quantum-dimer</span><span class="hook">equal-weight RVB; RK point ↔ classical dimers</span><span class="bset"><span class="b" title="Tier C — exact ground state / exact eigenstates only">C</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H_{\rm RK} = \sum_{\square}\Big[\,-t\,\big(|{=}\rangle\langle{\|}| + |{\|}\rangle\langle{=}|\big) \;+\; v\,\big(|{=}\rangle\langle{=}| + |{\|}\rangle\langle{\|}|\big)\Big], \qquad t=v=1$$</div>
@@ -898,7 +908,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/rk-quantum-dimer/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/rk-quantum-dimer/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="motzkin-fredkin" data-hook="uniform Motzkin walks; ½ ln n entanglement" data-tech="T5" data-techtitle="Frustration-free / exact eigenstates" data-tier="C" data-flag="S">
+<details class="model" data-name="motzkin-fredkin" data-hook="uniform Motzkin walks; ½ ln n entanglement" data-tech="T5" data-tier="C" data-flag="S" data-extra="T5 Frustration-free / exact eigenstates">
 <summary><span class="mname">motzkin-fredkin</span><span class="hook">uniform Motzkin walks; ½ ln n entanglement</span><span class="bset"><span class="b" title="Tier C — exact ground state / exact eigenstates only">C</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{j=1}^{n-1}\Pi_{j,j+1} \;+\; |d\rangle\langle d|_1 \;+\; |u\rangle\langle u|_n, \qquad \Pi_{j,j+1}=\sum_{k=1}^{3}|D_k\rangle\langle D_k|$$</div>
@@ -915,7 +925,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/motzkin-fredkin/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/motzkin-fredkin/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="eta-pairing-hubbard" data-hook="exact excited η-tower; ODLRO, E=mU" data-tech="T5" data-techtitle="Frustration-free / exact eigenstates" data-tier="C" data-flag="S">
+<details class="model" data-name="eta-pairing-hubbard" data-hook="exact excited η-tower; ODLRO, E=mU" data-tech="T5" data-tier="C" data-flag="S" data-extra="T5 Frustration-free / exact eigenstates">
 <summary><span class="mname">eta-pairing-hubbard</span><span class="hook">exact excited η-tower; ODLRO, E=mU</span><span class="bset"><span class="b" title="Tier C — exact ground state / exact eigenstates only">C</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -t \sum_{\langle ij\rangle,\sigma}\left(c^\dagger_{i\sigma}c_{j\sigma}+\text{h.c.}\right) + U\sum_i n_{i\uparrow}n_{i\downarrow}, \qquad \eta^\dagger = \sum_{j}(-1)^j\,c^\dagger_{j\uparrow}c^\dagger_{j\downarrow}$$</div>
@@ -932,7 +942,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/eta-pairing-hubbard/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/eta-pairing-hubbard/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="pxp-scars" data-hook="exact ±√2 MPS scars; ETH outliers" data-tech="T5" data-techtitle="Frustration-free / exact eigenstates" data-tier="C" data-flag="S">
+<details class="model" data-name="pxp-scars" data-hook="exact ±√2 MPS scars; ETH outliers" data-tech="T5" data-tier="C" data-flag="S" data-extra="T5 Frustration-free / exact eigenstates">
 <summary><span class="mname">pxp-scars</span><span class="hook">exact ±√2 MPS scars; ETH outliers</span><span class="bset"><span class="b" title="Tier C — exact ground state / exact eigenstates only">C</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{j} P_{j-1}\,X_j\,P_{j+1}, \qquad P=|0\rangle\langle 0|,\; X=\sigma^x,\; |0\rangle=g,\;|1\rangle=r$$</div>
@@ -954,7 +964,7 @@
 <h2><span class="tcode">T6</span> Collective / large-N / random
 <span class="scount" data-total="8">8</span></h2>
 <p class="tsub">all-to-all couplings, single modes, random ensembles — mean field and large N become exact</p>
-<details class="model" data-name="lmg" data-hook="collective j=N/2 block; mean-field-exact, N^{−1/3} gap" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="A" data-flag="S">
+<details class="model" data-name="lmg" data-hook="collective j=N/2 block; mean-field-exact, N^{−1/3} gap" data-tech="T6" data-tier="A" data-flag="S" data-extra="T6 Collective / large-N / random">
 <summary><span class="mname">lmg</span><span class="hook">collective j=N/2 block; mean-field-exact, N^{−1/3} gap</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\frac{J}{N}\,S_x^2 - h\,S_z, \qquad S_a = \tfrac{1}{2}\sum_{i=1}^{N}\sigma^a_i \ \ (\text{collective spin})$$</div>
@@ -970,7 +980,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/lmg/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/lmg/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="dicke-tavis-cummings" data-hook="excitation-number blocks; superradiant λ_c=√(ωω₀)/2" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="B" data-flag="S">
+<details class="model" data-name="dicke-tavis-cummings" data-hook="excitation-number blocks; superradiant λ_c=√(ωω₀)/2" data-tech="T6" data-tier="B" data-flag="S" data-extra="T6 Collective / large-N / random">
 <summary><span class="mname">dicke-tavis-cummings</span><span class="hook">excitation-number blocks; superradiant λ_c=√(ωω₀)/2</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H_{\mathrm{TC}} = \omega\, a^\dagger a + \omega_0\, J_z + \frac{g}{\sqrt{N}}\,(a\,J_+ + a^\dagger J_-), \qquad H_{\mathrm{D}} = \omega\, a^\dagger a + \omega_0\, J_z + \frac{\lambda}{\sqrt{N}}\,(a + a^\dagger)(J_+ + J_-)$$</div>
@@ -986,7 +996,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/dicke-tavis-cummings/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/dicke-tavis-cummings/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="jaynes-cummings" data-hook="RWA dressed states; vacuum Rabi splitting 2g" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="A" data-flag="S">
+<details class="model" data-name="jaynes-cummings" data-hook="RWA dressed states; vacuum Rabi splitting 2g" data-tech="T6" data-tier="A" data-flag="S" data-extra="T6 Collective / large-N / random">
 <summary><span class="mname">jaynes-cummings</span><span class="hook">RWA dressed states; vacuum Rabi splitting 2g</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \omega\, a^\dagger a + \tfrac{\omega_0}{2}\,\sigma^z + g\,(a\,\sigma^+ + a^\dagger \sigma^-)$$</div>
@@ -1001,7 +1011,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/jaynes-cummings/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/jaynes-cummings/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="quantum-rabi" data-hook="Braak G-function roots; exact transcendental spectrum" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="B" data-flag="S">
+<details class="model" data-name="quantum-rabi" data-hook="Braak G-function roots; exact transcendental spectrum" data-tech="T6" data-tier="B" data-flag="S" data-extra="T6 Collective / large-N / random">
 <summary><span class="mname">quantum-rabi</span><span class="hook">Braak G-function roots; exact transcendental spectrum</span><span class="bset"><span class="b" title="Tier B — integrable: Bethe ansatz / Yang–Baxter exact results">B</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H_R = \omega\, a^\dagger a + g\,\sigma^x (a + a^\dagger) + \Delta\,\sigma^z$$</div>
@@ -1017,7 +1027,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/quantum-rabi/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/quantum-rabi/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="syk" data-hook="melonic large-N; N mod 8 class, S₀≈0.2324 entropy" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="D" data-flag="P">
+<details class="model" data-name="syk" data-hook="melonic large-N; N mod 8 class, S₀≈0.2324 entropy" data-tech="T6" data-tier="D" data-flag="P" data-extra="T6 Collective / large-N / random">
 <summary><span class="mname">syk</span><span class="hook">melonic large-N; N mod 8 class, S₀≈0.2324 entropy</span><span class="bset"><span class="b" title="Tier D — exact in a limit">D</span><span class="b" title="Script P — a subset is scriptable; the rest tabulated">P</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = \sum_{i&lt;j&lt;k&lt;l} J_{ijkl}\,\chi_i\chi_j\chi_k\chi_l, \qquad \overline{J_{ijkl}}=0,\quad \overline{J_{ijkl}^{\,2}}=\frac{3!\,J^2}{N^3}=\frac{(q-1)!\,J^2}{N^{q-1}}\;(q=4)$$</div>
@@ -1037,7 +1047,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/syk/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/syk/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="curie-weiss-tfim" data-hook="fully-connected TFIM; mean-field exact in N→∞" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="D" data-flag="S">
+<details class="model" data-name="curie-weiss-tfim" data-hook="fully-connected TFIM; mean-field exact in N→∞" data-tech="T6" data-tier="D" data-flag="S" data-extra="T6 Collective / large-N / random">
 <summary><span class="mname">curie-weiss-tfim</span><span class="hook">fully-connected TFIM; mean-field exact in N→∞</span><span class="bset"><span class="b" title="Tier D — exact in a limit">D</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -\frac{J}{N}\sum_{i&lt;j}\sigma^z_i\sigma^z_j - h\sum_{i=1}^{N}\sigma^x_i$$</div>
@@ -1053,7 +1063,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/curie-weiss-tfim/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/curie-weiss-tfim/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="random-matrix-stats" data-hook="Wigner/Atas surmises; ⟨r̃⟩ GOE/GUE/GSE, Kramers doubling" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="A" data-flag="S">
+<details class="model" data-name="random-matrix-stats" data-hook="Wigner/Atas surmises; ⟨r̃⟩ GOE/GUE/GSE, Kramers doubling" data-tech="T6" data-tier="A" data-flag="S" data-extra="T6 Collective / large-N / random">
 <summary><span class="mname">random-matrix-stats</span><span class="hook">Wigner/Atas surmises; ⟨r̃⟩ GOE/GUE/GSE, Kramers doubling</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$\rho(e_1,\dots,e_N)=C_{\beta,N}\!\!\prod_{i&lt;j}|e_i-e_j|^{\beta}\prod_i e^{-\beta e_i^2/2}, \qquad \beta=1\,(\text{GOE}),\;2\,(\text{GUE}),\;4\,(\text{GSE})$$</div>
@@ -1072,7 +1082,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/random-matrix-stats/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/random-matrix-stats/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="falicov-kimball-dinf" data-hook="DMFT-exact in d=∞; checkerboard CDW, sign-free" data-tech="T6" data-techtitle="Collective / large-N / random" data-tier="D" data-flag="T">
+<details class="model" data-name="falicov-kimball-dinf" data-hook="DMFT-exact in d=∞; checkerboard CDW, sign-free" data-tech="T6" data-tier="D" data-flag="T" data-extra="T6 Collective / large-N / random">
 <summary><span class="mname">falicov-kimball-dinf</span><span class="hook">DMFT-exact in d=∞; checkerboard CDW, sign-free</span><span class="bset"><span class="b" title="Tier D — exact in a limit">D</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$H = -t\sum_{\langle ij\rangle}\big(c^\dagger_i c_j + \text{h.c.}\big) + U\sum_i n^c_i\,n^f_i$$</div>
@@ -1096,7 +1106,7 @@
 <h2><span class="tcode">T7</span> Dualities &amp; solvable dynamics
 <span class="scount" data-total="4">4</span></h2>
 <p class="tsub">exact maps between models and exactly evolvable dynamics — Kramers–Wannier to dual-unitary circuits</p>
-<details class="model" data-name="kramers-wannier" data-hook="Ising self-duality; sinh2K·sinh2K*=1 fixes Kc" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S">
+<details class="model" data-name="kramers-wannier" data-hook="Ising self-duality; sinh2K·sinh2K*=1 fixes Kc" data-tech="T7" data-tier="A" data-flag="S" data-extra="T7 Dualities &amp; solvable dynamics">
 <summary><span class="mname">kramers-wannier</span><span class="hook">Ising self-duality; sinh2K·sinh2K*=1 fixes Kc</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$\sinh(2K)\,\sinh(2K^\ast) = 1, \qquad \psi(K) - \tfrac12\ln\sinh(2K) \ \text{invariant under } K\leftrightarrow K^\ast$$</div>
@@ -1112,7 +1122,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kramers-wannier/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kramers-wannier/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="jw-duality-dictionary" data-hook="mapping index: JW, KW, dimers, six-vertex↔XXZ" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="" data-flag="T">
+<details class="model" data-name="jw-duality-dictionary" data-hook="mapping index: JW, KW, dimers, six-vertex↔XXZ" data-tech="T7" data-tier="" data-flag="T" data-extra="T7 Dualities &amp; solvable dynamics">
 <summary><span class="mname">jw-duality-dictionary</span><span class="hook">mapping index: JW, KW, dimers, six-vertex↔XXZ</span><span class="bset"><span class="b" title="Tier —">—</span><span class="b" title="Script T — tabulated literature values only">T</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$c_j = \Big(\textstyle\prod_{l&lt;j}\sigma^z_l\Big)\,\sigma^-_j, \qquad \sigma^z_j = 1 - 2\,c_j^\dagger c_j, \qquad \text{(Jordan–Wigner, one prototype of the maps tabulated below)}$$</div>
@@ -1120,7 +1130,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/jw-duality-dictionary/ORACLE.md">ORACLE.md&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="dual-unitary-circuits" data-hook="space-time-unitary gates; exact light-cone correlators" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S">
+<details class="model" data-name="dual-unitary-circuits" data-hook="space-time-unitary gates; exact light-cone correlators" data-tech="T7" data-tier="A" data-flag="S" data-extra="T7 Dualities &amp; solvable dynamics">
 <summary><span class="mname">dual-unitary-circuits</span><span class="hook">space-time-unitary gates; exact light-cone correlators</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$U_F = U_{\text{odd}}\,U_{\text{even}}, \qquad U_{\text{even}}=\!\!\prod_{j\ \text{even}}\!\! U_{j,j+1}, \quad U_{\text{odd}}=\!\!\prod_{j\ \text{odd}}\!\! U_{j,j+1}, \qquad \tilde U_{(o_1 i_1),(o_2 i_2)} = U_{(o_1 o_2),(i_1 i_2)}$$</div>
@@ -1137,7 +1147,7 @@
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/dual-unitary-circuits/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/dual-unitary-circuits/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
 </details>
-<details class="model" data-name="kicked-ising-floquet" data-hook="self-dual KIM; exact SFF ramp K(t)=2t−1" data-tech="T7" data-techtitle="Dualities &amp; solvable dynamics" data-tier="A" data-flag="S">
+<details class="model" data-name="kicked-ising-floquet" data-hook="self-dual KIM; exact SFF ramp K(t)=2t−1" data-tech="T7" data-tier="A" data-flag="S" data-extra="T7 Dualities &amp; solvable dynamics">
 <summary><span class="mname">kicked-ising-floquet</span><span class="hook">self-dual KIM; exact SFF ramp K(t)=2t−1</span><span class="bset"><span class="b" title="Tier A — full solution: complete spectrum and/or all correlators">A</span><span class="b" title="Script S — all card quantities computable via oracle.py">S</span><span class="b b-ok">wave 3</span></span></summary>
 <div class="mbody">
 <div class="math">$$U_F = e^{-iH_K}\,e^{-iH_I}, \qquad H_I = J\sum_{j}\sigma^z_j\sigma^z_{j+1} + \sum_j h_j\,\sigma^z_j, \qquad H_K = b\sum_j \sigma^x_j, \qquad \text{PBC}$$</div>
@@ -1157,12 +1167,7 @@
 </section>
 
 <footer>
-  <p>Tiers: <b>A</b> full solution &middot; <b>B</b> integrable (Bethe ansatz)
-  &middot; <b>C</b> exact ground state only &middot; <b>D</b> exact in a limit.
-  Script flags: <b>S</b> full oracle script &middot; <b>P</b> partial &middot;
-  <b>T</b> tabulated only. Cards live under
-  <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/INDEX.md">.knowledge/solvable/</a>; run any oracle with
-  <code>uv run python &lt;card&gt;/oracle.py --help</code>.</p>
+<p>Tiers: <b>A</b> full solution &middot; <b>B</b> integrable (Bethe ansatz) &middot; <b>C</b> exact ground state only &middot; <b>D</b> exact in a limit. Script flags: <b>S</b> full oracle script &middot; <b>P</b> partial &middot; <b>T</b> tabulated only. Cards live under <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/INDEX.md">.knowledge/solvable/</a>; run any oracle with <code>uv run python &lt;card&gt;/oracle.py --help</code>.</p>
 </footer>
 
 </div>
@@ -1175,27 +1180,31 @@
   var sections = Array.prototype.slice.call(document.querySelectorAll('section.tgroup'));
   var total = models.length;
 
-  function picked(group) {
-    return chips.filter(function (c) {
-      return c.dataset.group === group && c.getAttribute('aria-pressed') === 'true';
-    }).map(function (c) { return c.dataset.val; });
+  function picked() {
+    var groups = {};
+    chips.forEach(function (c) {
+      if (c.getAttribute('aria-pressed') === 'true') {
+        (groups[c.dataset.group] = groups[c.dataset.group] || []).push(c.dataset.val);
+      }
+    });
+    return groups;
   }
 
   function apply() {
     var needle = q.value.trim().toLowerCase();
-    var tech = picked('tech'), tier = picked('tier'), flag = picked('flag');
+    var groups = picked();
     var shown = 0;
     models.forEach(function (m) {
-      var d = m.dataset;
-      var ok = true;
+      var d = m.dataset, ok = true;
       if (needle) {
-        var hay = (d.name + ' ' + d.hook + ' ' + d.tech + ' ' + d.techtitle).toLowerCase();
+        var hay = (d.name + ' ' + (d.hook || '') + ' ' + (d.extra || '')).toLowerCase();
         ok = hay.indexOf(needle) !== -1;
       }
-      if (ok && tech.length) ok = tech.indexOf(d.tech) !== -1;
-      if (ok && tier.length) ok = d.tier.split(' ').some(function (t) {
-        return tier.indexOf(t) !== -1; });
-      if (ok && flag.length) ok = flag.indexOf(d.flag) !== -1;
+      Object.keys(groups).forEach(function (g) {
+        if (!ok) return;
+        var vals = (d[g] || '').split(' ');
+        ok = groups[g].some(function (v) { return vals.indexOf(v) !== -1; });
+      });
       if (ok) shown++; else if (m.open) m.open = false;
       if (ok) m.removeAttribute('hidden'); else m.setAttribute('hidden', '');
     });

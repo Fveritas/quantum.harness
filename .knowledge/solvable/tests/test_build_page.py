@@ -1,28 +1,22 @@
-"""Parser tests for the catalog-page generator (scripts/build_solvable_page.py).
+"""Parser tests for the solvable catalog generator (scripts/sitegen/solvable.py).
 
-The generator lives outside this package, so it is imported by file path via
-importlib — the same pattern test_oracles.py uses for the oracle scripts.
+sitegen lives under scripts/, which is inserted into sys.path here — the same
+pattern scripts/tests/conftest.py uses.
 """
-import importlib.util
+import sys
 from pathlib import Path
 
 import pytest
 
 ROOT = Path(__file__).resolve().parents[1]          # .knowledge/solvable
 REPO = ROOT.parents[1]                              # repo root
-GENERATOR = REPO / "scripts" / "build_solvable_page.py"
-
-
-def _load_generator():
-    spec = importlib.util.spec_from_file_location("build_solvable_page", GENERATOR)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
+sys.path.insert(0, str(REPO / "scripts"))
 
 
 @pytest.fixture(scope="module")
 def gen():
-    return _load_generator()
+    from sitegen import solvable
+    return solvable
 
 
 INDEX_FIXTURE = """\

@@ -1,28 +1,28 @@
-#!/usr/bin/env python3
-"""Generate .github/template/solvable.html — the exactly-solvable-models catalog page.
+"""Generate the solvable.html catalog page from .knowledge/solvable/.
 
 Reads .knowledge/solvable/INDEX.md (the 63-model technique tables) and the
-built cards' ORACLE.md files, and renders one self-contained dark HTML page:
-a sticky filter bar (search + technique/tier/script chips) over seven
-technique sections whose rows scan like a table and expand like cards.
-
-Stdlib only. Output is byte-stable run-to-run (no timestamps; INDEX order
-preserved; all curated text lives in literal dicts below).
-
-Usage:  python3 scripts/build_solvable_page.py [--out PATH]
+built cards' ORACLE.md files, and renders the page through the shared
+sitegen shell. Migrated from scripts/build_solvable_page.py (deleted).
 """
 from __future__ import annotations
 
-import argparse
-import html
 import re
 import sys
 from pathlib import Path
 
-REPO = Path(__file__).resolve().parents[1]
+from . import parse, shell
+
+REPO = Path(__file__).resolve().parents[2]
 INDEX_MD = REPO / ".knowledge" / "solvable" / "INDEX.md"
-OUT_HTML = REPO / ".github" / "template" / "solvable.html"
 BLOB = "https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/"
+
+# Back-compatible aliases: the parsing helpers now live in sitegen.parse.
+_strip_md = parse.strip_md
+_section = parse.section
+_esc = parse.esc
+_fmt_cite = parse.fmt_cite
+_cite_spans = parse.cite_spans
+_md_cell = parse.md_inline
 
 # One crisp physics phrase per technique section (shown under each h2).
 SUBTITLES = {
@@ -160,18 +160,6 @@ def parse_index(text: str) -> list:
     return entries
 
 
-def _strip_md(text: str) -> str:
-    """Markdown → plain text: drop emphasis/code markers and link targets."""
-    text = re.sub(r"\[([^\]]*)\]\([^)]*\)", r"\1", text)   # [text](url) -> text
-    text = text.replace("**", "").replace("`", "")
-    return re.sub(r"\s+", " ", text).strip()
-
-
-def _section(text: str, heading: str) -> str:
-    m = re.search(rf"^## {re.escape(heading)}\s*$(.*?)(?=^## |\Z)", text, re.M | re.S)
-    return m.group(1).strip() if m else ""
-
-
 def parse_card(text: str) -> dict:
     """Extract hamiltonian / solvability / benchmarks from an ORACLE.md card."""
     m = re.search(r"\$\$(.+?)\$\$", text, re.S)
@@ -208,38 +196,6 @@ def parse_card(text: str) -> dict:
 # rendering
 # --------------------------------------------------------------------------
 
-def _esc(s: str) -> str:
-    return html.escape(s, quote=True)
-
-
-def _fmt_cite(key: str) -> str:
-    """'@LiebSchultzMattis1961' -> 'Lieb–Schultz–Mattis 1961' (readable citekey)."""
-    key = key.strip().lstrip("@")
-    m = re.match(r"(.*?)(\d{4}[a-z]?)?$", key)
-    name = re.sub(r"(?<=[a-z])(?=[A-Z])", "–", m.group(1))
-    year = m.group(2)
-    return f"{name} {year}" if year else name
-
-
-def _cite_spans(escaped: str) -> str:
-    """Replace [@Key] / [@Key1; @Key2] tokens with readable spans.
-
-    The raw citekey token is kept as a title= attribute for provenance.
-    """
-    def repl(m):
-        keys = [k for k in m.group(1).split(";") if k.strip()]
-        pretty = ", ".join(_fmt_cite(k) for k in keys)
-        return f'<span class="cite" title="{_esc(m.group(0))}">{_esc(pretty)}</span>'
-    return re.sub(r"\[@([^\]]+)\]", repl, escaped)
-
-
-def _md_cell(s: str) -> str:
-    """Benchmark cell: escape, humanize [@citekeys], re-inject `code` as <code>."""
-    s = s.replace("\\|", "|")
-    out = _cite_spans(_esc(s))
-    return re.sub(r"`([^`]+)`", r"<code>\1</code>", out)
-
-
 def _badges(e: dict) -> str:
     tier_title = " / ".join(TIER_TITLES.get(t, f"Tier {t}") for t in e["tier"].split("/"))
     flag_title = FLAG_TITLES.get(e["flag"], f"Script {e['flag']}")
@@ -255,9 +211,10 @@ def _badges(e: dict) -> str:
 
 def _data_attrs(e: dict) -> str:
     tiers = " ".join(t for t in e["tier"].split("/") if t and t != "—")
+    extra = f'{e["technique"]} {e["technique_title"]}'
     return (f'data-name="{_esc(e["slug"])}" data-hook="{_esc(e.get("hook", ""))}"'
-            f' data-tech="{e["technique"]}" data-techtitle="{_esc(e["technique_title"])}"'
-            f' data-tier="{_esc(tiers)}" data-flag="{_esc(e["flag"])}"')
+            f' data-tech="{e["technique"]}" data-tier="{_esc(tiers)}"'
+            f' data-flag="{_esc(e["flag"])}" data-extra="{_esc(extra)}"')
 
 
 def _render_built(e: dict) -> str:
@@ -346,241 +303,49 @@ def render(entries: list) -> str:
         f'{chips("flag", ["S", "P", "T"], FLAG_TITLES)}</span>'
     )
 
-    return f'''<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Exactly-solvable models — Quantum Many-Body Harness</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
-<style>
-  :root{{
-    --bg:#0f1117; --panel:#171a23; --panel2:#1d2130; --ink:#e7e9ee; --mut:#9aa3b2;
-    --line:#2a2f3d; --accent:#7c6cff; --accent2:#22c1a6; --warn:#e0a458;
-    --user:#7aa2ff; --ok:#4cc38a;
-    --mono:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-  }}
-  *{{box-sizing:border-box}}
-  body{{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
-       line-height:1.55;-webkit-font-smoothing:antialiased}}
-  ::selection{{background:var(--accent);color:#fff}}
-  a{{color:var(--accent2);text-decoration:none}}
-  a:hover{{text-decoration:underline}}
-  .wrap{{max-width:980px;margin:0 auto;padding:0 22px}}
-
-  header{{padding:38px 0 22px;border-bottom:1px solid var(--line)}}
-  .kicker{{color:var(--accent);font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-          font-size:.74rem;margin-bottom:10px}}
-  h1{{font-size:2.15rem;margin:.1em 0 .35em;line-height:1.15}}
-  .lead{{color:var(--mut);font-size:1.08rem;max-width:74ch;margin:.2em 0 0}}
-  .backlink{{font-family:var(--mono);font-size:.78rem}}
-
-  /* ---- sticky filter bar ---- */
-  .filterbar{{position:sticky;top:0;z-index:10;background:var(--bg);
-    border-bottom:1px solid var(--line);padding:12px 0 10px}}
-  .fb-row{{display:flex;align-items:center;gap:12px;flex-wrap:wrap}}
-  #q{{flex:1 1 200px;min-width:0;background:var(--panel);border:1px solid var(--line);
-    border-radius:8px;color:var(--ink);font-family:var(--mono);font-size:.84rem;
-    padding:7px 11px}}
-  #q::placeholder{{color:var(--mut)}}
-  #q:focus{{outline:none;border-color:var(--accent)}}
-  #count{{font-family:var(--mono);font-size:.78rem;color:var(--mut);white-space:nowrap}}
-  .fb-chips{{display:flex;gap:14px 18px;flex-wrap:wrap;margin-top:9px}}
-  .cgroup{{display:flex;align-items:center;gap:5px;flex-wrap:wrap}}
-  .clabel{{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-    color:var(--mut);margin-right:2px}}
-  .chip{{appearance:none;cursor:pointer;background:transparent;color:var(--mut);
-    border:1px solid var(--line);border-radius:999px;font-family:var(--mono);
-    font-size:.74rem;padding:2px 9px;transition:color .15s,border-color .15s}}
-  .chip:hover{{color:var(--ink);border-color:var(--mut)}}
-  .chip[aria-pressed="true"]{{color:var(--accent);border-color:var(--accent)}}
-  .chip:focus-visible,summary:focus-visible,#q:focus-visible,.cardlinks a:focus-visible{{
-    outline:2px solid var(--accent);outline-offset:2px}}
-
-  /* ---- technique sections ---- */
-  section.tgroup{{padding:30px 0 6px;border-bottom:1px solid var(--line)}}
-  section.tgroup:last-of-type{{border-bottom:none}}
-  h2{{font-size:1.3rem;margin:0;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}}
-  .tcode{{font-family:var(--mono);color:var(--accent);font-size:1.02rem}}
-  .scount{{font-family:var(--mono);font-size:.76rem;color:var(--mut);font-weight:400;
-    border:1px solid var(--line);border-radius:999px;padding:1px 9px}}
-  .tsub{{color:var(--mut);font-size:.88rem;margin:.4em 0 14px;max-width:78ch}}
-
-  /* ---- model rows ---- */
-  .model{{border:1px solid var(--line);border-radius:10px;margin:0 0 8px;
-    background:rgba(23,26,35,.5)}}
-  .model summary,.model.ghost>.grow{{display:flex;align-items:baseline;gap:10px;
-    flex-wrap:wrap;padding:9px 14px}}
-  .model summary{{cursor:pointer;list-style:none}}
-  .model summary::-webkit-details-marker{{display:none}}
-  .model summary::before{{content:"\\25B8";color:var(--accent);flex:none;
-    display:inline-block;transition:transform .15s ease}}
-  .model[open]>summary::before{{transform:rotate(90deg)}}
-  .model.ghost>.grow::before{{content:"\\25B8";color:transparent;flex:none}}
-  .mname{{font-family:var(--mono);font-size:.86rem;font-weight:700}}
-  .model summary:hover .mname{{color:var(--accent2)}}
-  .hook{{color:var(--mut);font-size:.8rem;flex:1 1 auto;min-width:0}}
-  .bset{{display:flex;gap:5px;flex:none;margin-left:auto}}
-  .b{{font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--mut);
-    border:1px solid var(--line);border-radius:999px;padding:1px 8px;white-space:nowrap}}
-  .b-ok{{color:var(--ok);border-color:rgba(76,195,138,.45)}}
-  .b-dim{{opacity:.75}}
-  .model.ghost{{opacity:.45}}
-  .model[hidden]{{display:none}}
-
-  /* ---- expanded body ---- */
-  .mbody{{border-top:1px solid var(--line);padding:14px 16px 16px}}
-  .math{{background:#0b0d13;border:1px solid var(--line);border-radius:10px;
-    padding:12px 14px;overflow-x:auto;font-size:.95rem}}
-  .solv{{color:var(--mut);font-size:.88rem;max-width:78ch;margin:14px 0 0}}
-  .tablewrap{{overflow-x:auto;margin-top:14px}}
-  table.bench{{width:100%;border-collapse:collapse;font-size:.82rem}}
-  table.bench th,table.bench td{{border-bottom:1px solid var(--line);padding:6px 10px;
-    text-align:left;vertical-align:top;white-space:nowrap}}
-  table.bench td:last-child,table.bench td:nth-child(2){{white-space:normal}}
-  table.bench th{{color:var(--ink)}}
-  table.bench code,.cardlinks{{font-family:var(--mono);font-size:.9em;color:var(--accent2)}}
-  .cardlinks{{margin:14px 0 0;font-size:.78rem;display:flex;gap:16px}}
-
-  footer{{padding:30px 0 60px;color:var(--mut);font-size:.85rem}}
-</style>
-</head>
-<body>
-<div class="wrap">
-
-<header>
-  <p class="backlink"><a href="index.html">&#8592; harness home</a></p>
-  <div class="kicker">Quantum Many-Body Harness</div>
-  <h1>Exactly-solvable models</h1>
-  <p class="lead">The harness's verification-oracle layer: {total} models whose exact
-  results — spectra, ground energies, gaps, degeneracies — serve as ground truth for
-  checking ED, DMRG, QMC, and VMC runs. Open a row for the Hamiltonian, the solvability
-  statement, and the benchmark values.</p>
-</header>
-
-<div class="filterbar">
-  <div class="fb-row">
-    <input id="q" type="search" placeholder="search models&hellip;" aria-label="Search models">
-    <span id="count">{total} of {total}</span>
-  </div>
-  <div class="fb-chips">
-{chips_html}
-  </div>
-</div>
-
-{sections_html}
-
-<footer>
-  <p>Tiers: <b>A</b> full solution &middot; <b>B</b> integrable (Bethe ansatz)
-  &middot; <b>C</b> exact ground state only &middot; <b>D</b> exact in a limit.
-  Script flags: <b>S</b> full oracle script &middot; <b>P</b> partial &middot;
-  <b>T</b> tabulated only. Cards live under
-  <a href="{BLOB}INDEX.md">.knowledge/solvable/</a>; run any oracle with
-  <code>uv run python &lt;card&gt;/oracle.py --help</code>.</p>
-</footer>
-
-</div>
-<script>
-(function () {{
-  var q = document.getElementById('q');
-  var count = document.getElementById('count');
-  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
-  var models = Array.prototype.slice.call(document.querySelectorAll('.model'));
-  var sections = Array.prototype.slice.call(document.querySelectorAll('section.tgroup'));
-  var total = models.length;
-
-  function picked(group) {{
-    return chips.filter(function (c) {{
-      return c.dataset.group === group && c.getAttribute('aria-pressed') === 'true';
-    }}).map(function (c) {{ return c.dataset.val; }});
-  }}
-
-  function apply() {{
-    var needle = q.value.trim().toLowerCase();
-    var tech = picked('tech'), tier = picked('tier'), flag = picked('flag');
-    var shown = 0;
-    models.forEach(function (m) {{
-      var d = m.dataset;
-      var ok = true;
-      if (needle) {{
-        var hay = (d.name + ' ' + d.hook + ' ' + d.tech + ' ' + d.techtitle).toLowerCase();
-        ok = hay.indexOf(needle) !== -1;
-      }}
-      if (ok && tech.length) ok = tech.indexOf(d.tech) !== -1;
-      if (ok && tier.length) ok = d.tier.split(' ').some(function (t) {{
-        return tier.indexOf(t) !== -1; }});
-      if (ok && flag.length) ok = flag.indexOf(d.flag) !== -1;
-      if (ok) shown++; else if (m.open) m.open = false;
-      if (ok) m.removeAttribute('hidden'); else m.setAttribute('hidden', '');
-    }});
-    sections.forEach(function (s) {{
-      var vis = s.querySelectorAll('.model:not([hidden])').length;
-      var badge = s.querySelector('.scount');
-      badge.textContent = vis === +badge.dataset.total ? badge.dataset.total
-                        : vis + ' of ' + badge.dataset.total;
-      if (vis === 0) s.setAttribute('hidden', ''); else s.removeAttribute('hidden');
-    }});
-    count.textContent = shown + ' of ' + total;
-  }}
-
-  chips.forEach(function (c) {{
-    c.addEventListener('click', function () {{
-      c.setAttribute('aria-pressed',
-        c.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
-      apply();
-    }});
-  }});
-  q.addEventListener('input', apply);
-
-  document.addEventListener('DOMContentLoaded', function () {{
-    if (window.renderMathInElement) {{
-      renderMathInElement(document.body, {{
-        delimiters: [{{left: '$$', right: '$$', display: true}}],
-        throwOnError: false
-      }});
-    }}
-  }});
-}})();
-</script>
-</body>
-</html>
-'''
+    return shell.page(
+        title="Exactly-solvable models",
+        lead=("The harness's verification-oracle layer: "
+              f"{total} models whose exact results — spectra, ground energies, "
+              "gaps, degeneracies — serve as ground truth for checking ED, DMRG, "
+              "QMC, and VMC runs. Open a row for the Hamiltonian, the solvability "
+              "statement, and the benchmark values."),
+        total=total,
+        chips_html=chips_html,
+        sections_html=sections_html,
+        footer_html=(
+            "<p>Tiers: <b>A</b> full solution &middot; <b>B</b> integrable (Bethe "
+            "ansatz) &middot; <b>C</b> exact ground state only &middot; <b>D</b> "
+            "exact in a limit. Script flags: <b>S</b> full oracle script &middot; "
+            "<b>P</b> partial &middot; <b>T</b> tabulated only. Cards live under "
+            f'<a href="{BLOB}INDEX.md">.knowledge/solvable/</a>; run any oracle '
+            "with <code>uv run python &lt;card&gt;/oracle.py --help</code>.</p>"),
+        here="solvable.html",
+        search_placeholder="search models&hellip;",
+    )
 
 
 # --------------------------------------------------------------------------
-# main
+# build entry points (driven by build_site.py)
 # --------------------------------------------------------------------------
 
-def main(argv=None) -> None:
-    ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    ap.add_argument("--out", type=Path, default=OUT_HTML,
-                    help="output HTML path (default: .github/template/solvable.html)")
-    args = ap.parse_args(argv)
-
+def build_entries() -> list:
+    """parse_index + attach HOOKS and parsed ORACLE cards (built rows)."""
     entries = parse_index(INDEX_MD.read_text(encoding="utf-8"))
-    techs_seen = set()
     for e in entries:
         e["hook"] = HOOKS.get(e["slug"], "")
-        techs_seen.add(e["technique"])
         if e["built"]:
             card_md = REPO / ".knowledge" / "solvable" / e["slug"] / "ORACLE.md"
             e["card"] = parse_card(card_md.read_text(encoding="utf-8"))
             if not e["hook"]:
                 print(f"warning: built slug '{e['slug']}' has no HOOKS entry",
                       file=sys.stderr)
-    for code in techs_seen:
+    for code in {e["technique"] for e in entries}:
         if not SUBTITLES.get(code):
             print(f"warning: technique '{code}' has no SUBTITLES entry",
                   file=sys.stderr)
-
-    page = render(entries)
-    args.out.write_text(page, encoding="utf-8")
-    built = sum(1 for e in entries if e["built"])
-    print(f"wrote {args.out} — {len(entries)} models ({built} built)")
+    return entries
 
 
-if __name__ == "__main__":
-    main()
+def build_page() -> str:
+    return render(build_entries())
