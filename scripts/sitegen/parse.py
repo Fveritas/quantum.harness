@@ -17,7 +17,7 @@ def section(text: str, heading: str, level: int = 2, prefix: bool = False) -> st
     the next heading of the same or higher level, or at end of text.
     """
     hashes = "#" * level
-    tail = "" if prefix else r"\s*$"
+    tail = r"[^\n]*" if prefix else r"\s*$"
     m = re.search(rf"^{hashes} {re.escape(heading)}{tail}(.*?)(?=^#{{1,{level}}} |\Z)",
                   text, re.M | re.S)
     return m.group(1).strip() if m else ""

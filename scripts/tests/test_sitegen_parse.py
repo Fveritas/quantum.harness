@@ -56,6 +56,12 @@ def test_section_missing_returns_empty():
     assert parse.section(CARD, "No such heading") == ""
 
 
+def test_section_prefix_drops_heading_tail():
+    body = parse.section(CARD, "Properties (A1", level=3, prefix=True)
+    assert not body.startswith("–D16")
+    assert body.lstrip().startswith("| Axis |")
+
+
 def test_axis_table_skips_header_and_separator():
     rows = parse.axis_table(parse.section(CARD, "Properties (A1", level=3, prefix=True))
     assert len(rows) == 2
