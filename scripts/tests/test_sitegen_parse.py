@@ -92,6 +92,11 @@ def test_md_inline_cites_and_code():
     assert parse.md_inline("a < b") == "a &lt; b"
 
 
+def test_md_inline_bold():
+    assert "<b>DMRG/MPS</b>" in parse.md_inline("**DMRG/MPS** works")
+    assert "**" not in parse.md_inline("a **b** c **d** e")
+
+
 def test_fmt_cite_yearless():
     assert parse.fmt_cite("@Baxter") == "Baxter"
 

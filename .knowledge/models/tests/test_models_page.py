@@ -66,4 +66,11 @@ def test_render_contains_card_data(entries):
     assert "0.443147" in page                       # heisenberg benchmark
     assert "models/heisenberg/MODEL.md" in page     # source-card link
     assert 'data-sign="mixed"' in page              # heisenberg sign chip
-    assert page.count('class="model"') >= 29 or page.count("<details") >= 29
+    assert page.count('<details class="model"') == len(entries)
+
+
+def test_property_cells_have_balanced_backticks(entries):
+    bad = [(e["slug"], r["axis"])
+           for e in entries for r in e["card"]["props"]
+           for cell in (r["value"], r["note"]) if cell.count("`") % 2]
+    assert not bad, f"unbalanced backticks (raw pipe in code span?): {bad}"

@@ -76,7 +76,7 @@ HOOKS = {
     "rydberg-pxp": "Rydberg blockade; quantum scars",
 }
 
-# Longer tokens first so \b-matching prefers iPEPS over PEPS etc.
+# display + ≤3-cap priority order
 METHOD_TOKENS = [
     "AFQMC", "DQMC", "iPEPS", "CTMRG", "iTEBD", "XTRG", "LTRG", "TEBD",
     "TDVP", "DMRG", "MPS", "PEPS", "MERA", "QMC", "SSE", "VMC", "NQS",
@@ -200,7 +200,8 @@ def build_entries() -> list:
 
 def _badges(e: dict) -> str:
     sign_cls = {"sign-free": "b-ok", "sign-ful": "b-warn"}.get(e["sign"], "")
-    parts = [f'<span class="b {sign_cls}" title="{parse.esc(SIGN_TITLES.get(e["sign"], ""))}">'
+    cls = f"b {sign_cls}" if sign_cls else "b"
+    parts = [f'<span class="{cls}" title="{parse.esc(SIGN_TITLES.get(e["sign"], ""))}">'
              f'{parse.esc(e["sign"])}</span>']
     parts += [f'<span class="b">{parse.esc(m)}</span>' for m in e["methods"]]
     return f'<span class="bset">{"".join(parts)}</span>'

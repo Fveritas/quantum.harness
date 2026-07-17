@@ -88,7 +88,9 @@ def cite_spans(escaped: str) -> str:
 
 
 def md_inline(s: str) -> str:
-    """Inline markdown for an HTML cell: escape, humanize cites, `code` -> <code>."""
+    """Inline markdown for an HTML cell: escape, humanize cites, `code` -> <code>,
+    **bold** -> <b>."""
     s = s.replace("\\|", "|")
     out = cite_spans(esc(s))
-    return re.sub(r"`([^`]+)`", r"<code>\1</code>", out)
+    out = re.sub(r"`([^`]+)`", r"<code>\1</code>", out)
+    return re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", out)

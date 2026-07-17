@@ -179,7 +179,7 @@
 <tr><td><code>e0_per_site</code></td><td><code>μ=0, t=Δ=1</code> (sweet spot)</td><td><code>-1</code></td><td><span class="cite" title="[@Kitaev2001]">Kitaev 2001</span></td></tr>
 <tr><td><code>gap</code> (flat band)</td><td><code>μ=0, t=Δ=1</code></td><td><code>2</code> (<code>= 2t</code>)</td><td><span class="cite" title="[@Kitaev2001]">Kitaev 2001</span></td></tr>
 <tr><td><code>gap</code></td><td><code>μ=2t</code> (transition)</td><td><code>0</code></td><td><span class="cite" title="[@Kitaev2001]">Kitaev 2001</span></td></tr>
-<tr><td><code>topological</code></td><td>`</td><td>μ</td><td>&lt; 2t<code> / </code></td></tr>
+<tr><td><code>topological</code></td><td><code>|μ| &lt; 2t</code> / <code>|μ| &gt; 2t</code></td><td><code>True</code> / <code>False</code></td><td><span class="cite" title="[@Kitaev2001]">Kitaev 2001</span></td></tr>
 </tbody></table></div>
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kitaev-chain/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/kitaev-chain/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
@@ -222,7 +222,7 @@
 <p class="solv">T1: Kitaev&#x27;s four-Majorana representation σ^a_j = i\,b^a_j c_j (with the on-site gauge constraint b^x b^y b^z c = 1) turns each bond operator \hat u_{jk} = i\,b^a_j b^a_k into a conserved Z₂ gauge field, and every plaquette flux W_p = \prod \hat u is a constant of motion. In each fixed flux sector the Hamiltonian is a quadratic (free) Majorana hopping of the single c-Majorana per site — σ^a_j σ^a_k = -i\,\hat u_{jk} c_j c_k, so H = i\sum_{\langle jk\rangle,\,j\in A} J_a \hat u_{jk} c_j c_k — diagonalized exactly by Fourier transform, giving ε(k) = 2|f(k)|. By Lieb&#x27;s theorem the ground state lies in the flux-free sector (W_p = +1 on every plaquette), realized by the gauge \hat u_{jk} = +1; the quantities this card reports (e0_per_site, gap, phase) are the exact flux-free-sector values.</p>
 <div class="tablewrap"><table class="bench"><thead><tr><th>Quantity</th><th>Params</th><th>Exact value</th><th>Source</th></tr></thead>
 <tbody>
-<tr><td><code>e0_per_site</code></td><td>isotropic <code>J_x=J_y=J_z=1</code> (Pauli convention)</td><td><code>−0.787299</code> (`= −½⟨</td><td>f</td></tr>
+<tr><td><code>e0_per_site</code></td><td>isotropic <code>J_x=J_y=J_z=1</code> (Pauli convention)</td><td><code>−0.787299</code> (<code>= −½⟨|f|⟩_BZ</code>, <code>⟨|f|⟩ ≈ 1.574597</code>)</td><td><span class="cite" title="[@Kitaev2006]">Kitaev 2006</span></td></tr>
 <tr><td><code>gap</code></td><td>isotropic (B phase, Dirac point)</td><td><code>0</code></td><td><span class="cite" title="[@Kitaev2006]">Kitaev 2006</span></td></tr>
 <tr><td><code>e0_per_site</code></td><td>decoupled dimers <code>J_x=J_y=0, J_z=1</code></td><td><code>−1/2</code></td><td>derived above</td></tr>
 <tr><td><code>gap</code></td><td>A phase <code>J_z=2.5, J_x=J_y=1</code></td><td><code>1</code> (<code>= 2(J_z−J_x−J_y)</code>)</td><td>derived above, <span class="cite" title="[@Kitaev2006]">Kitaev 2006</span></td></tr>
@@ -333,7 +333,7 @@
 <tr><td><code>sound_speed_closed</code></td><td><code>g=0.1, n=1, m=1</code></td><td><code>√0.1 ≈ 0.316228</code></td><td><span class="cite" title="[@Bogoliubov1947]">Bogoliubov 1947</span></td></tr>
 <tr><td><code>healing_length</code></td><td><code>g=0.1, n=1, m=1</code></td><td><code>1/√0.2 ≈ 2.236068</code></td><td><span class="cite" title="[@Bogoliubov1947]">Bogoliubov 1947</span></td></tr>
 <tr><td><code>depletion_3d_closed</code></td><td><code>g=0.1, n=1, m=1</code> (<code>a ≈ 7.96×10⁻³</code>, <code>na³ ≈ 5.04×10⁻⁷</code>)</td><td><code>≈ 1.068×10⁻³</code></td><td><span class="cite" title="[@Bogoliubov1947]">Bogoliubov 1947</span></td></tr>
-<tr><td>Validity regime</td><td>—</td><td>closed forms trustworthy for <code>na³ ≲ 10⁻³</code>; <code>He-4</code>-like <code>na³ ~ O(1)</code> is **outside** the theory&#x27;s regime</td><td>tier statement above</td></tr>
+<tr><td>Validity regime</td><td>—</td><td>closed forms trustworthy for <code>na³ ≲ 10⁻³</code>; <code>He-4</code>-like <code>na³ ~ O(1)</code> is <b>outside</b> the theory&#x27;s regime</td><td>tier statement above</td></tr>
 </tbody></table></div>
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/bogoliubov-bose-gas/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/bogoliubov-bose-gas/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
@@ -558,7 +558,7 @@
 <tr><td><code>n_susy_supermultiplets</code></td><td><code>L=6</code>, <code>N=6↔5</code>, <code>J=2t</code></td><td><code>21</code> shared eigenvalues (<code>1e-8</code>)</td><td>this card</td></tr>
 <tr><td><code>e0_halffilling_thermo</code></td><td><code>n=1</code>, <code>N→∞</code></td><td><code>-2 ln2 ≈ -1.3862944</code> (Heisenberg limit)</td><td><span class="cite" title="[@Sutherland1975]">Sutherland 1975</span></td></tr>
 <tr><td><code>e0_halffilling_per_site</code></td><td><code>n=1</code>, <code>L=6</code> OBC</td><td><code>-1.2478590</code> (finite <code>L</code>; <code>→ -2 ln2</code>)</td><td>this card</td></tr>
-<tr><td>generic-filling <code>e_0</code></td><td><code>0&lt;n&lt;1</code></td><td>Sutherland/Schlottmann TBA (**not coded**)</td><td><span class="cite" title="[@Sutherland1975; @Schlottmann1987]">Sutherland 1975, Schlottmann 1987</span></td></tr>
+<tr><td>generic-filling <code>e_0</code></td><td><code>0&lt;n&lt;1</code></td><td>Sutherland/Schlottmann TBA (<b>not coded</b>)</td><td><span class="cite" title="[@Sutherland1975; @Schlottmann1987]">Sutherland 1975, Schlottmann 1987</span></td></tr>
 </tbody></table></div>
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/susy-t-j/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/susy-t-j/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
@@ -857,7 +857,7 @@
 <tr><td><code>vbs_residual</code> <code>|Hψ|</code></td><td>explicit PEPS, <code>8</code> sites</td><td><code>0</code> (<code>&lt;1e-10</code>)</td><td><span class="cite" title="[@AKLT1988]">AKLT 1988</span></td></tr>
 <tr><td><code>gsd_observed</code></td><td><code>2×2</code> torus</td><td><code>1</code> (unique)</td><td>ED (this card)</td></tr>
 <tr><td><code>gap_observed</code></td><td><code>2×2</code> torus (numerical)</td><td><code>≈0.092</code> (finite-size, not the theorem)</td><td>ED (this card)</td></tr>
-<tr><td>spectral gap</td><td>thermodynamic limit</td><td>nonzero (**proven**) — tabulated</td><td><span class="cite" title="[@PomataWei2020; @LemmSandvikWang2020]">Pomata–Wei 2020, Lemm–Sandvik–Wang 2020</span></td></tr>
+<tr><td>spectral gap</td><td>thermodynamic limit</td><td>nonzero (<b>proven</b>) — tabulated</td><td><span class="cite" title="[@PomataWei2020; @LemmSandvikWang2020]">Pomata–Wei 2020, Lemm–Sandvik–Wang 2020</span></td></tr>
 </tbody></table></div>
 <p class="cardlinks"><a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/aklt-honeycomb/ORACLE.md">ORACLE.md&nbsp;&#8599;</a> <a href="https://github.com/QuantumBFS/quantum.harness/blob/main/.knowledge/solvable/aklt-honeycomb/oracle.py">oracle.py&nbsp;&#8599;</a></p>
 </div>
@@ -1034,8 +1034,8 @@
 <p class="solv">T6 / Tier D (exact in the N→∞ limit): after disorder averaging, the 1/N^3 variance makes only &quot;melonic&quot; diagrams survive, and the theory closes into the Schwinger–Dyson equations <span class="cite" title="[@MaldacenaStanford2016]">Maldacena–Stanford 2016</span> Eq. (2.6), 1/G(iω) = -iω - Σ(iω), Σ(τ) = J^2 G(τ)^{q-1}, which are *exact* at N=∞. Their strong-coupling (IR) solution is conformal, G_c(τ)∝\mathrm{sgn}(τ)/|τ|^{2Δ} with fermion dimension Δ=1/q=1/4, and the model is a non-Fermi liquid: maximal chaos (Lyapunov exponent saturating λ_L=2πk_BT/ℏ) and an extensive zero-temperature entropy S_0/N≈0.2324. Not exact at finite N: the finite-N model is fully chaotic (random-matrix level statistics) and requires ED. So this is a D-tier / P-script card — the exact content is the N→∞ limit (tabulated conformal data + the scripted SD entropy trend) and the finite-N ED level statistics are exact reference numbers for whatever N is diagonalised, *not* a thermodynamic-limit claim.</p>
 <div class="tablewrap"><table class="bench"><thead><tr><th>Quantity</th><th>Params</th><th>Exact value</th><th>Source</th></tr></thead>
 <tbody>
-<tr><td><code>⟨r̃⟩</code> (level class)</td><td><code>N=16</code>, <code>mod 8=0</code></td><td><code>0.531</code> → **GOE** <code>0.5307</code></td><td><span class="cite" title="[@GarciaGarciaVerbaarschot2016; @AtasEtAl2013]">Garcia–Garcia–Verbaarschot 2016, Atas–Et–Al 2013</span></td></tr>
-<tr><td><code>⟨r̃⟩</code> (level class)</td><td><code>N=12</code>, <code>mod 8=4</code></td><td><code>0.678</code> → **GSE** <code>0.6744</code></td><td><span class="cite" title="[@YouLudwigXu2017; @AtasEtAl2013]">You–Ludwig–Xu 2017, Atas–Et–Al 2013</span></td></tr>
+<tr><td><code>⟨r̃⟩</code> (level class)</td><td><code>N=16</code>, <code>mod 8=0</code></td><td><code>0.531</code> → <b>GOE</b> <code>0.5307</code></td><td><span class="cite" title="[@GarciaGarciaVerbaarschot2016; @AtasEtAl2013]">Garcia–Garcia–Verbaarschot 2016, Atas–Et–Al 2013</span></td></tr>
+<tr><td><code>⟨r̃⟩</code> (level class)</td><td><code>N=12</code>, <code>mod 8=4</code></td><td><code>0.678</code> → <b>GSE</b> <code>0.6744</code></td><td><span class="cite" title="[@YouLudwigXu2017; @AtasEtAl2013]">You–Ludwig–Xu 2017, Atas–Et–Al 2013</span></td></tr>
 <tr><td>Kramers pair-gap</td><td><code>N=12</code> (GSE sector)</td><td><code>&lt;1e-9</code> (doubling exact)</td><td>this card (identity-proof)</td></tr>
 <tr><td><code>Δ</code> (fermion dimension)</td><td><code>q=4</code></td><td><code>1/4</code> (tabulated)</td><td><span class="cite" title="[@MaldacenaStanford2016]">Maldacena–Stanford 2016</span></td></tr>
 <tr><td>conformal amplitude <code>b</code></td><td><code>βJ=40</code></td><td><code>0.524 → (4π)^{-1/4}=0.5311</code></td><td>this card / <span class="cite" title="[@MaldacenaStanford2016]">Maldacena–Stanford 2016</span></td></tr>
@@ -1092,7 +1092,7 @@
 <tr><td>annealed GS <code>E_0</code></td><td><code>U=0</code> (free)</td><td><code>-4.0000000000</code></td><td>finite-<code>L</code> ED reference, this card</td></tr>
 <tr><td>annealed GS <code>E_0</code></td><td><code>U=2</code></td><td><code>-2.0644951022</code></td><td>finite-<code>L</code> ED reference, this card</td></tr>
 <tr><td>annealed GS <code>E_0</code></td><td><code>U=4</code></td><td><code>-1.3005630797</code></td><td>finite-<code>L</code> ED reference, this card</td></tr>
-<tr><td>optimal <code>f</code>-config</td><td><code>U=2</code></td><td>**checkerboard <code>101010</code>**</td><td>this card (identity-proof)</td></tr>
+<tr><td>optimal <code>f</code>-config</td><td><code>U=2</code></td><td><b>checkerboard <code>101010</code></b></td><td>this card (identity-proof)</td></tr>
 <tr><td><code>T=0</code> order (bipartite, half-filling)</td><td><code>d=∞</code>, any <code>U&gt;0</code></td><td>checkerboard CDW (exact)</td><td><span class="cite" title="[@BrandtMielsch1989; @FreericksZlatic2003]">Brandt–Mielsch 1989, Freericks–Zlatic 2003</span></td></tr>
 <tr><td>CDW <code>T_c(U)</code></td><td><code>d=∞</code>, half-filling</td><td><code>&gt;0</code>, non-monotonic in <code>U</code></td><td><span class="cite" title="[@FreericksZlatic2003]">Freericks–Zlatic 2003</span></td></tr>
 <tr><td><code>c</code>-charge gap</td><td><code>d=∞</code>, large <code>U</code></td><td><code>≈U</code> (band splitting)</td><td><span class="cite" title="[@FreericksZlatic2003]">Freericks–Zlatic 2003</span></td></tr>
