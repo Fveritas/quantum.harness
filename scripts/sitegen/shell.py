@@ -4,6 +4,10 @@ One dark theme, one sticky filter bar, one expandable-rows interaction for
 all three catalogs. The JS filter is generic: it reads every chip's
 data-group and matches against the row's data-<group> attribute, so each
 catalog page only declares its own chip groups.
+
+Row contract: each .model row carries data-name / data-hook / data-extra
+(extra = all other searchable text) plus one data-<group> attribute per
+chip group the page declares (space-separated tokens).
 """
 from __future__ import annotations
 
@@ -210,7 +214,11 @@ def chips(group: str, values, titles=None) -> str:
 
 def page(*, title: str, lead: str, total: int, chips_html: str, sections_html: str,
          footer_html: str, here: str, search_placeholder: str) -> str:
-    """Assemble a full catalog page from its parts."""
+    """Assemble a full catalog page from its parts.
+
+    All interpolated args are trusted HTML — escape card-derived text with
+    parse.esc / parse.md_inline upstream.
+    """
     return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
