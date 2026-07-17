@@ -59,7 +59,7 @@ LTRG and XTRG represent the thermal density matrix `ρ(β) = e^{-βH}` as a tens
 - **Any model where QMC has a sign problem (C12 sign-ful):** LTRG/XTRG provide the sign-free finite-T route
 - Per `method-property-map.md` (LTRG/XTRG profile): preferred finite-T method when QMC sign problem is present and 2D geometry is needed
 
-### Key references
+### Key reference
 
 [@chen_2018_exponential] — introduces XTRG (exponential doubling `ρ→ρ·ρ`), demonstrates `O(log β)` scaling, and benchmarks frustrated 2D magnets; the primary XTRG reference.
 Rendered: `../../literature/ltrg/1801.00142_exponential-thermal-tensor-network-approach-for-quantum-latt.md` _(reused: `../../literature/ltrg/1801.00142_exponential-thermal-tensor-network-approach-for-quantum-latt.md`)_.
