@@ -5,7 +5,7 @@ skills-dir = "skills"
 # Research workflow
 arxiv-search = { source = "yorkeccak/scientific-skills/arxiv-search" }
 survey = { source = "QuantumBFS/sci-brain/skills/survey" }  # topic survey → .knowledge/ base (BibTeX)
-ideas = { source = "QuantumBFS/sci-brain/skills/ideas" }    # two-agent brainstorm grounded in a survey (for /challenge)
+brainstorm-ideas = { source = "QuantumBFS/sci-brain/skills/brainstorm-ideas" }  # two-agent brainstorm grounded in a survey (for /challenge)
 idea-writer = { source = "QuantumBFS/sci-brain/skills/idea-writer" }  # write a chosen idea into a structured proposal (for /challenge)
 download-ref = { type = "local" }
 

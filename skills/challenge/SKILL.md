@@ -21,7 +21,7 @@ time, and unblocks them when they're stuck. That *is* the value.
 - **Owns:** the journey spine and resume state; grounding ideation in the track's frontier
   maps; the feasibility / time-box guard; the advisor digest + help-desk handoff; the
   graded-hint mentor behavior; the handoff to reporting.
-- **Delegates ideation** to the sci-brain pipeline — `/survey` (literature) → `/ideas`
+- **Delegates ideation** to the sci-brain pipeline — `/survey` (literature) → `/brainstorm-ideas`
   (brainstorm) → `/idea-writer` (write-up). Do not reimplement these.
 - **Delegates the attempt** to `/solve` and the run machinery (script → `tracks/<track>/`,
   plot + intermediate output). Do not write a second run loop.
@@ -41,7 +41,7 @@ resume; never reconstruct state from conversation memory. Representative shape:
   "reproduction_run": "tracks/ed/results/<repro-run>/",
   "days_left": 2.5,
   "survey_registry": "<path from /survey>",
-  "ideas_log": "<path from /ideas>",
+  "ideas_log": "<path from /brainstorm-ideas>",
   "ideas_report": "<path from /idea-writer>",
   "candidates": [
     { "title": "…", "question": "…", "wall_band": "~hours on a laptop",
@@ -100,7 +100,7 @@ page. Run the sci-brain pipeline, seeded with the track context from Step 0:
 
 1. **`/survey`** — literature around the track's frontier (pass the frontier-map topics as
    the seed). Produces a survey registry the next step reads.
-2. **`/ideas`** — brainstorm challenges grounded in that survey. Frame the brief explicitly
+2. **`/brainstorm-ideas`** — brainstorm challenges grounded in that survey. Frame the brief explicitly
    as *"hackathon challenges that go one concrete step beyond <reference paper>, doable in
    ~`days_left`"* so the Ideator stays scoped. The output is a ranked shortlist.
 3. **`/idea-writer`** — write the chosen direction into a structured proposal: research
@@ -208,7 +208,7 @@ for their presentation. `/challenge` stops here — it does not build the report
 
 - Don't auto-solve the challenge or take over the keyboard — guide, hint, let the student
   decide and type. Pedagogy is the primary acceptance criterion.
-- Don't reimplement ideation (`/survey` `/ideas` `/idea-writer`), the run loop (`/solve`),
+- Don't reimplement ideation (`/survey` `/brainstorm-ideas` `/idea-writer`), the run loop (`/solve`),
   or the report (`/challenge-report`) — delegate and compose.
 - Don't start the attempt before a recorded help-desk `go`.
 - Don't let scope exceed the time left — refuse and offer the scoped-down MVP.

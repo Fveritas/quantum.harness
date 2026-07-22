@@ -37,7 +37,6 @@ skills/dispatching-parallel-agents
 skills/executing-plans
 skills/finishing-a-development-branch
 skills/idea-writer
-skills/ideas
 skills/ion-cli
 skills/receiving-code-review
 skills/requesting-code-review
@@ -88,3 +87,6 @@ skills/using-slurm/profiles/active.toml
 .cryo/todo.json
 .cryo/.cryo/
 .cryo/tmp/
+
+# Managed by ion
+skills/brainstorm-ideas
