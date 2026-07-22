@@ -77,16 +77,8 @@ skills/using-slurm/profiles/active.toml
 # Git worktrees
 .worktrees/
 
-# Cryochamber runtime (per-machine state). The chamber *design* — .cryo/plan.md,
-# .cryo/cryo.toml, .cryo/README.md — is committed; everything below is local.
-# Advisor drafts under .zulip/.drafts/ are already covered by the .zulip/ rule.
-.cryo/NOTES.md
-.cryo/messages/
-.cryo/*.log
-.cryo/timer.json
-.cryo/todo.json
-.cryo/.cryo/
-.cryo/tmp/
+# Cryochamber state — never commit a local chamber
+.cryo/
 
 # Managed by ion
 skills/brainstorm-ideas
