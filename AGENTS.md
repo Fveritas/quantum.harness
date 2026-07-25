@@ -229,3 +229,5 @@ Agents working in this project should:
 
 Run `make help` to see available Makefile targets. Run `make test` to execute the
 Python script test suite (`scripts/tests/`) with coverage.
+
+## thanks
