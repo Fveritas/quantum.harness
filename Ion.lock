@@ -17,7 +17,7 @@ name = "brainstorm-ideas"
 source = "https://github.com/QuantumBFS/sci-brain.git"
 kind = "git"
 path = "skills/brainstorm-ideas"
-commit = "e89fc0b088e47a19e386d1cd6aae16009e51f052"
+commit = "df5a3842b03ad8088c37fc94c1e366f767d16a2c"
 checksum = "sha256:4020aa3aef1434e45d3a924fe446840d65bd9fde4c2ef5ee3faa87a4844cabd0"
 
 [[skill]]
@@ -107,7 +107,7 @@ name = "idea-writer"
 source = "https://github.com/QuantumBFS/sci-brain.git"
 kind = "git"
 path = "skills/idea-writer"
-commit = "e89fc0b088e47a19e386d1cd6aae16009e51f052"
+commit = "df5a3842b03ad8088c37fc94c1e366f767d16a2c"
 checksum = "sha256:9e974150838d46556ef69ce30415fd040908bd6b0d7f9689b0b0f9c628f113ad"
 
 [[skill]]
@@ -279,7 +279,7 @@ name = "survey"
 source = "https://github.com/QuantumBFS/sci-brain.git"
 kind = "git"
 path = "skills/survey"
-commit = "e89fc0b088e47a19e386d1cd6aae16009e51f052"
+commit = "df5a3842b03ad8088c37fc94c1e366f767d16a2c"
 checksum = "sha256:0cfab5e37c0a3b127f9d93ccd820bb4631ece0a7fd9c2301a1e663617c083375"
 
 [[skill]]
