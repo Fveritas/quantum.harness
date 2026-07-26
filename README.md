@@ -25,7 +25,7 @@ Paste this into Claude Code, Codex, or OpenCode:
 
 ```text
 Clone https://github.com/QuantumBFS/quantum.harness.
-Run `make skills` to install the harness skills.
+Run `/onboard` and `make skills` to install necessary dependencies.
 Then run `/beginner-training` skill to start the guided training.
 ```
 
