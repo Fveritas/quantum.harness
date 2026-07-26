@@ -49,6 +49,14 @@ gh issue list -R QuantumBFS/qsym-rs --label training-starter
 gh issue view <n> -R QuantumBFS/qsym-rs --comments
 ```
 
+If no unclaimed labeled issue remains, widen the listing to all open issues —
+student-proposed starters (Step 3) stay unlabeled until a maintainer curates
+them, and an unclaimed one of those is a fine pick:
+
+```bash
+gh issue list -R QuantumBFS/qsym-rs --state open
+```
+
 The student must choose among the unclaimed ones. Do not open, assume, or
 start driving any specific issue before they explicitly pick one. Answer
 questions about what each issue involves if asked. Once they pick, claim the
