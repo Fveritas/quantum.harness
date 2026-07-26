@@ -62,14 +62,14 @@ Completion criterion: every active trigger is either added to the pending instal
 
 If the task involves a calculation, code, package use, or paper reproduction that needs a method/software route, consult the relevant local sources before proposing stack installs:
 
-- `/model` or `/physics` cards for problem routing.
+- `/quantum-model` or `/physics` cards for problem routing.
 - `/method-*` skills for method choice.
 - `/using-*` skills and `skills/<stack>/stack.toml` for software choice, install target, smoke test, and runtime profile.
 - `find-docs` only when package/API details are harness-relevant, hard to find, or version-sensitive.
 
 Present a single-choice fork with 2-3 real software/method options when there is a genuine choice. Each option gets a short reason and tradeoff. Include an `Other / preferred stack` escape hatch when the user may already have a preference.
 
-Completion criterion: either a software route is selected, no route is needed yet, or the task is routed to `/model`, `/physics`, or `/reproduce-paper` to decide the route there.
+Completion criterion: either a software route is selected, no route is needed yet, or the task is routed to `/quantum-model`, `/physics`, or `/reproduce-paper` to decide the route there.
 
 ### 5. Confirm Install Plan
 
@@ -106,9 +106,9 @@ Completion criterion: every approved setup item is installed, skipped by the use
 
 ### 7. Route or Exit
 
-- `Run a calculation`: route to `/model` for a specific Hamiltonian/model, or `/physics` for a cross-model question.
+- `Run a calculation`: route to `/quantum-model` for a specific Hamiltonian/model, or `/physics` for a cross-model question.
 - `Reproduce a paper`: route to `/reproduce-paper`.
-- `Explore a model or physics question`: route to `/model` or `/physics`; install nothing unless computation becomes necessary.
+- `Explore a model or physics question`: route to `/quantum-model` or `/physics`; install nothing unless computation becomes necessary.
 - `Set up for later`: exit after the approved setup plan is handled.
 
 Completion criterion: the next skill owns the task, or setup-only onboarding ends with one line: `Harness setup handled. Bring a model, paper, or calculation when you are ready.`

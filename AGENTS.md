@@ -29,7 +29,7 @@ This is not an `AskUserQuestion` fork — there may be no branch to choose. It i
 Domain content is organized around problems, not lessons, methods, tools, metrics, or roadmaps. Two dispatcher skills + paired cards:
 
 ```text
-skills/model/    SKILL.md auto-fires when user names a model;   reads .knowledge/models/<name>/MODEL.md
+skills/quantum-model/ SKILL.md auto-fires when user names a model; reads .knowledge/models/<name>/MODEL.md
 skills/physics/  SKILL.md auto-fires on cross-model questions;  reads .knowledge/physics/<topic>/PHYSICS.md
 ```
 
@@ -60,7 +60,7 @@ Skills cite these cards; they never hardcode the data. New cards land when a rea
 
 ## Card shapes
 
-Domain content lives in cards under `.knowledge/`, dispatched by the `/model` and `/physics` meta-skills:
+Domain content lives in cards under `.knowledge/`, dispatched by the `quantum-model` and `physics` meta-skills:
 
 - **Model cards** (`.knowledge/models/<name>/MODEL.md`) drive calculations: `Diagnose → Workflow → Method recommendations → Branch table → Verification`.
 - **Physics cards** (`.knowledge/physics/<topic>/PHYSICS.md`) evaluate evidence: `Diagnose → Evidence to gather → Cross-checks → Interpretation rules → Model hooks`.
