@@ -12,8 +12,9 @@ the Teaching Protocol in `skills/beginner-training/SKILL.md`.
 Reproduction proves you can stand where the authors stood; a **challenge** is
 your first step past them — a feasible extension the paper didn't do (a larger
 size, a new term, a different observable). This track uses `/take-challenge` to
-pick one from the school's challenge catalog and register it as a PR, `/solve`
-to do the work, and `/challenge-report` to ship the outcome. Tracks 3 and 4 pay
+pick one from the school's challenge catalog and register it as a PR, the
+sci-brain pipeline (`/survey` → `/brainstorm-ideas` → `/autoresearch`) to do
+the work, and `/challenge-report` to ship the outcome. Tracks 3 and 4 pay
 off here: the survey library grounds the idea, and the development loop ships it
 cleanly.
 
@@ -52,10 +53,12 @@ the report's skeleton.
 
 ### Step 4 — Execute the challenge
 
-Run the calculation(s) through `/solve`, confirm-gated, checking
-convergence/verification at each size the way the reproduction did. Save scripts
-under `scripts/` and data + plots under `results/` so every number is
-regenerable.
+Run the attempt through the sci-brain pipeline, confirm-gated: `/survey` to
+ground it in a real reference library, `/brainstorm-ideas` to shape the
+approach into a minimum viable experiment, and `/autoresearch` to drive the
+runs — checking convergence/verification at each size the way the reproduction
+did. Save scripts under `scripts/` and data + plots under `results/` so every
+number is regenerable.
 
 ### Step 5 — Ship it
 
