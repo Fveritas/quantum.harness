@@ -131,6 +131,10 @@ quota_command = "sshare -U -u student07"
 
 The recommended path is `/setup-cluster`. For manual authoring: probe the cluster (`sinfo`, `scontrol show partition`, `sacctmgr show accounts`), write `skills/using-slurm/profiles/<name>.toml` following the tables above, activate it (`ln -s <name>.toml active.toml` or the env var), and test with a tiny job. Validate shape with `python3 scripts/cluster_profile.py --field connection.ssh.alias --profile <name>.toml`. Read a partition-scoped value with `python3 scripts/cluster_profile.py --partition <name> --field required_gres --profile <name>.toml`; `harness_slurm.sh submit` uses this interface instead of parsing TOML in Bash. Submission resource precedence is CLI/`--extra`, then the script's `#SBATCH` directives, then profile defaults, so profile values fill omissions without overriding script intent.
 
+## Per-cluster setup notes (`<name>-setup.md`)
+
+A profile may ship a committed, secret-free sibling `skills/using-slurm/profiles/<name>-setup.md` describing how a new user provisions credentials for that cluster: portal steps to obtain host/port/username, key download and install, and the `~/.ssh/config` stanza template. `/setup-cluster`'s connection bootstrap reads it when the profile's alias is unreachable. Keep it instructions-only — never a real hostname-for-a-user, username, port, or key; those stay in each user's own ssh config.
+
 ## Cards in this folder
 
-Profiles are optional and user/site-specific. Public profiles may be committed; private profiles should stay gitignored locally.
+Profiles are optional and user/site-specific. Public profiles may be committed; private profiles should stay gitignored locally. Setup-notes siblings (`<name>-setup.md`) are always committable — they describe the provisioning process, not any user's credentials.
