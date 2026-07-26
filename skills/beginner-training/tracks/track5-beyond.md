@@ -11,29 +11,34 @@ the Teaching Protocol in `skills/beginner-training/SKILL.md`.
 
 Reproduction proves you can stand where the authors stood; a **challenge** is
 your first step past them — a feasible extension the paper didn't do (a larger
-size, a new term, a different observable). This track uses `/challenge` to
-generate ranked, time-boxed candidates, lets the student pick one, and ships
-the outcome through `/challenge-report`. Tracks 3 and 4 pay off here: the
-survey library grounds the idea, and the development loop ships it cleanly.
+size, a new term, a different observable). This track uses `/take-challenge` to
+pick one from the school's challenge catalog and register it as a PR, `/solve`
+to do the work, and `/challenge-report` to ship the outcome. Tracks 3 and 4 pay
+off here: the survey library grounds the idea, and the development loop ships it
+cleanly.
 
 ## Scoped precheck
 
 A completed reproduction exists: results under `tracks/<id>/results/` from
-Track 2, or the student names what they reproduced. `/challenge` extends a
+Track 2, or the student names what they reproduced. A challenge extends a
 calibrated result — without one there is nothing to go beyond.
 
 ## Steps
 
-### Step 1 — Generate challenge candidates
+### Step 1 — See the challenge candidates
 
-Run `/challenge` on the reproduced track. Expected shape: a short ranked list,
-each with an estimated cost ("~hours, local" / "~hours, cluster"). Walk the
-student through why each is or isn't feasible at their compute budget.
+Run `/take-challenge` on the reproduced track. It fetches the school's catalog
+of released challenge issues, classifies them by method, and shortlists the ones
+that fit the student's track and time — each with an estimated cost ("~hours,
+local" / "~hours, cluster"). Walk the student through why each is or isn't
+feasible at their compute budget.
 
 ### Step 2 — The student picks one (explicit gate)
 
 The student chooses; the mentor gives graded hints but must not auto-solve.
 This mirrors the summer-school rule: the harness guides, the student thinks.
+`/take-challenge` then registers the choice by opening and submitting the PR —
+that PR is the claim, and everything after lands on its branch.
 
 ### Step 3 — Plan before compute
 
@@ -44,9 +49,10 @@ the report's skeleton.
 
 ### Step 4 — Execute the challenge
 
-Run the calculation(s) confirm-gated, checking convergence/verification at
-each size the way the reproduction did. Save scripts under `scripts/` and
-data + plots under `results/` so every number is regenerable.
+Run the calculation(s) through `/solve`, confirm-gated, checking
+convergence/verification at each size the way the reproduction did. Save scripts
+under `scripts/` and data + plots under `results/` so every number is
+regenerable.
 
 ### Step 5 — Ship it
 
