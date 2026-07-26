@@ -12,9 +12,6 @@ Quantum circuit simulation is the differentiable-circuit and performance track. 
 - **Methodology reference** (reproduction-grade algorithm, parameters, validation, gap analysis): `references/qcs-methodology.md`
 - **Method-zoo card** (property table, cost classes): `.knowledge/methods/circuit-sim`
 - Track README: `tracks/qcs/README.md`
-- Interview notes: `docs/qcs/interview.html`
-- Review notes: `docs/qcs/review.html`
-- Challenge brief: `docs/qcs/backup.md`
 - Tool skills: `/using-tensorcircuit-ng`, `/using-jax`
 
 ## Select method — step 1
