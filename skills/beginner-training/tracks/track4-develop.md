@@ -69,9 +69,7 @@ question at a time, 2–3 candidates, rejecting artificial features that bolt on
 concepts the package deliberately lacks — until the idea is native and
 genuinely useful. Then write it to match the existing starter issues' shape
 (code-anchored Background; tightly-scoped Task; Verification with exact
-outputs, a negative control, and a regression check) and file it,
-confirm-gated (no label — a maintainer reviews and labels it
-`training-starter` if it enters the pool):
+outputs, a negative control, and a regression check) and file it, confirm-gated:
 
 ```bash
 gh issue create -R QuantumBFS/qsym-rs --title "<title>" --body "<body>"
