@@ -27,11 +27,14 @@ calibrated result — without one there is nothing to go beyond.
 
 ### Step 1 — See the challenge candidates
 
-Run `/take-challenge` on the reproduced track. It fetches the school's catalog
-of released challenge issues, classifies them by method, and shortlists the ones
-that fit the student's track and time — each with an estimated cost ("~hours,
-local" / "~hours, cluster"). Walk the student through why each is or isn't
-feasible at their compute budget.
+Run `/take-challenge`. It fetches the school's catalog of released challenge
+issues and presents it index-first — totals, then one row per method group.
+The student says which groups to expand; the reproduced track is a natural
+starting point, but any group is open. Explain the labels as they come up:
+`accepted` means organizer-ratified, `autoresearch` means the challenge ships
+its own pass/fail gate. Feasibility at the student's compute budget is the
+student's call to reason through — `/take-challenge` registers a pick, it
+doesn't price or rank one.
 
 ### Step 2 — The student picks one (explicit gate)
 
