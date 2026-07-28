@@ -254,3 +254,29 @@ test: 1/1 positives（#112 → map 类）, 2/2 negatives -> CALIBRATED
 ### 产物（全部入库，commit 19bd78d）
 
 `briefs/sawtooth-erosion-001.md` + 两张图 + `briefs/data/erosion.json`；README 加了"Solved: issue #112"成果节。
+
+---
+
+## 十、Day 2 深夜：反哺 harness —— 把对话产物整合进知识库
+
+### 动机（自我解剖）
+
+解题时绕开了 harness：没读模型卡（不存在）、没用 /method-ed 和 XDiag（手搓 scipy ED）、没做跨方法交叉验证。根因：**知识发现是白名单制**——`quantum-model` dispatcher 的 description 显式列模型，sawtooth 不在其中 → 对 agent 隐形。这是 agent-kb 赛道的活教材缺口。
+
+### 整合五项（全量完成）
+
+| # | 项 | 产物 |
+|---|---|---|
+| 1 | XDiag 交叉验证 | `scripts/xdiag_crosscheck.jl`：三锚点全 PASS（平带 −4.0、Lucas=18、Monti–Sütő），两套独立代码互证 → 锚点升级 **Harness anchor** |
+| 2 | 精确解 oracle 卡 | `.knowledge/solvable/sawtooth-localized-magnon/`（ORACLE.md + oracle.py，T5/Tier C/Script S，6 自测锚点），INDEX + ref.bib 注册，自动发现确认 |
+| 3 | 模型卡 | `.knowledge/models/sawtooth-chain/MODEL.md`（A1–D16 + 方法路由 + 验证指针，引用 oracle 卡） |
+| 4 | dispatcher 注册 | `skills/quantum-model/SKILL.md` 白名单加 sawtooth-chain——**"agent 看不见"的机制性修复** |
+| 5 | 根 AGENTS.md 规则 | "无卡先建卡"：计算前发现 `.knowledge/` 无对应卡 → 补卡是该 session 交付物的一部分 |
+
+### 回归
+
+solution 三件套全绿（anchors 6/6、demo 战报不变、校准 CALIBRATED）。
+
+### 环境备忘
+
+`uv` 未装（`make test-oracles` 需要）；oracle 用系统 python3 验证通过。
