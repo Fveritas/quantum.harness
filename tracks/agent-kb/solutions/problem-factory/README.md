@@ -2,6 +2,30 @@
 
 **One command:** `python3 run_demo.py`
 
+## Reproduce (mentor quickstart — 5 prompts)
+
+From a fresh clone, each numbered line is one short prompt to the agent (or run
+the command directly). Expected output is what reproduction success looks like.
+
+```bash
+# 0. dependencies (one command; numpy scipy pyyaml matplotlib)
+python3 -m pip install -r requirements.txt
+cd tracks/agent-kb/solutions/problem-factory
+```
+
+| # | prompt | runs | expect |
+|---|---|---|---|
+| 1 | "Run the problem factory's first flight" | `python3 run_demo.py` (~2 s) | `launched 5: survivor 1, deferred 1, dead 3` |
+| 2 | "Run the calibration gate" | `python3 run_calibration.py` (<1 s) | `-> CALIBRATED` (dev 5/5 pos, test 1/1 pos) |
+| 3 | "Reproduce the issue #112 sawtooth solve" | `python3 tests/test_sawtooth.py && python3 run_sawtooth.py` (~20 s) | `all anchors green` + two figures in `briefs/figures/` |
+| 4 | "Build the challenge run folder" | `python3 build_run.py` (<1 s) | `tracks/agent-kb/results/20260728-sawtooth-erosion/run.json` |
+| 5 | "Generate the challenge report" | `/challenge-report` | interactive report → `report.html` next to `run.json` |
+
+Optional (needs Julia + XDiag, `make` toolchain): cross-check the anchors with
+an independent ED stack —
+`julia --project=julia-env scripts/xdiag_crosscheck.jl`.
+Skip if Julia is unavailable; the anchors are already Harness-anchor verified.
+
 ## The idea
 
 Issue #133 asks for a factory that generates, solves, and publishes new quantum
@@ -43,6 +67,7 @@ the deliverable, not the one survivor.
 - `pf/rubric.py` + `run_calibration.py` — quality-class ruler (record/map), calibrated against #124–#128 + held-out #112
 - `pf/heuristics.py` — deposits every verdict into the `heuristics/` library (issue #133's growth-curve deliverable)
 - `pf/sawtooth.py` + `run_sawtooth.py` — the issue #112 detuning-axis solve (below)
+- `build_run.py` — materializes the gitignored challenge-run folder (`tracks/agent-kb/results/…/run.json`) for `/challenge-report`
 - `tests/` — anchor tests, plain asserts: `python3 tests/test_sawtooth.py`
 - `AGENTS.md` — card schema, telemetry schema, coding style for agent sessions
 
@@ -85,3 +110,21 @@ not δ>0 — needs N=20–28 + degenerate-PT cross-check before it is a claim.
 - Replace `pf/cards.py` templates with an LLM generator behind the same schema
   (interface A is the contract; the generator is swappable).
 - Turn repeated death causes into heuristic-library entries.
+
+## Harness contributions (PR element ①)
+
+Solving #112 surfaced a knowledge-discovery gap (the sawtooth model was
+invisible to the agent) — fixed mechanism-level, not just for this session:
+
+- `.knowledge/solvable/sawtooth-localized-magnon/` — exact-solution oracle card
+  (runnable `oracle.py`, 6 self-test anchors, registered in the solvable INDEX)
+- `.knowledge/models/sawtooth-chain/MODEL.md` — model card (method routing,
+  validation pointers) cited by the oracle card
+- `skills/quantum-model/SKILL.md` — dispatcher whitelist now includes
+  sawtooth-chain, so the model is discoverable by any future session
+- root `AGENTS.md` — "no card, make the card" rule: a computation targeting a
+  model with no KB card must deposit one as part of the session's deliverable
+- root `.gitignore` — `.venv/` now ignored (commit b6b1279), removing a
+  trap every fresh setup hit
+- `scripts/xdiag_crosscheck.jl` — scipy↔XDiag cross-check upgrading the
+  sawtooth anchors to *Harness anchor* provenance
