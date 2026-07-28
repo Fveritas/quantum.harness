@@ -233,3 +233,24 @@ test: 1/1 positives（#112 → map 类）, 2/2 negatives -> CALIBRATED
 ### 事故与修复（同日下午）
 
 提交扩类时误把 `.venv/`（4600+ 文件）和根 `AGENTS.md` 的一处断词腐坏（`capit/ulation`，疑为 IDE 误触自动保存）卷入 commit 并推送。修复：`reset --soft` 回退 → 丢弃腐坏 → 重提干净 commit → **顺手把 `.venv/` 补进根 `.gitignore`（harness 改进候选 #1 就此落地，commit b6b1279）** → force-with-lease 推送。教训：**commit 前看一眼 `git status --short` 的暂存区全貌**，尤其多人共用一台机器时暂存区可能有别人的东西。
+
+---
+
+## 九、Day 2 傍晚：#112 失谐轴解题（reconnaissance 尺度）
+
+### 过程（TDD）
+
+可行性先行（`docs/sawtooth-ed-feasibility.md`：本机到 N=20，N=28 留集群）→ 锚点测试先行 → `sawtooth_hamiltonian` builder → 磁化曲线模块 `pf/sawtooth.py` → `run_sawtooth.py` 一条命令出全部产物。
+
+**TDD 抓到一只物理预期错误**：初版跳变测试断言"所有 sector 能量相等"，实测 k≥4 能量上升——不是 builder 错，是硬双子约束：N_c 原胞的环上最多摆 N/4 个局域磁振子。平台长度恰好 N/4 双证 builder 正确。测试修正为"平台+上升"完整签名。
+
+### 结果
+
+- 锚点全部复现（1e-8~1e-10）：平带、跳变、Lucas=18、剩余熵、Monti–Sütő
+- 磁化曲线方法：Sz 守恒下场只贡献 −h·Sz，整条阶梯曲线由零场 sector 能量精确给出，无需扫场
+- 三个侵蚀观测量：W(δ) 线性收缩；ΔM(δ) 仅在 δ=0 满跳（measure-zero 特性）；**Γ(δ) ≈ 单磁振子带宽 → 抹平是单粒子物理**
+- **候选新现象（未证实）**：δ<0 时 Γ 超过带宽、δ>0 时不及——相互作用在两侧作用不对称。需 N=20–28 + 简并微扰交叉验证才升级为 claim
+
+### 产物（全部入库，commit 19bd78d）
+
+`briefs/sawtooth-erosion-001.md` + 两张图 + `briefs/data/erosion.json`；README 加了"Solved: issue #112"成果节。
