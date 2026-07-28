@@ -1,4 +1,4 @@
-# Problem Factory 开发日志 — Day 1（2026-07-27）
+# Problem Factory 开发日志 — Day 1–2（2026-07-27/28）
 
 > 记录本次 session 做了什么、为什么这样做、结果意味着什么。
 > 位置：`tracks/agent-kb/solutions/problem-factory/`
@@ -123,3 +123,66 @@ launched 5: survivor 1, deferred 1, dead 3
 - [ ] 与队友接头：外部卡片倒入本管线
 - [ ] 死因分类 → heuristic library
 - [ ] 更新 `docs/design/` 方法论文档（当前还是听证会旧版）
+
+---
+---
+
+# Day 2（2026-07-28）
+
+## 一、issue #133 全文重读：被低估的 calibration gate
+
+issue 原文有一条 Day 1 日志没抓住的硬要求：
+
+> Before generating new problems, the generator must **re-derive problems of the same quality class as #124–#128** from the open literature, without access to the originals. If the rubric cannot reconstruct the hand-curated set, it is not trusted on new problems.
+
+结论：校准不是"加分项"，是 issue 明文的信任锚。Day 2 主攻方向因此从"出题人优先"改为**校准优先（造尺子），出题人用尺子量产**。
+
+## 二、校准集画像（#124–#128 的共同指纹）
+
+| # | gate 家族 | 单一标量 |
+|---|---|---|
+| 124 kagome 能量区间 | certificate（SDP 对偶可行性） | bracket 宽度 ↓ |
+| 125 J1-J2 打榜 | fresh_sample（变分自认证） | E/N ↓ |
+| 126 AKLT 能隙定理 | interval_arithmetic（Knabe 判据） | 阈值余量 ↑ |
+| 127 收缩成本 | cost_arithmetic（确定性 FLOPs） | FLOPs ↓ |
+| 128 Trotter 界 | certificate（符号对易子范数） | 可证门数 ↓ |
+
+四条可操作特征：**文献锚（钉死的数字+引用）、证书型 gate、单一标量 merit、可发表单元（超越 SOTA 的陈述）**。
+
+**校准发现 #1（在读论文阶段就浮现）**：Day 1 的 decisiveness gate 属于"统计信号检测"家族，不在 issue 点名的四种证书型 gate 里——不先校准，工厂量产的会是同一偏科家族的问题。
+
+## 三、落地：rubric + 回测（`pf/rubric.py` + `run_calibration.py`，~90 行）
+
+- `pf/rubric.py`：四条指纹检查（presence 层）。**分层声明**：rubric 只查结构存在性；"钉死的数字是否真实、checker 是否真能跑"留给下游 static fire / hop 验证——不把深验证伪装成浅检查。
+- `calibration/`：5 个正例（#124–128 手工编码为 candidate YAML）+ 3 个负例。
+- 负例设计（阴性对照，呼应 Track 1 教学）：
+  - `neg-xxz-signal-detection`：我们自己的 Day 1 卡重新编码 → 必须拒
+  - `neg-vague-hubbard`：空洞题（"研究 Hubbard 相图"）→ 四项全挂
+  - `neg-anchor-no-scalar`：有文献锚但无标量/无证书 → 检验各检查的独立性
+
+## 四、回测结果
+
+```
+calibration: 5/5 positives accepted, 3/3 negatives rejected -> CALIBRATED
+```
+
+最有信息量的一条：`neg-xxz-signal-detection`（我们自己的卡）在 4 项检查中挂了 3 项（无文献锚、gate 家族不符、无可发表单元）。**校准发现 #1 现在有了可执行证据**，不再是口头判断。
+
+## 五、对 C（出题人）的设计约束（明天用）
+
+结晶器模板必须按四种 gate 家族分别配置；结构锚点清单里新增必备项：**"文献中已钉死的数字"**。缺此锚的 idea 死因记 `no_literature_anchor`。
+
+## 六、其他记录
+
+- 环境：Track 1 训练顺手装好 `.venv`（pymupdf4llm）和 Julia 1.12.6；Ion.lock 已同步 commit
+- **harness 改进候选**：根 `.gitignore` 不忽略 `.venv/`（`make install pdf-render` 的产物），每个新用户都会踩 → 可提炼为 PR 三要素之一的"harness 改进"
+- 污染风险对策已定：生成协议只喂原始文献、不喂 issue 文本；隔离声明写进 provenance 日志
+
+## 七、Day 2 剩余 / Day 3 待办
+
+- [ ] 出题人（结晶器按新尺子量产）
+- [ ] deferred 卡上集群放大
+- [ ] 与队友接头
+- [ ] 死因分类 → heuristic library（rubric 拒绝日志是第一批素材）
+- [ ] 更新 `docs/design/` 方法论文档
+- [ ] `.venv` gitignore 改进项提上 PR 清单
