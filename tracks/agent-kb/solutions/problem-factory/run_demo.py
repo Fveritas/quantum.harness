@@ -2,7 +2,7 @@
 """One-command demo flight: generate -> dedupe -> static fire -> hop -> verdict -> report."""
 
 from pf import cards as cards_mod
-from pf import probe, static_fire, verdict
+from pf import heuristics, plots, probe, static_fire, verdict
 
 
 def main():
@@ -30,11 +30,14 @@ def main():
         print(f"[{v:<8}] {card['id']}  {reason}", flush=True)
 
     tally = verdict.write_report(records, "results")
+    n = heuristics.dump(records, "heuristics")
+    plots.plot("results/telemetry.jsonl", "results/metrics.png")
     print("\nlaunched {}: {}".format(
         len(records),
         ", ".join(f"{v} {tally.get(v, 0)}" for v in ("survivor", "deferred", "dead")),
     ))
-    print("wrote cards/*.yaml, results/telemetry.jsonl, results/report.md")
+    print(f"deposited {n} heuristics entries")
+    print("wrote cards/*.yaml, results/telemetry.jsonl, results/report.md, results/metrics.png")
 
 
 if __name__ == "__main__":

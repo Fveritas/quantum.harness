@@ -50,4 +50,4 @@ The value layer recognizes two publishable classes, distilled from mentor-curate
 - No defensive programming: schemas are conventions, not runtime validation. A malformed card crashes loudly — that is the desired behavior.
 - No try/except inside the pipeline; exceptions only at true external boundaries.
 - No speculative generality: no function, parameter, or branch without a current caller.
-- Dependencies: stdlib + numpy + scipy + yaml only.
+- Dependencies: stdlib + numpy + scipy + yaml (pipeline core); matplotlib (plots only).
