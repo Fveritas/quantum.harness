@@ -229,3 +229,7 @@ test: 1/1 positives（#112 → map 类）, 2/2 negatives -> CALIBRATED
 
 - 死因分类法对生成侧的启示：`no_uncharted_region`（没声明留白的地图题）、`no_analytic_teeth`（曲线无解析校验）可入 heuristic library
 - 给队友（生成侧）的接口更新：结晶模板现在有两套——record 模板补 `merit.scalar`，map 模板补 `uncharted` + `merit.curve/analytic_check`
+
+### 事故与修复（同日下午）
+
+提交扩类时误把 `.venv/`（4600+ 文件）和根 `AGENTS.md` 的一处断词腐坏（`capit/ulation`，疑为 IDE 误触自动保存）卷入 commit 并推送。修复：`reset --soft` 回退 → 丢弃腐坏 → 重提干净 commit → **顺手把 `.venv/` 补进根 `.gitignore`（harness 改进候选 #1 就此落地，commit b6b1279）** → force-with-lease 推送。教训：**commit 前看一眼 `git status --short` 的暂存区全貌**，尤其多人共用一台机器时暂存区可能有别人的东西。
