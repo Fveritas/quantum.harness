@@ -79,10 +79,11 @@ flagged for the value-calibration dataset.
 ## 4. Solver registry handshake
 
 Cards referencing models our solver cannot build die as `no_solver` (not your
-fault — a capability signal). Current registry: `xxz_j2_chain` (ED, Sz=0).
-Next candidates: sawtooth chain (issue #112 anchors). Batch statistics of
-`no_solver` after the first exchange tell us which builders to add — or which
-models your generator should avoid.
+fault — a capability signal). Current registry: `xxz_j2_chain` (ED, Sz=0, full
+pipeline) and `sawtooth_chain` (builder + first-principles anchors: flat band,
+h_sat Lucas degeneracy; hop runner for erosion sweeps in progress). Batch
+statistics of `no_solver` after the first exchange tell us which builders to
+add — or which models your generator should avoid.
 
 ## 5. Launch discipline (cluster / SSH runs)
 

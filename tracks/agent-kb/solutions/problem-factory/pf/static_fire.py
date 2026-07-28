@@ -24,7 +24,33 @@ def check_sz_conservation():
     return norm < 1e-12, f"|[H,Sz]|={norm:.2e}"
 
 
-CHECKS = {"bethe_delta1": check_bethe, "sz_conservation": check_sz_conservation}
+def check_sawtooth_flat_band():
+    """One-magnon lowest band exactly flat at -4*J1 when J2=2*J1 (N=12)."""
+    N = 12
+    H = ed.sawtooth_hamiltonian(N, j2=2.0, j1=1.0, h=0.0, n_up=N - 1)
+    w = np.linalg.eigvalsh(H.toarray())
+    e_pol = (1.0 + 2 * 2.0) * (N // 2) / 4  # (j1 + 2*j2) * N_c / 4
+    band = w[: N // 2] - e_pol
+    spread = band.max() - band.min()
+    return abs(band.mean() + 4.0) < 1e-8 and spread < 1e-8, \
+        f"band mean={band.mean():.6f} (expect -4), spread={spread:.2e}"
+
+
+def check_sawtooth_hsat_degeneracy():
+    """Total GS degeneracy at h_sat=4*J1 equals Lucas(N/2); N=12 -> 18."""
+    N = 12
+    e0 = (1.0 + 2 * 2.0) * (N // 2) / 4 - 4.0 * N / 2
+    total = 0
+    for k in range(N // 2 + 1):
+        H = ed.sawtooth_hamiltonian(N, j2=2.0, j1=1.0, h=4.0, n_up=N - k)
+        w = np.linalg.eigvalsh(H.toarray())
+        total += int(np.sum(np.abs(w - e0) < 1e-8))
+    return total == 18, f"degeneracy={total} (expect Lucas(6)=18)"
+
+
+CHECKS = {"bethe_delta1": check_bethe, "sz_conservation": check_sz_conservation,
+          "sawtooth_flat_band": check_sawtooth_flat_band,
+          "sawtooth_hsat_degeneracy": check_sawtooth_hsat_degeneracy}
 
 
 def run(card):
