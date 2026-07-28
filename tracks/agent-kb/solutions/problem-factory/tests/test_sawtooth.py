@@ -82,6 +82,19 @@ def test_static_fire_registry():
     assert ok, detail
 
 
+def test_magnetization_jump():
+    # At the flat-band point the m=1/4 crystal is the GS right up to h_sat,
+    # then saturation arrives in ONE jump of dM = 1/4 = M_sat/2 (issue #112).
+    from pf import sawtooth
+    N = 12
+    e = sawtooth.sector_energies(N, j2=2.0, j1=1.0)
+    k_below = sawtooth.gs_sector(e, h=3.999)
+    k_above = sawtooth.gs_sector(e, h=4.001)
+    assert k_below == N // 4, f"expected m=1/4 crystal below h_sat, got k={k_below}"
+    assert k_above == 0, f"expected saturation above h_sat, got k={k_above}"
+    assert (k_below - k_above) / N == 0.25  # jump height = M_sat/2
+
+
 if __name__ == "__main__":
     for name, fn in sorted({k: v for k, v in globals().items() if k.startswith("test_")}.items()):
         fn()

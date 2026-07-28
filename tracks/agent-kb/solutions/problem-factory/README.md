@@ -35,12 +35,33 @@ the deliverable, not the one survivor.
 
 ## Layout
 
-- `pf/ed.py` — minimal XXZ+J2 exact diagonalization (Sz=0 sector, scipy, ~50 lines)
+- `pf/ed.py` — minimal XXZ+J2 exact diagonalization (Sz=0 sector, scipy, ~50 lines) + sawtooth-chain builder
 - `pf/cards.py` — template-generated demo cards + fingerprint dedup (interface A)
-- `pf/static_fire.py` — first-principles checks (Bethe E/N at Δ=1, Sz conservation)
+- `pf/static_fire.py` — first-principles checks (Bethe E/N at Δ=1, Sz conservation, sawtooth flat band & Lucas degeneracy)
 - `pf/probe.py` — hop test: full (L, Δ, J2) grid, decisiveness vs finite-size noise
 - `pf/verdict.py` — three-state verdict + battle report (`results/report.md`)
+- `pf/rubric.py` + `run_calibration.py` — quality-class ruler (record/map), calibrated against #124–#128 + held-out #112
+- `pf/heuristics.py` — deposits every verdict into the `heuristics/` library (issue #133's growth-curve deliverable)
+- `pf/sawtooth.py` + `run_sawtooth.py` — the issue #112 detuning-axis solve (below)
+- `tests/` — anchor tests, plain asserts: `python3 tests/test_sawtooth.py`
 - `AGENTS.md` — card schema, telemetry schema, coding style for agent sessions
+
+## Solved: issue #112 detuning axis (reconnaissance scale)
+
+**One command:** `python3 run_sawtooth.py`
+
+Deliverables (committed):
+
+- `briefs/sawtooth-erosion-001.md` — physics picture, method, results, conclusions, honest novelty assessment
+- `briefs/figures/magnetization_curves.png` — the jump at δ=0 smearing into staircases for δ≠0
+- `briefs/figures/erosion_metrics.png` — W(δ), ΔM(δ), Γ(δ) vs one-magnon bandwidth
+- `briefs/data/erosion.json` — all raw data (N=12,16; δ=−0.3…+0.3)
+- `docs/sawtooth-ed-feasibility.md` — machine/complexity feasibility report (local to N=20, cluster for N=28)
+
+Headline: all closed-form anchors reproduced to 1e-8–1e-10; the jump smearing
+Γ(δ) tracks the one-magnon bandwidth — smearing is single-particle physics.
+Candidate new observation (unverified): Γ exceeds the bandwidth for δ<0 but
+not δ>0 — needs N=20–28 + degenerate-PT cross-check before it is a claim.
 
 ## Key design decisions
 
