@@ -4,6 +4,12 @@
 > We run the launch site (independent QC gate → experiments → verdict).
 > The boundary is **files, not function calls**. Everything below is a contract:
 > conform and your output drops straight into the pipeline.
+>
+> **Status:** §2–§4 are live (QC gate, dedup, static fire, hop, verdict all run
+> today). §5–§7 are **contracts frozen ahead of implementation** — heuristics
+> consumption, briefs, and cluster launches are being built on our side;
+> producing these artifacts now means they get consumed the moment the
+> machinery lands.
 
 ## 1. Where your four stages land
 
