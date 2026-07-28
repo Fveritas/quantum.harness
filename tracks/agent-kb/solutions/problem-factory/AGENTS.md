@@ -35,6 +35,15 @@ One JSON per card in `results/telemetry.jsonl`: `problem_id`, `verdict`, `reason
 - `deferred` — 0.5 ≤ decisiveness < kill threshold: signal visible, needs a larger launch
 - `dead` — `duplicate_fingerprint` | `setup_error` (static fire) | `no_signal` (decisiveness < 0.5). Deaths are deliverables: always record the root cause.
 
+## Quality classes (pf/rubric.py)
+
+The value layer recognizes two publishable classes, distilled from mentor-curated challenges:
+
+- **record** (#124–#128): beat a pinned number — checks `literature_anchor`, `certificate_gate`, `single_scalar`, `publishable_unit`.
+- **map** (#112): chart a declared uncharted region — checks `literature_anchor`, `certificate_gate`, `uncharted_region` (named literature gap), `curve_merit` (curve family + `analytic_check`), `publishable_unit`.
+
+`grade()` accepts a candidate passing either class fully and reports which. Calibration fixtures: `calibration/` (dev), `calibration/test/` (held-out); run `python3 run_calibration.py`.
+
 ## Code style (hard requirement from the user)
 
 - Minimal code: one job per function, no frameworks, no ABCs, no plugin machinery.

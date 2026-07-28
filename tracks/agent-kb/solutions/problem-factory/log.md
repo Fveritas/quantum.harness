@@ -186,3 +186,46 @@ calibration: 5/5 positives accepted, 3/3 negatives rejected -> CALIBRATED
 - [ ] 死因分类 → heuristic library（rubric 拒绝日志是第一批素材）
 - [ ] 更新 `docs/design/` 方法论文档
 - [ ] `.venv` gitignore 改进项提上 PR 清单
+
+---
+
+## 八、Day 2 下午：#112 实测 → 尺子扩成双质量类
+
+### 隔离协议首测
+
+用户拿来公开 issue #112（陈锟老师出的"局域磁振子侵蚀地图"）考尺子。按既定协议执行：
+
+1. **自我申报**：锯齿链局域磁振子物理（2002–2004 经典文献）在 LLM 训练数据内，声明为污染；issue 文本当天首读，无污染
+2. **对策**：编码字段全部可回溯 issue 原文，判决交给 `rubric.py` 确定性代码——LLM 只做搬运，不参与打分
+
+### 一判结果与扩类
+
+旧尺子判决：**REJECTED**（3/4 过，`single_scalar` 挂）。分析：#112 交付物是**曲线族/相图**（侵蚀地图），不是被推进的标量——它和 #124–128 是不同物种：
+
+| | record 类（#124–128） | map 类（#112） |
+|---|---|---|
+| 交付物 | 一个被推进的标量 | 一族曲线 + 相图 |
+| 不可作弊靠 | 证书/确定算术 | 精确整数锚 + 解析 PT 交叉验证 |
+| 五条指纹 | 文献锚/证书/单标量/可发表 | 文献锚/证书/**留白声明**/曲线+解析校验/可发表 |
+
+赛道专家亲手出的题不在官方校准集的类里——**校准集 #124–128 的策展偏好被尺子量化出来了**（issue 说的 "partial failure is informative" 的实例）。
+
+### 扩类实现（`pf/rubric.py` v2）
+
+- `grade()` 现在同时算 record / map 两类检查，任一类全过即 accept，返回归属类
+- map 类新增两字段：`uncharted`（留白声明，含边界文献）、`merit.curve` + `merit.analytic_check`（曲线族必须带解析牙齿——没牙齿的曲线正是老师批评的"模棱两可"）
+- 校准集分 dev（#124–128 + 3 负例）/ held-out test（#112 + 2 个 map 类专属负例）
+
+### 复测结果
+
+```
+dev:  5/5 positives（全部 record 类）, 3/3 negatives
+test: 1/1 positives（#112 → map 类）, 2/2 negatives -> CALIBRATED
+```
+
+两个新负例各只挂该挂的一项（`uncharted_region` / `curve_merit`），新检查项独立性得证。
+
+### 沉淀
+
+- 死因分类法对生成侧的启示：`no_uncharted_region`（没声明留白的地图题）、`no_analytic_teeth`（曲线无解析校验）可入 heuristic library
+- 给队友（生成侧）的接口更新：结晶模板现在有两套——record 模板补 `merit.scalar`，map 模板补 `uncharted` + `merit.curve/analytic_check`
