@@ -1,6 +1,6 @@
 # Problem Factory — a rocket-test approach to issue #133
 
-**One command:** `python3 run_demo.py`
+**One command:** `python3 run_demo.py` · **Judging this work?** Read [ARGUMENT.md](ARGUMENT.md) — the case for correctness and usefulness, with reproduction evidence.
 
 ## Reproduce (mentor quickstart — 5 prompts)
 
