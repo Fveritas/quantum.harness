@@ -83,3 +83,11 @@ skills/using-slurm/profiles/active.toml
 
 # Managed by ion
 skills/brainstorm-ideas
+skills/autoresearch-validator
+skills/autoresearch
+skills/autoresearch-db
+skills/autoresearch-run
+skills/autoresearch-topics
+
+# idea-writer output (local working artifacts; deliverables flow through PRs/issues)
+/articles/

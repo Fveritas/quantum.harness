@@ -80,6 +80,12 @@ If no profile exists, emit a generic array wrapper without resource directives
 and recommend `/onboard` cluster setup. Do not invent partitions, CPUs, memory,
 or walltime.
 
+If a profile exists but the precheck ssh test fails (unresolvable alias,
+missing key, never-provisioned credentials), dispatch `/setup-cluster` — its
+connection bootstrap owns credential acquisition, guided by the profile's
+sibling `profiles/<name>-setup.md` notes. Do not stop at "check ~/.ssh/config",
+and do not rebuild the profile.
+
 ## Partition Ratification
 
 Probe before choosing:
