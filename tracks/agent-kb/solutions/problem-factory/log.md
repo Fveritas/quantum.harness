@@ -365,3 +365,81 @@ decisiveness ≠ value 的缺口由闭环回应：价值不由 agent 评分，�
 - 队友生成侧今天不接（其 problem-factory-test 仓库为空 clone）；接口 A 留好
 - /challenge-report + 向 upstream 开 PR（三要素：harness 改进 / solution /
   可复现 prompt）
+
+## 四、issue #148 全流程实战：√5 猜想（搜索→提出→测试→解决）
+
+下午按手册 §2–§5 把 challenge #148（三角/六角晶格 TFIM 临界场比值是否精确
+等于 √5，发布人 Xiao-Yan Xu，标签 accepted+autoresearch）当作工厂"新领域
+全流程"的实战题跑完。这也是 #133 Tier 1 需要的又一例全流程样板。
+
+### 1. 挖矿（§2，约 30 min）
+
+- Blöte & Deng (PRE 66, 066110 (2002)) 全部 **203 篇引用**(Semantic Scholar)
+  + arXiv 摘要检索：**没有任何 2002 年后的工作改进** h_c(△)=4.76811(9)、
+  h_c(⬡)=2.13250(4)——这对 24 年前的数字至今仍是 SOTA,challenge 的
+  baseline 就是已发表最优值。锚点钉死，写进卡的 provenance。
+- 赛道情报：#148 已被 4 队认领（PR #224/#202/#195/#191，全走 qmc)。我们
+  不正面赛跑——它是工厂的能力演示素材，qmc 是 issue 指定的方法但工厂的
+  hop 层是 ED，这本身就是一次"管线把问题路由到正确方法"的测试。
+
+### 2. 结晶（§3)
+
+- 一张卡 `cards/round3/tfim-ratio-sqrt5-001.yaml`:gate 生成时冻结——
+  decisiveness = |R−√5|/σ_R,kill_below 2.0；目标精度 σ_R ≤ 1.2×10⁻⁵
+  直接取自 issue item 3。观测量：声明团簇上的 Binder cumulant 交叉。
+
+### 3. 测试（§4):两轮发射，闭环再加一例
+
+- **Round 1 死 `no_solver`**：注册表只有 xxz_j2_chain / sawtooth_chain,
+  二维 TFIM 卡在物理之前被注册表门拦下。第四种死因的首次实战触发
+  （此前只在 INTERFACE.md §4 纸面上）。
+- **Builder 补环（TDD，先锚点后实现）**:`tests/test_tfim2d.py` 先写先看红,
+  然后 `pf/tfim2d.py`(~90 行：chain/square/triangular/honeycomb 环面团簇,
+  偶宇称 sector)。锚点 6/6 绿：精确 dimer E0=−√(J²+4h²)（全 h);h=0
+  E0=−键数（四晶格）；强场变分界 −h−z/4h ≤ E0/N ≤ −h;[H,P]=0;
+  **Jordan–Wigner 独立交叉验证**(chain N=16,h=0.5/1/2,1e-10——同一批
+  矩阵元走完全不同的解析路径）;Binder 极限 U=2/3(cat)与 U=2/3N（极化）。
+  中途自纠一次：h→∞ 的 U 锚点我初写成 <0.05，正确值是二项分布的 2/3N,
+  错的是锚点不是代码——按 TDD 规矩改锚点并留档。
+- **Round 2**:static fire 4/4 → hop → **deferred(decisiveness 0.73)**。
+
+### 4. 结果与解决（§5,reconnaissance 尺度）
+
+| 量 | 本次（N≤18 ED) | Blöte–Deng 2002 |
+|---|---|---|
+| h_c(△) | 4.342 ± 0.002 | 4.76811(9) |
+| h_c(⬡) | 1.986 ± 0.062 | 2.13250(4) |
+| h_c(□,builder 验证） | 2.870 | 3.04438(2) |
+| R = h_c(△)/h_c(⬡) | **2.186 ± 0.068** | 2.23592(6) |
+
+- R 距 √5 只有 0.73σ、距经典星三角值 2.3975 有 3.1σ——方向正确但
+  σ_R = 0.068 是所需 1.2×10⁻⁵ 的 ~5700 倍。**√5 在 ED 尺度不可判决**,
+  管线用数字说出这句话并给出路由：sign-free QMC(SSE/连续时间 cluster)
+  + FSS 交叉分析，正是 issue 的 verification plan。
+- 小团簇交叉系统性地比 QMC 值低 5–7% 且随 N 上移（图里可见）——方晶格
+  对照说明这是已理解的有限尺寸效应，方法没坏。
+- 诚实声明：无新物理；R = 2.186 ± 0.068 不许被引用为支持/反对 √5 的证据。
+  交付物是过程本身 + 注册表增长（tfim_2d)+ heuristics 两条。
+
+### 5. 产物与反哺
+
+- `briefs/tfim-ratio-sqrt5-001.md`（物理图像/方法/结果/诚实新颖性评估/
+  QMC 下一步）、`briefs/data/sqrt5.json`、`briefs/figures/binder_crossings.png`
+- `results/telemetry_sqrt5.jsonl`（两轮：no_solver → deferred)、
+  heuristics 新增 `tfim-ratio-sqrt5-001.yaml` + `-no-solver.yaml`
+- KB:`.knowledge/models/transverse-field-ising/MODEL.md` 补三角/六角
+  benchmark（按根 AGENTS.md provenance 纪律打 Literal / Harness anchor 标签）
+- INTERFACE.md §4 注册表加 `tfim_2d`;INTERFACE 里 §5–§7 "冻结待实现"的
+  状态注记不受影响
+- **harness 修复**：发现根 AGENTS.md 在本仓库从未生效（无 CLAUDE.md)——
+  按其自身约定（第 132 行：CLAUDE.md 是一行接入文件、gitignored）已补，
+  新会话自动加载。自首：本轮 hop 计算前违反"设置先确认"规则，设置实际
+  冻结在卡中，但规矩是先报。
+- 回归：`run_demo.py`(1/1/3)、`run_calibration.py`(CALIBRATED）不受
+  static_fire.py 扩展影响。
+
+### 6. 死因体系更新
+
+`no_solver` 从纸面死因变成实战死因（第 4 种）,5 种死因现在全部有实证：
+duplicate_fingerprint / setup_error / no_signal / uncrystallizable(📐) /
+no_solver ✅。教训入库：新模型类的卡要预算一个 builder 周期才算发射。
