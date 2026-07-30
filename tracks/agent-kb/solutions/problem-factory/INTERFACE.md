@@ -80,8 +80,11 @@ flagged for the value-calibration dataset.
 
 Cards referencing models our solver cannot build die as `no_solver` (not your
 fault — a capability signal). Current registry: `xxz_j2_chain` (ED, Sz=0, full
-pipeline) and `sawtooth_chain` (builder + first-principles anchors: flat band,
-h_sat Lucas degeneracy; hop runner for erosion sweeps in progress). Batch
+pipeline), `sawtooth_chain` (builder + first-principles anchors: flat band,
+h_sat Lucas degeneracy; hop runner for erosion sweeps in progress), and
+`tfim_2d` (chain/square/triangular/honeycomb PBC clusters, even-parity ED,
+Binder-cumulant crossings; anchors incl. Jordan–Wigner cross-check — added for
+the issue #148 flight, see `briefs/tfim-ratio-sqrt5-001.md`). Batch
 statistics of `no_solver` after the first exchange tell us which builders to
 add — or which models your generator should avoid.
 
