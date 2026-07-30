@@ -74,6 +74,7 @@ the deliverable, not the one survivor.
 - `pf/budget.py` + `pf/round2.py` + `run_learning_loop.py` — hop-compute accounting and the heuristics-licensed round-2 fleet (§ The loop closes)
 - `pf/sawtooth.py` + `run_sawtooth.py` — the issue #112 detuning-axis solve (below)
 - `build_run.py` — materializes the gitignored challenge-run folder (`tracks/agent-kb/results/…/run.json`) for `/challenge-report`
+- [`docs/user-manual.md`](docs/user-manual.md) — fresh-session playbook for a new domain: literature mining → card → launch → solve, with the issue #133 capability checklist
 - `tests/` — anchor tests, plain asserts: `python3 tests/test_sawtooth.py`
 - `AGENTS.md` — card schema, telemetry schema, coding style for agent sessions
 
