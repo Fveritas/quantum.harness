@@ -21,6 +21,11 @@ cd tracks/agent-kb/solutions/problem-factory
 | 4 | "Build the challenge run folder" | `python3 build_run.py` (<1 s) | `tracks/agent-kb/results/20260728-sawtooth-erosion/run.json` |
 | 5 | "Generate the challenge report" | `/challenge-report` | interactive report → `report.html` next to `run.json` |
 
+Optional: close the learning loop — `python3 tests/test_learning_loop.py &&
+python3 run_learning_loop.py` (~10 s) replays round 1, regenerates a
+heuristics-licensed round-2 fleet, and reports budget waste dropping
+29% → 0% (`results/learning_loop.md`).
+
 Optional (needs Julia + XDiag, `make` toolchain): cross-check the anchors with
 an independent ED stack —
 `julia --project=julia-env scripts/xdiag_crosscheck.jl`.
@@ -64,8 +69,9 @@ the deliverable, not the one survivor.
 - `pf/static_fire.py` — first-principles checks (Bethe E/N at Δ=1, Sz conservation, sawtooth flat band & Lucas degeneracy)
 - `pf/probe.py` — hop test: full (L, Δ, J2) grid, decisiveness vs finite-size noise
 - `pf/verdict.py` — three-state verdict + battle report (`results/report.md`)
-- `pf/rubric.py` + `run_calibration.py` — quality-class ruler (record/map), calibrated against #124–#128 + held-out #112
+- `pf/rubric.py` + `run_calibration.py` — quality-class ruler (record/map), calibrated against #124–#128 + held-out #112. **Superseded as a taxonomy** by the engineering/abstract framework in [`docs/design/problem-generation.md`](docs/design/problem-generation.md) (badness filter + decomposition granularity); the code refactor lands next round — behavior and calibration are unchanged for now
 - `pf/heuristics.py` — deposits every verdict into the `heuristics/` library (issue #133's growth-curve deliverable)
+- `pf/budget.py` + `pf/round2.py` + `run_learning_loop.py` — hop-compute accounting and the heuristics-licensed round-2 fleet (§ The loop closes)
 - `pf/sawtooth.py` + `run_sawtooth.py` — the issue #112 detuning-axis solve (below)
 - `build_run.py` — materializes the gitignored challenge-run folder (`tracks/agent-kb/results/…/run.json`) for `/challenge-report`
 - `tests/` — anchor tests, plain asserts: `python3 tests/test_sawtooth.py`
@@ -87,6 +93,48 @@ Headline: all closed-form anchors reproduced to 1e-8–1e-10; the jump smearing
 Γ(δ) tracks the one-magnon bandwidth — smearing is single-particle physics.
 Candidate new observation (unverified): Γ exceeds the bandwidth for δ<0 but
 not δ>0 — needs N=20–28 + degenerate-PT cross-check before it is a claim.
+
+## The loop closes (Day 4): verdicts change the next fleet
+
+**One command:** `python3 run_learning_loop.py`
+
+A factory that only filters cards is a screening machine. The point of the
+heuristics library is that **verdicts feed back into generation** — the
+system is a sequential decision loop, not a generator + judge:
+
+```
+literature open problems -> boundary cards -> experiment -> verdict
+        ^                                                    |
+        └──────── heuristics library (lessons) <─────────────┘
+```
+
+Round 1 flies blind and pays for it: 18 of 63 hop ED solves (29%) are
+wasted on a card whose perturbation sits below the finite-size noise floor.
+Its five verdicts deposit five heuristics entries. Round 2's fleet is
+generated under those lessons — every card names its `licensed_by` entries
+in `cards/round2/`:
+
+- `xxz-j2-tiny-002` → never launch |J2| below the noise floor
+- `xxz-bad-setup-003` → generator pins `convention: spin`
+- `xxz-j2-gap-001-dup` → fleet is pre-deduped by fingerprint
+- `xxz-j2-gap-001` (decisive at J2=0.3) + `xxz-j2-deferred-004` (indecisive
+  at 0.05) → probe where the decision boundary lies; relaunch 0.05 bigger
+
+| round | launched | survivor | deferred | dead | hop EDs | wasted on no_signal |
+|---|---|---|---|---|---|---|
+| 1 (no heuristics) | 5 | 1 | 1 | 3 | 63 | 18 (29%) |
+| 2 (heuristics applied) | 3 | 1 | 2 | 0 | 54 | 0 (0%) |
+
+Zero deaths, zero wasted solve — and the loop sharpens the map: the
+decision boundary is bracketed between J2=0.1 (decisiveness 1.85) and 0.2
+(3.70); the relaunched J2=0.05 card improved 0.93 → 1.60 but stays
+deferred, so the library now recommends L≥14 — the next fleet is already
+written by this round's telemetry. New problems grow from results; the
+sawtooth detuning asymmetry above is the same phenomenon at research scale.
+
+Honesty note: the round-2 fleet is rule-generated, each choice citing its
+heuristic entry — this demonstrates the loop mechanism, not an LLM
+generator. Anchors: `tests/test_learning_loop.py`.
 
 ## Key design decisions
 

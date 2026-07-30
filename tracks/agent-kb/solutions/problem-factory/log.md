@@ -122,7 +122,7 @@ launched 5: survivor 1, deferred 1, dead 3
 - [ ] deferred 卡上集群放大（L=12–16，`scripts/harness_array_sbatch.sh`）
 - [ ] 与队友接头：外部卡片倒入本管线
 - [ ] 死因分类 → heuristic library
-- [ ] 更新 `docs/design/` 方法论文档（当前还是听证会旧版）
+- [x] 更新 `docs/design/` 方法论文档（~~听证会旧版~~ → 见 Day 3：新建 `problem-generation.md`，弃用听证会形式）
 
 ---
 ---
@@ -280,3 +280,88 @@ solution 三件套全绿（anchors 6/6、demo 战报不变、校准 CALIBRATED�
 ### 环境备忘
 
 `uv` 未装（`make test-oracles` 需要）；oracle 用系统 python3 验证通过。
+
+---
+---
+
+# Day 3（2026-07-29）
+
+## 一、出题方法论 v3：分解图 + 反向筛查（取代 record/map，弃用听证会形式）
+
+用户提出新思考，本轮归纳并落文档（代码不动，迁移留下一轮）。
+
+**新框架四条**（全文在 `docs/design/problem-generation.md`）：
+
+1. **问题二分类（按性质）**：工程类（新算法、材料改进——明确量化指标）vs
+   抽象类（新理论等）。共同来源 = 真实物理问题 + 物理世界与现有理论/目标的不一致。
+   抽象类必须分解操作化、化归为可量化形式才准进管线。
+2. **反向筛查（badness filter）**：正面量化"好"很难，反面排"坏"可以很硬——
+   不可实验验证（`not_falsifiable`）、给不出可量化观测条件
+   （`no_quantifiable_observable`）当场拒，幸存者才进发射流程。
+   排除法而非评分法：通过只代表"配被实验判决"。
+3. **分解图控粒度**：大问题逐层分解；"基本进展单元" = 3–5 个可代码化子方案可解，
+   更宽记 `too_broad`——把"问题太宽泛"从模糊感觉变成可执行检查。
+4. **边界探测生成法**：大方向用户端给定 → 论文库提取业界已有认知与公认开放问题
+   → 建分解图 → 在图的边界上试探出新问题（站在已知的边上往外走一步，
+   "新"与"可判"同时成立的唯一区域）。
+
+**用户裁定**：工程/抽象二分类**取代** record/map 质量类（record/map 是按交付物
+形态分的；新框架按问题性质分 + 反向筛查 + 粒度判据）。校准集重新归类：
+#124–#128 全属工程类；#112 也属工程类（W/ΔM/Γ 全部可数值化且有精确锚点，
+"地图"是交付物形态不是性质）。
+
+**弃用听证会形式**：早期"多 agent 听证/辩论"的方法论叙事不再使用——
+生成侧靠分解图控制来源与粒度，判决侧靠反向筛查 + 实验数字，任何环节
+都不让 agent 讨论当裁判（与 Day 1 的核心主张一致，贯彻到出题层）。
+
+## 二、落地产物（本轮纯文档）
+
+- 新建 `docs/design/problem-generation.md`（v3 方法论全文 + 迁移说明 + 接口预留）
+- `README.md` Layout 注记 rubric 分类法已被取代（行为与校准不变）
+- `~/problem-factory-guide.md` §4.1 改写为新框架、§3/§8 同步注记
+- 新死因入册：`not_falsifiable` / `no_quantifiable_observable` / `too_broad`
+  （检出于最上游，进一步压低预算浪费率）
+
+## 三、下一轮（代码迁移）待办
+
+- [ ] `pf/rubric.py` 重构为「反向筛查 + 粒度检查」；校准 fixtures 改编
+  （正例 = 过两条反向判据，负例 = 各挂一条的对照例）
+- [ ] 接口 A 新增字段：`class: engineering|abstract`、`parent_problem`、
+  `decomposition_node`（接口 B 不变）——改前通知队友（schema 单源）
+- [ ] Day 2 遗留：出题人量产 / deferred 卡集群放大 / 与队友接头 / heuristics 库
+
+---
+---
+
+# Day 4（2026-07-30）
+
+## 一、重定位：从"出题+判题"到序贯决策闭环
+
+上午 brainstorm（全文 `docs/discussion/2026-07-30-092851-brainstorm-ideas-log.md`）：
+讲座意见与用户一致——"纯粹出题并评价题目好坏"不对。结论：系统重定位为
+**sequential scientific decision system**——文献开放问题 → 边界探测选前沿 →
+判别实验 → 新数据 → 新问题从残差中长出（K_t + 实验 → K_{t+1}）。
+decisiveness ≠ value 的缺口由闭环回应：价值不由 agent 评分，由"实验结果
+改变下一步行动"来体现。队友的信息论方案归档为 EIG=选下一步实验的候选
+判据，不单独定义科学价值（详见 problem-generation.md §8）。
+
+## 二、学习闭环实证（TDD）
+
+- 新增 `pf/budget.py`（hop 成本核算：1 次 ED = 1 点；只有 no_signal 死亡算浪费）
+  与 `pf/round2.py`（round-2 舰队，每卡 `licensed_by` 注明授权它的 heuristics 条目）
+- 新增 `run_learning_loop.py`：两轮同管线对比，写 `results/learning_loop.md` +
+  `results/telemetry_round2.jsonl` + `cards/round2/`；不动 run_demo 的任何产物
+- 锚点测试 `tests/test_learning_loop.py` 全绿（舰队授权、指纹不撞、static fire、
+  round-1 浪费锚点 18/63）
+- **结果**：round 1 浪费 29%（18/63 hop ED，tiny-002 死于噪声层下）→
+  round 2 浪费 0%（0/54），零死亡；判决边界被夹在 J2=0.1（1.85）与 0.2（3.70）
+  之间；deferred-004 放大重发 0.93 → 1.60 仍 deferred → 库给出下一步建议 L≥14
+- 诚实声明：round-2 舰队是规则生成、逐卡引用教训——演示闭环机制，非 LLM 生成器
+
+## 三、回归与交付
+
+- 回归全绿：test_sawtooth（anchors 6/6）、run_demo（精确 1/1/3）、
+  run_calibration（CALIBRATED）、run_sawtooth、test_learning_loop、build_run
+- 队友生成侧今天不接（其 problem-factory-test 仓库为空 clone）；接口 A 留好
+- /challenge-report + 向 upstream 开 PR（三要素：harness 改进 / solution /
+  可复现 prompt）
